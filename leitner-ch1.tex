@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\begin{document}
+
+Leinster - Basic Category Theory - Problem solutions
+Adam Barber
+
+
+\textbf{0.10:} \\
+
+Let $S$ be a set. The indiscrete topological space $I(S)$ is the space whose set of points is S and whose only open subsets are $\emptyset$ and $S$.
+To find a universal property satisfied by the space $I(S)$ proceed as follows.
+With this topology any map from a topological space to S is continuous. \\
+
+Parroting the wording of the question, let us rephrase this in
+universal parlance. Define a function $i: S \rightarrow I(S)$, by $i(s) = s, s \in S$.
+Then $I(S)$ has the following property.
+
+% \begin{tikzcd}
+%   S \arrow[r,"i"]  \arrow[d,"G"{name=G,right}]& I(S) \\
+%   Z \arrow[ur, "H"{name=H,right}, dashrightarrow]
+% \end{tikzcd}
+
+\begin{center}
+\begin{tikzcd}
+  S \arrow[r, "i"] & I(S) \\
+& X \arrow[lu, "\forall f"{name=H,below}, dashrightarrow] \arrow[u,"\overline{f}"{name=G,left}]
+\end{tikzcd}
+\end{center}
+
+For all topological spaces $X$ and all functions
+$f: X \rightarrow S$ there exists a unique continuous map $\overline{f}: X \rightarrow I(S)$. What it says is all maps into an indiscrete space are continuous. It also says that given $S$, the universal property determines $I(S)$ and $i$, up to isomorphism. \\
+
+\textbf{0.11} \\
+The universal property that is satisfied by the pair $(ker(\theta),\iota)$ is depicted in the diagram below.
+
+\begin{center}
+\begin{tikzcd}
+  ker(\theta) \arrow[r, "\iota"{name=iota, above}] &
+  G \arrow[r, "\epsilon"{name=eps, above}, shift right = 1.5ex]
+    \arrow[r, "\theta"{name=theta,below}] & H  \\
+  F \arrow[u, "\exists! \overline{f}"{name=f,left}, dashrightarrow] \arrow[ru,"\forall f"{name=i,below}]
+\end{tikzcd}
+\end{center}
+
+
+
+\textbf{0.13}:
+
+(a)
+
+Choose $\phi(\sum_{i=1}^na_ix^i) = \sum_{i=1}^na_ir^i$. Then $\phi$ with $\phi(x)=r$ is a homomorphism that
+satisfies additive and multiplicative properties. To prove uniqueness assume there is another
+homomorphism $\psi$, with $\psi(x)=r$. Then $\psi(\sum_{i=1}^na_ix^i) = \sum_{i=1}a_i\psi(x) = \sum_{i=1}a_ir^i$ by properties of
+a homomorphism. So $\psi=\phi$. \par
+
+
+(b)
+
+$\iota \colon \mathds{Z}[x] \rightarrow A$ maps
+$\sum_{i=1}^n p_ix^i$ to $\sum_{i=1}^n p_ia^i$, using $\iota(x) = a$,
+the multiplicative property of a homomorphism to get $\iota(x^i)=\iota(x)^i$,
+and the additive property to get $\iota(p_i)\iota(x)^i = p_i\iota(x)^i$ remembering $p_i$ is in $\mathds{Z}$. \par
+
+Going in the direction $A \rightarrow \mathds{Z}[x]$ we know as provided in (b) that,
+taking $R=\mathds{Z}[x]$, and $\phi=\iota^\prime$, there exists a unique ring homomorphism such that $\iota^\prime(a)=x$.
+So $\iota^\prime $ maps $\sum_{i=1}^np_ia^i$ to $\sum_{i=1}^{n}p_ix^i$ and $\iota^\prime \circ \iota = 1_{\mathds{Z}[x]}$.
+Also using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
+
+
+\end{document}
