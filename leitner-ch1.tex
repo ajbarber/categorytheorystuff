@@ -5,11 +5,11 @@
 \usetikzlibrary{matrix}
 \begin{document}
 
-Leitner - Basic Category Theory - Problem solutions
-Adam Barber
+\title{Leitner - Basic Category Theory - Problem solutions}
+\author{Adam Barber}
 
-
-\textbf{0.10:} \\
+\maketitle
+\subsubsection*{0.10}
 
 Let $S$ be a set. The indiscrete topological space $I(S)$ is the space whose set of points is S and whose only open subsets are $\emptyset$ and $S$.
 To find a universal property satisfied by the space $I(S)$ proceed as follows.
@@ -34,7 +34,8 @@ Then $I(S)$ has the following property.
 For all topological spaces $X$ and all functions
 $f: X \rightarrow S$ there exists a unique continuous map $\overline{f}: X \rightarrow I(S)$. What it says is all maps into an indiscrete space are continuous. It also says that given $S$, the universal property determines $I(S)$ and $i$, up to isomorphism. \\
 
-\textbf{0.11} \\
+\subsubsection*{0.11}
+
 The universal property that is satisfied by the pair $(ker(\theta),\iota)$ is depicted in the diagram below.
 
 \begin{center}
@@ -46,19 +47,18 @@ The universal property that is satisfied by the pair $(ker(\theta),\iota)$ is de
 \end{tikzcd}
 \end{center}
 
-The statement of the universal property is as follows. For any $f: F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\overline{f}: F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \overline{f}$.
+The statement of the universal property is as follows. For any $f: F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\overline{f}: F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \overline{f}$. \\
 
-\textbf{0.13}:
+\subsubsection*{0.13}
 
-(a)
+\subsubsection*{(a)}
 
 Choose $\phi(\sum_{i=1}^na_ix^i) = \sum_{i=1}^na_ir^i$. Then $\phi$ with $\phi(x)=r$ is a homomorphism that
 satisfies additive and multiplicative properties. To prove uniqueness assume there is another
 homomorphism $\psi$, with $\psi(x)=r$. Then $\psi(\sum_{i=1}^na_ix^i) = \sum_{i=1}a_i\psi(x) = \sum_{i=1}a_ir^i$ by properties of
 a homomorphism. So $\psi=\phi$. \par
 
-
-(b)
+\subsubsection*{(b)}
 
 $\iota \colon \mathds{Z}[x] \rightarrow A$ maps
 $\sum_{i=1}^n p_ix^i$ to $\sum_{i=1}^n p_ia^i$, using $\iota(x) = a$,
@@ -69,6 +69,5 @@ Going in the direction $A \rightarrow \mathds{Z}[x]$ we know as provided in (b) 
 taking $R=\mathds{Z}[x]$, and $\phi=\iota^\prime$, there exists a unique ring homomorphism such that $\iota^\prime(a)=x$.
 So $\iota^\prime $ maps $\sum_{i=1}^np_ia^i$ to $\sum_{i=1}^{n}p_ix^i$ and $\iota^\prime \circ \iota = 1_{\mathds{Z}[x]}$.
 Also using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
-
 
 \end{document}
