@@ -40,13 +40,13 @@ The universal property that is satisfied by the pair $(ker(\theta),\iota)$ is de
 \begin{center}
 \begin{tikzcd}
   ker(\theta) \arrow[r, "\iota"{name=iota, above}] &
-  G \arrow[r, "\epsilon"{name=eps, above}, shift right = 1.5ex]
-    \arrow[r, "\theta"{name=theta,below}] & H  \\
+  G \arrow[r, "\epsilon"{name=eps, below}, shift right = 1.5ex]
+    \arrow[r, "\theta"{name=theta, above}] & H  \\
   F \arrow[u, "\exists! \overline{f}"{name=f,left}, dashrightarrow] \arrow[ru,"\forall f"{name=i,below}]
 \end{tikzcd}
 \end{center}
 
-
+The statement of the universal property is as follows. For any $f: F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\overline{f}: F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \overline{f}$.
 
 \textbf{0.13}:
 
