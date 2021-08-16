@@ -20,7 +20,7 @@ To find a universal property satisfied by the space $I(S)$ proceed as follows.
 With this topology any map from a topological space to S is continuous. \\
 
 Parroting the wording of the question, let us rephrase this in
-universal parlance. Define a function $i: S \rightarrow I(S)$, by $i(s) = s, s \in S$.
+universal parlance. Define a function $i\colon S \rightarrow I(S)$, by $i(s) = s, s \in S$.
 Then $I(S)$ has the following property.
 
 % \begin{tikzcd}
@@ -36,7 +36,7 @@ Then $I(S)$ has the following property.
 \end{center}
 
 For all topological spaces $X$ and all functions
-$f: X \rightarrow S$ there exists a unique continuous map $\overline{f}: X \rightarrow I(S)$. What it says is all maps into an indiscrete space are continuous. It also says that given $S$, the universal property determines $I(S)$ and $i$, up to isomorphism. \\
+$f\colon X \rightarrow S$ there exists a unique continuous map $\overline{f}\colon X \rightarrow I(S)$. What it says is all maps into an indiscrete space are continuous. It also says that given $S$, the universal property determines $I(S)$ and $i$, up to isomorphism. \\
 
 \subsubsection*{0.11}
 
@@ -51,7 +51,7 @@ The universal property that is satisfied by the pair $(ker(\theta),\iota)$ is de
 \end{tikzcd}
 \end{center}
 
-The statement of the universal property is as follows. For any $f: F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\overline{f}: F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \overline{f}$. \\
+The statement of the universal property is as follows. For any $f\colon F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\overline{f}\colon F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \overline{f}$. \\
 
 \subsubsection*{0.13}
 
@@ -91,22 +91,22 @@ For the triangles below to commute, we need, as stated in the question $p_1 \cir
 \end{center}
 Choosing $P=X\times{Y}$, $p_1$ and $p_2$ as below makes the triangles commute.
 \begin{center}
-$p_1: X\times{Y} \rightarrow X$ \\
-$p_2: X\times{Y} \rightarrow Y$
+$p_1\colon X\times{Y} \rightarrow X$ \\
+$p_2\colon X\times{Y} \rightarrow Y$
 \end{center}
 
 \subsubsection*{(b)}
 
 Proving uniqueness involves taking two arbitrary cones with the property stated in (a).
 Taking $(P, p_1, p_2)$ and $(P^\prime, p_1^\prime, p_2^\prime)$
-we know from (a) that for all cones $(V, f_1, f_2)$ there exists a unique linear map $f: V \rightarrow P^\prime$ such that $p_1^\prime \circ f = f_1$, $p_2^\prime \circ f = f_2$.
-In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f: P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.\\
+we know from (a) that for all cones $(V, f_1, f_2)$ there exists a unique linear map $f\colon V \rightarrow P^\prime$ such that $p_1^\prime \circ f = f_1$, $p_2^\prime \circ f = f_2$.
+In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f\colon P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.\\
 
 \textbf{Comment} The choice of P and p notation hinted very heavily that this is a projection of a product.
 
 \subsubsection*{(c)}
 
-We need to define the cocone $(Q, q_1, q_2)$ with the property, for all cocones $(V, f_1, f_2)$ there exists a unique linear map $f: Q \rightarrow V$ such that $f \circ q_1 = f_1$ and $f \circ q_2 = f_2$. Choose $Q= X \times Y$, $q_1: X \rightarrow X \oplus Y$, $q_2: Y \rightarrow X \oplus Y$ \\
+We need to define the cocone $(Q, q_1, q_2)$ with the property, for all cocones $(V, f_1, f_2)$ there exists a unique linear map $f\colon Q \rightarrow V$ such that $f \circ q_1 = f_1$ and $f \circ q_2 = f_2$. Choose $Q= X \times Y$, $q_1\colon X \rightarrow X \oplus Y$, $q_2\colon Y \rightarrow X \oplus Y$. \\
 
 \textbf{Comment} This is the dual of the product in (b), the coproduct. Set equivalent is the disjoint union.
 
