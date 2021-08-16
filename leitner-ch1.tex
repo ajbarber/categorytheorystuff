@@ -3,7 +3,11 @@
 \usepackage{dsfont}
 \usepackage{tikz-cd}
 \usetikzlibrary{matrix}
+\usepackage{lipsum}
+\usepackage{titlesec}
+
 \begin{document}
+
 
 \title{Leitner - Basic Category Theory - Problem solutions}
 \author{Adam Barber}
@@ -59,7 +63,6 @@ homomorphism $\psi$, with $\psi(x)=r$. Then $\psi(\sum_{i=1}^na_ix^i) = \sum_{i=
 a homomorphism. So $\psi=\phi$. \par
 
 \subsubsection*{(b)}
-
 $\iota \colon \mathds{Z}[x] \rightarrow A$ maps
 $\sum_{i=1}^n p_ix^i$ to $\sum_{i=1}^n p_ia^i$, using $\iota(x) = a$,
 the multiplicative property of a homomorphism to get $\iota(x^i)=\iota(x)^i$,
@@ -69,5 +72,36 @@ Going in the direction $A \rightarrow \mathds{Z}[x]$ we know as provided in (b) 
 taking $R=\mathds{Z}[x]$, and $\phi=\iota^\prime$, there exists a unique ring homomorphism such that $\iota^\prime(a)=x$.
 So $\iota^\prime $ maps $\sum_{i=1}^np_ia^i$ to $\sum_{i=1}^{n}p_ix^i$ and $\iota^\prime \circ \iota = 1_{\mathds{Z}[x]}$.
 Also using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
+
+\subsection*{(0.14)}
+\subsubsection*{(a)}
+
+For the triangles below to commute, we need, as stated in the question $p_1 \circ f = f_1$ and $p_2 \circ f = f_2$.\\
+\begin{center}
+
+\begin{tikzcd}
+  V \arrow[r, "f"] \arrow[dr, "\forall f_{1}"{name=H,below}, dashrightarrow] & P \arrow[d,"\exists p_{1}"{name=G,right}] \\
+& X
+\end{tikzcd} \break\hfill
+
+\begin{tikzcd}
+  V \arrow[r, "f"] \arrow[dr, "\forall f_{2}"{name=H,below}, dashrightarrow] & P \arrow[d,"\exists p_{2}"{name=G,right}] \\
+& Y
+\end{tikzcd}
+\end{center}
+Choosing $P=X\times{Y}$, $p_1$ and $p_2$ as below makes the triangles commute.
+\begin{center}
+$p_1: P \rightarrow X$ \\
+$p_2: P \rightarrow Y$
+\end{center}
+
+\subsubsection*{(b)}
+
+Proving uniqueness involves taking two arbitrary cones with the property stated in (a).
+Taking $(P, p_1, p_2)$ and $(P^\prime, p_1^\prime, p_2^\prime)$
+we know from (a) that for all cones $(V, f_1, f_2)$ there exists a unique linear map $f: V \rightarrow P^\prime$ such that $p_1^\prime \circ f = f_1$, $p_2^\prime \circ f = f_2$.
+In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f: P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.
+
+
 
 \end{document}
