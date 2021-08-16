@@ -73,7 +73,7 @@ taking $R=\mathds{Z}[x]$, and $\phi=\iota^\prime$, there exists a unique ring ho
 So $\iota^\prime $ maps $\sum_{i=1}^np_ia^i$ to $\sum_{i=1}^{n}p_ix^i$ and $\iota^\prime \circ \iota = 1_{\mathds{Z}[x]}$.
 Also using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
 
-\subsection*{(0.14)}
+\subsubsection*{0.14}
 \subsubsection*{(a)}
 
 For the triangles below to commute, we need, as stated in the question $p_1 \circ f = f_1$ and $p_2 \circ f = f_2$.\\
@@ -91,8 +91,8 @@ For the triangles below to commute, we need, as stated in the question $p_1 \cir
 \end{center}
 Choosing $P=X\times{Y}$, $p_1$ and $p_2$ as below makes the triangles commute.
 \begin{center}
-$p_1: P \rightarrow X$ \\
-$p_2: P \rightarrow Y$
+$p_1: X\times{Y} \rightarrow X$ \\
+$p_2: X\times{Y} \rightarrow Y$
 \end{center}
 
 \subsubsection*{(b)}
@@ -100,8 +100,14 @@ $p_2: P \rightarrow Y$
 Proving uniqueness involves taking two arbitrary cones with the property stated in (a).
 Taking $(P, p_1, p_2)$ and $(P^\prime, p_1^\prime, p_2^\prime)$
 we know from (a) that for all cones $(V, f_1, f_2)$ there exists a unique linear map $f: V \rightarrow P^\prime$ such that $p_1^\prime \circ f = f_1$, $p_2^\prime \circ f = f_2$.
-In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f: P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.
+In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f: P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.\\
 
+\textbf{Comment} The choice of P and p notation hinted very heavily that this is a projection of a product.
 
+\subsubsection*{(c)}
+
+We need to define the cocone $(Q, q_1, q_2)$ with the property, for all cocones $(V, f_1, f_2)$ there exists a unique linear map $f: Q \rightarrow V$ such that $f \circ q_1 = f_1$ and $f \circ q_2 = f_2$. Choose $Q= X \times Y$, $q_1: X \rightarrow X \oplus Y$, $q_2: Y \rightarrow X \oplus Y$ \\
+
+\textbf{Comment} This is the dual of the product in (b), the coproduct. Set equivalent is the disjoint union.
 
 \end{document}
