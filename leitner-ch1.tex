@@ -5,9 +5,8 @@
 \usetikzlibrary{matrix}
 \usepackage{lipsum}
 \usepackage{titlesec}
-
+\usepackage{parskip}
 \begin{document}
-
 
 \title{Leitner - Basic Category Theory - Problem solutions}
 \author{Adam Barber}
@@ -17,7 +16,7 @@
 
 Let $S$ be a set. The indiscrete topological space $I(S)$ is the space whose set of points is S and whose only open subsets are $\emptyset$ and $S$.
 To find a universal property satisfied by the space $I(S)$ proceed as follows.
-With this topology any map from a topological space to S is continuous. \\
+With this topology any map from a topological space to S is continuous.
 
 Parroting the wording of the question, let us rephrase this in
 universal parlance. Define a function $i\colon S \rightarrow I(S)$, by $i(s) = s, s \in S$.
@@ -31,12 +30,12 @@ Then $I(S)$ has the following property.
 \begin{center}
 \begin{tikzcd}
   S \arrow[r, "i"] & I(S) \\
-& X \arrow[lu, "\forall f"{name=H,below}, dashrightarrow] \arrow[u,"\overline{f}"{name=G,left}]
+& X \arrow[lu, "\forall f"{name=H,below}, dashrightarrow] \arrow[u,"\bar{f}"{name=G,left}]
 \end{tikzcd}
 \end{center}
 
 For all topological spaces $X$ and all functions
-$f\colon X \rightarrow S$ there exists a unique continuous map $\overline{f}\colon X \rightarrow I(S)$. What it says is all maps into an indiscrete space are continuous. It also says that given $S$, the universal property determines $I(S)$ and $i$, up to isomorphism. \\
+$f\colon X \rightarrow S$ there exists a unique continuous map $\bar{f}\colon X \rightarrow I(S)$. What it says is all maps into an indiscrete space are continuous. It also says that given $S$, the universal property determines $I(S)$ and $i$, up to isomorphism.
 
 \subsubsection*{0.11}
 
@@ -47,22 +46,20 @@ The universal property that is satisfied by the pair $(ker(\theta),\iota)$ is de
   ker(\theta) \arrow[r, "\iota"{name=iota, above}] &
   G \arrow[r, "\epsilon"{name=eps, below}, shift right = 1.5ex]
     \arrow[r, "\theta"{name=theta, above}] & H  \\
-  F \arrow[u, "\exists! \overline{f}"{name=f,left}, dashrightarrow] \arrow[ru,"\forall f"{name=i,below}]
+  F \arrow[u, "\exists! \bar{f}"{name=f,left}, dashrightarrow] \arrow[ru,"\forall f"{name=i,below}]
 \end{tikzcd}
 \end{center}
 
-The statement of the universal property is as follows. For any $f\colon F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\overline{f}\colon F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \overline{f}$. \\
+The statement of the universal property is as follows. For any $f\colon F \rightarrow G$ such that $\theta \circ f = \epsilon \circ f$, there is a unique $\bar{f}\colon F \rightarrow ker(\theta)$ such that the diagram above commutes. That is $f = \iota \circ \bar{f}$. \\
 
 \subsubsection*{0.13}
-
-\subsubsection*{(a)}
-
+\paragraph{(a)}
 Choose $\phi(\sum_{i=1}^na_ix^i) = \sum_{i=1}^na_ir^i$. Then $\phi$ with $\phi(x)=r$ is a homomorphism that
 satisfies additive and multiplicative properties. To prove uniqueness assume there is another
 homomorphism $\psi$, with $\psi(x)=r$. Then $\psi(\sum_{i=1}^na_ix^i) = \sum_{i=1}a_i\psi(x) = \sum_{i=1}a_ir^i$ by properties of
 a homomorphism. So $\psi=\phi$. \par
 
-\subsubsection*{(b)}
+\paragraph{(b)}
 $\iota \colon \mathds{Z}[x] \rightarrow A$ maps
 $\sum_{i=1}^n p_ix^i$ to $\sum_{i=1}^n p_ia^i$, using $\iota(x) = a$,
 the multiplicative property of a homomorphism to get $\iota(x^i)=\iota(x)^i$,
@@ -74,7 +71,7 @@ So $\iota^\prime $ maps $\sum_{i=1}^np_ia^i$ to $\sum_{i=1}^{n}p_ix^i$ and $\iot
 Also using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
 
 \subsubsection*{0.14}
-\subsubsection*{(a)}
+\paragraph{(a)}
 
 For the triangles below to commute, we need, as stated in the question $p_1 \circ f = f_1$ and $p_2 \circ f = f_2$.\\
 \begin{center}
@@ -95,19 +92,117 @@ $p_1\colon X\times{Y} \rightarrow X$ \\
 $p_2\colon X\times{Y} \rightarrow Y$
 \end{center}
 
-\subsubsection*{(b)}
+\paragraph{(b)}
 
 Proving uniqueness involves taking two arbitrary cones with the property stated in (a).
 Taking $(P, p_1, p_2)$ and $(P^\prime, p_1^\prime, p_2^\prime)$
 we know from (a) that for all cones $(V, f_1, f_2)$ there exists a unique linear map $f\colon V \rightarrow P^\prime$ such that $p_1^\prime \circ f = f_1$, $p_2^\prime \circ f = f_2$.
-In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f\colon P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.\\
+In this statement choose $V=P^\prime$, then referring to the triangles in (a), observe there exists a $f\colon P \rightarrow P^\prime$ such that $p_1^\prime \circ f = p_1$, $p_2^\prime \circ f = p_2$.
 
 \textbf{Comment} The choice of P and p notation hinted very heavily that this is a projection of a product.
 
-\subsubsection*{(c)}
+\paragraph{(c)}
 
 We need to define the cocone $(Q, q_1, q_2)$ with the property, for all cocones $(V, f_1, f_2)$ there exists a unique linear map $f\colon Q \rightarrow V$ such that $f \circ q_1 = f_1$ and $f \circ q_2 = f_2$. Choose $Q= X \times Y$, $q_1\colon X \rightarrow X \oplus Y$, $q_2\colon Y \rightarrow X \oplus Y$. \\
 
 \textbf{Comment} This is the dual of the product in (b), the coproduct. Set equivalent is the disjoint union.
+
+\subsubsection*{1.2.25}
+
+\paragraph{(a)}
+
+Let $F: \mathcal{A} \times \mathcal{B} \rightarrow \mathcal{C}$ be a functor. We are given that for each $A$ in $\mathcal{A}$ there is a morphism $F^A: \mathcal{B} \rightarrow \mathcal{C}$ defined on objects $B$ in $\mathcal{B}$ by $F^A = F(A,B)$ and on maps $g$ in $\mathcal{B}$  by $F_A(g) = F(1_A, g)$. We need to prove $F^A$ is a functor.\\
+
+First, we need to show  $F^A(g \circ \bar{g}) = F^A(g) \circ F^A(\bar{g})$.
+
+\begin{align*}
+  F^A(g \circ \bar{g})&= F(1_A, g \circ \bar{g})  \\
+                           &= F(1_A,g) \circ F(1_A,\bar{g}) \\
+                           &= F^A(g) \circ F^A(\bar{g})
+\end{align*}
+
+The second step above uses our formula from composition of a product category derived Ex 1.1.14. \\
+
+We also need
+\begin{align*}
+F^A(1_B) &= F(1_A, 1_B) = 1_C
+\end{align*}
+
+The identity maps because $F$ is a functor $\mathcal{A} \times \mathcal{B} \rightarrow \mathcal{C}$. So $F^A$ is a functor.
+
+Apply analogous reasoning for $F_B$.
+\paragraph{(b)}
+
+We are given $F: \mathcal{A} \times \mathcal{B} \rightarrow \mathcal{C}$ is a functor.
+The question asks us to show for all $A \in \mathcal{A}$ and all $B \in \mathcal{B}$
+
+\begin{align}
+\label{eqn:1225b1}
+  F^A(B) &= F_B(A)
+\end{align}
+
+and if $f: A \rightarrow A^{\prime}$ in $\mathcal{A}$ and $g: B \rightarrow B^\prime$ in
+$\mathcal{B}$ then
+\begin{align*}
+F^{A^{\prime}}(g) \circ F_B(f) = F_{B^\prime}(f) \circ F^A(g). \\
+\end{align*}
+In the following answers recall that:
+\begin{align*}
+  F^A(g) = F(1_A, g) \\
+  F_B(f) = F(1_B, f)
+\end{align*}
+Equation (\ref{eqn:1225b1}) is verified by basic checking. Consider the second equation above along with the diagram below.
+
+\begin{center}
+\begin{tikzcd}
+  & (A,B) \arrow[d,"F^A(g)"] \arrow[r, "F_B(f)"] & (A',B) \arrow[d,"F^{A^{\prime}}(g)"{name=G,right}]\\
+  & (A,B') \arrow[r,"F_{B^{\prime}}(f)"] & (A',B')
+\end{tikzcd}
+\end{center}
+
+We know from Exercise 1.1.14 that in the product category represented by $\mathcal{A} \times \mathcal{B}$, maps compose in the following manner
+\begin{align*}
+  (f, g) \circ (f^{\prime},g^{\prime}) = (ff^{\prime}, gg^{\prime})
+\end {align*}
+
+We also know from the axioms of our functor $F$ that different strings of maps under $F$ from $F(A,B)$ to $F(A',B')$ are equal.\footnote{See Remarks 1.2.2 of the Leitner text} So the above square commutes and we have the required equality
+\begin{align*}
+  F^{A^{\prime}}(g) \circ F_B(f) = F_{B^\prime}(f) \circ F^A(g)
+\end{align*}
+
+\paragraph{(c)}
+
+We need to prove there is a unique functor $F$, satisfying the conditions in (a.). Take families of functors $F^A$ and $F_B$ as in (b), which satisfy the below
+
+\begin{itemize}
+\item $ \text{If }f\colon A \rightarrow A^{\prime} \text{ in } \mathcal{A}, g\colon B \rightarrow B^{\prime} \text{ in } \mathcal{B}, \text{ then } F^{A^{\prime}}(g) \circ F_B(f) = F_{B^\prime}(f) \circ F^A(g)$
+\item $F^A(B) = F_B(A) \text{ if } A \in \mathcal{A}, B \in \mathcal{B},$
+\end{itemize}
+
+To begin, write
+\begin{align*}
+  F &= F^A(g) \circ F_B(f) \text{ for morphisms, } \\
+  F & =F^A(B) \text{ for objects. } \\
+    & =F_B(A) \\
+    & = F(A,B)
+\end{align*}
+
+We need to prove that $F$ is a functor. We are given in this question that $F_A$, $A \in \mathcal{A}$ and $F_B$, $B \in \mathcal{B}$ are functors.
+\begin{align*}
+  F(f \circ \bar{f}, g \circ \bar{g}) &= F_A(g \circ \bar{g}) \circ F_B(f \circ \bar{f}) \\
+                                                &= F_A(g) \circ F_A(\bar{g}) \circ F_B(f) \circ F_B(\bar{f}) \\
+                                                &= F_A(g) \circ F_{B^{\prime}}(f) \circ F_A(\bar{g}) \circ F_B(f) \text{ using result from (b.)} \\
+                                      &= F(f,g) \circ F(\bar{f}, \bar{g}) \\ \\
+  \text { Also, } \\\\
+  F(1_A,1_B) &= F_A(1_A) \circ F_B(1_B) \\
+             &= 1_{F_A(A)} \circ 1_{F_B(B)}
+\end{align*}
+
+So functions compose under the functor $F$, the identity maps, and all objects are mapped. So we have established $F$ exists and is a functor. We still need to determine uniqueness. Given the property in (a)
+\begin{align*}
+  F^A(B) &= F_B(A) \\
+         &= F(A,B)
+\end{align*}
+Fixing an $A \in \mathcal{A}, B \in \mathcal{B}$ our functor maps the object $(A,B)$ to $F(A,B)$. So for each object mapping there is a unique $F^A$ and $F_B$ that interlock to produce $F(A,B)$. Put another way, fix an object in $\mathcal{C}, F(A,B)$. Then out of our two families of functors $(F^A)_{A\in\mathcal{A}}$, $(F_B)_{B\in\mathcal{B})}$ there is only one choice in each family to yield the desired object $F(A,B)$.
 
 \end{document}
