@@ -8,7 +8,7 @@
 \usepackage{parskip}
 \begin{document}
 
-\title{Leitner - Basic Category Theory - Problem solutions}
+\title{Leinster - Basic Category Theory - Selected problem solutions}
 \author{Adam Barber}
 
 \maketitle
@@ -107,6 +107,10 @@ We need to define the cocone $(Q, q_1, q_2)$ with the property, for all cocones 
 
 \textbf{Comment} This is the dual of the product in (b), the coproduct. Set equivalent is the disjoint union.
 
+\subsubsection*{1.2.22}
+
+Given that A and B are preordered sets, we know that, taking for instance $a \in A$, the relation $\leq$ is reflexive, $a \leq a$ for all $a \in A$, and transitive, $a \leq b$ and $b \leq c$ then $a \leq c$, for all $a, b, c \in A$.  Taking $\leq$ as the morphism for our category, we can immediately see that the reflexive property of a preorder is equivalent to the identity mapping requirement in a category. And the transitivity property of a preorder demonstrates the associativity of morphisms requirement of a category. So $\mathcal{A}$ and $\mathcal{B}$ are categories. Given a functor $F: f \mapsto F(f)$ then, this functor sends $a \leq b$ to $f(a) \leq f(b)$
+
 \subsubsection*{1.2.25}
 
 \paragraph{(a)}
@@ -203,6 +207,35 @@ So functions compose under the functor $F$, the identity maps, and all objects a
   F^A(B) &= F_B(A) \\
          &= F(A,B)
 \end{align*}
-Fixing an $A \in \mathcal{A}, B \in \mathcal{B}$ our functor maps the object $(A,B)$ to $F(A,B)$. So for each object mapping there is a unique $F^A$ and $F_B$ that interlock to produce $F(A,B)$. Put another way, fix an object in $\mathcal{C}, F(A,B)$. Then out of our two families of functors $(F^A)_{A\in\mathcal{A}}$, $(F_B)_{B\in\mathcal{B})}$ there is only one choice in each family to yield the desired object $F(A,B)$.
+Fixing an $A \in \mathcal{A}, B \in \mathcal{B}$ our functor maps the object $(A,B)$ to $F(A,B)$. In fact for each object mapping there is a unique $F^A$ and $F_B$ that 'interlock' to produce $F(A,B)$. Put another way, fix an object in $\mathcal{C}, F(A,B)$. Then out of our two families of functors $(F^A)_{A\in\mathcal{A}}$, $(F_B)_{B\in\mathcal{B})}$ there is only one choice in each family to yield the desired object $F(A,B)$.
+
+\subsubsection*{1.2.28}
+
+\paragraph{(a)}
+
+The question asks of all the functors listed in 1.2, which are faithful, and which are full.
+
+Beginning with forgetful functors that forget structure. These are typically faithful but not full.
+
+$\textbf{Grp} \rightarrow \textbf{Set}$
+
+$U$ forgets the group structure of groups and forgets that group homomorphisms are homomorphisms.
+
+\begin{itemize}
+\item To prove faithful we need to show that for one map between two objects in the source category, there is one corresponding map in the destination category. Although a group homomorphism is \textbf{not} necessarily injective, this does not concern us here. As we wish to show, \textbf{given one morphism between objects} in the source category, that this induces in the destination category at most one morphism between objects there. Then we can say the functor, here $U(f)$ is faithful. Since $U(f)$ is simply the group homomorphism $f\colon G \rightarrow H$ itself, then it is one to one for each morphism between two objects in G.
+
+\item To prove a functor is full, we need to show for one morphism between objects in the destination category, there is one corresponding map in the source category. Set though could potentitally have more morphisms between its objects, which are \textbf{not} group homomorphisms, so picking one of these morphisms in $\textbf{Set}$, there is no corresponding morphism in $\textbf{Grp}$, in this case. So the functor is not full.
+\end{itemize}
+
+
+Forgetful functors that forget properties. These are typically full and faithful.
+
+The example given is $U:\textbf{Ab} \rightarrow \textbf{Grp}$, which forgets that Abelian groups are Abelian. Here the commutativity property of the \textbf{objects} in the category is forgotten. The morphisms are unchanged. When one reads about structure, this appears to refer principallly to morphisms.
+
+Free functors
+
+The free construction of a group $F(S)$ is obtained from the set S, by adding just enough new elements that it becomes a group, but without imposing any other equations other than those forced by the definition of a group. The construction given in Example 1.2.3, gives an explicit formula for the functor. Indeed $S, S^\prime$ maps $f\colon S \rightarrow S^\prime$ to $F(f)\colon F(S) \rightarrow F(S^\prime)$. So as we have an explict formula which yields a $F(f)$ for a given $f$ between two objects $S, S^\prime$, allowing us to conclude the free functor here is faithful.
+
+To refute full for the free $\textbf{Set} \rightarrow \textbf{Grp}$ construction. Take $\mathbf{Set}={1}$. The free functor maps this to $\mathds{Z}$. Then take in $\mathds{Z}, F(f)\colon n \mapsto 2n$. There is no corresponding f on $Set={1}$ to induce $F(f)$.
 
 \end{document}
