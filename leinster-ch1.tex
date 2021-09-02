@@ -215,9 +215,11 @@ Fixing an $A \in \mathcal{A}, B \in \mathcal{B}$ our functor maps the object $(A
 
 The question asks of all the functors listed in 1.2, which are faithful, and which are full.
 
-Beginning with forgetful functors that forget structure. These are typically faithful but not full.
+\paragraph{Forgetful functors that forget structure}
 
-$\textbf{Grp} \rightarrow \textbf{Set}$
+These are typically faithful but not full.
+
+An example in the text is $U\colon\textbf{Grp} \rightarrow \textbf{Set}$
 
 $U$ forgets the group structure of groups and forgets that group homomorphisms are homomorphisms.
 
@@ -227,15 +229,26 @@ $U$ forgets the group structure of groups and forgets that group homomorphisms a
 \item To prove a functor is full, we need to show for one morphism between objects in the destination category, there is one corresponding map in the source category. Set though could potentitally have more morphisms between its objects, which are \textbf{not} group homomorphisms, so picking one of these morphisms in $\textbf{Set}$, there is no corresponding morphism in $\textbf{Grp}$, in this case. So the functor is not full.
 \end{itemize}
 
+\paragraph{Forgetful functors that forget properties.}
 
-Forgetful functors that forget properties. These are typically full and faithful.
+These are typically full and faithful.
 
 The example given is $U:\textbf{Ab} \rightarrow \textbf{Grp}$, which forgets that Abelian groups are Abelian. Here the commutativity property of the \textbf{objects} in the category is forgotten. The morphisms are unchanged. When one reads about structure, this appears to refer principallly to morphisms.
 
-Free functors
+\paragraph{Free functors.}
 
 The free construction of a group $F(S)$ is obtained from the set S, by adding just enough new elements that it becomes a group, but without imposing any other equations other than those forced by the definition of a group. The construction given in Example 1.2.3, gives an explicit formula for the functor. Indeed $S, S^\prime$ maps $f\colon S \rightarrow S^\prime$ to $F(f)\colon F(S) \rightarrow F(S^\prime)$. So as we have an explict formula which yields a $F(f)$ for a given $f$ between two objects $S, S^\prime$, allowing us to conclude the free functor here is faithful.
 
-To refute full for the free $\textbf{Set} \rightarrow \textbf{Grp}$ construction. Take $\mathbf{Set}={1}$. The free functor maps this to $\mathds{Z}$. Then take in $\mathds{Z}, F(f)\colon n \mapsto 2n$. There is no corresponding f on $Set={1}$ to induce $F(f)$.
+To refute full for the free $\textbf{Set} \rightarrow \textbf{Grp}$ construction. Take $\mathbf{Set}=\{ 1 \}$. The free functor maps this to $\mathds{Z}$. Then take in $\mathds{Z}, F(f)\colon n \mapsto 2n$. There is no corresponding $f$ on $\mathbf{Set}=\{ 1 \}$ to induce $F(f)$.
+
+\paragraph{Group - one object category}
+
+Let $G$ and $H$ be groups. They are single object categories. So the object refers to the group. The morphisms in the one object category are the elements of G! In this example the morphisms are not functions. Compose in the category is the binary operation on the group.
+
+A functor from $G$ to $H$ is just a group homomorphism. For this functor to be faithful we require there is at most one morphism in the source category that induces a morphism in the destination category. Replacing the word morphism here with element of G and we have the defintion of injective. So if the group homomorphism in injective the functor is faithful. Similar reasoning tells us if the group homomorphism is surjective, then the functor is full.
+
+\paragraph{Hom functor over vector spaces}
+
+$\mathbf{Hom}(-,W)$ sends $f \mapsto f^*$, where $ f^*(q) = q \circ f$. In our source category we have $f\colon V \rightarrow V^\prime$. Set $W=k$ so that $q$ maps $V^\prime$ to $k$.
 
 \end{document}
