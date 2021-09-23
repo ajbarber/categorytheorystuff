@@ -157,12 +157,13 @@ In the following answers recall that:
 \end{align*}
 Equation (\ref{eqn:1225b1}) is verified by basic checking. Consider the second equation above along with the diagram below.
 
-\begin{center}
+\begin{equation}
+\label{eqn:1225b2}
 \begin{tikzcd}
   & (A,B) \arrow[d,"F^A(g)"] \arrow[r, "F_B(f)"] & (A',B) \arrow[d,"F^{A^{\prime}}(g)"{name=G,right}]\\
   & (A,B') \arrow[r,"F_{B^{\prime}}(f)"] & (A',B')
 \end{tikzcd}
-\end{center}
+\end{equation}
 
 We know from Exercise 1.1.14 that in the product category represented by $\mathcal{A} \times \mathcal{B}$, maps compose in the following manner
 \begin{align*}
@@ -202,12 +203,9 @@ We need to prove that $F$ is a functor. We are given in this question that $F_A$
              &= 1_{F_A(A)} \circ 1_{F_B(B)}
 \end{align*}
 
-So functions compose under the functor $F$, the identity maps, and all objects are mapped. So we have established $F$ exists and is a functor. We still need to determine uniqueness. Given the property in (a)
-\begin{align*}
-  F^A(B) &= F_B(A) \\
-         &= F(A,B)
-\end{align*}
-Fixing an $A \in \mathcal{A}, B \in \mathcal{B}$ our functor maps the object $(A,B)$ to $F(A,B)$. In fact for each object mapping there is a unique $F^A$ and $F_B$ that 'interlock' to produce $F(A,B)$. Put another way, fix an object in $\mathcal{C}, F(A,B)$. Then out of our two families of functors $(F^A)_{A\in\mathcal{A}}$, $(F_B)_{B\in\mathcal{B})}$ there is only one choice in each family to yield the desired object $F(A,B)$.
+So functions compose under the functor $F$, the identity maps, and all objects are mapped. So we have established $F$ exists and is a functor. We still need to determine uniqueness.
+
+Uniqueness of the functor is actually shown by the commuting diagram in (\ref{eqn:1225b2}). The central result of this diagram is that for any $f$ there is a unique functor mapping from $(A,B)$ to $F(A^{\prime},B^{\prime})$, using the 'components' $F^A$ and $F_B$. Using these components, there are two ways to get from $(A,B)$ to $F(A',B')$, and as the diagram commutes, both are equal. Hence $F$ is the unique map on the diagonal of (\ref{eqn:1225b2}) from $(A,B)$ to $F(A',B')$.
 
 \subsubsection*{1.2.28}
 
@@ -226,7 +224,7 @@ $U$ forgets the group structure of groups and forgets that group homomorphisms a
 \begin{itemize}
 \item To prove faithful we need to show that for one map between two objects in the source category, there is one corresponding map in the destination category. Although a group homomorphism is \textbf{not} necessarily injective, this does not concern us here. As we wish to show, \textbf{given one morphism between objects} in the source category, that this induces in the destination category at most one morphism between objects there. Then we can say the functor, here $U(f)$ is faithful. Since $U(f)$ is simply the group homomorphism $f\colon G \rightarrow H$ itself, then it is one to one for each morphism between two objects in G.
 
-\item To prove a functor is full, we need to show for one morphism between objects in the destination category, there is one corresponding map in the source category. Set though could potentitally have more morphisms between its objects, which are \textbf{not} group homomorphisms, so picking one of these morphisms in $\textbf{Set}$, there is no corresponding morphism in $\textbf{Grp}$, in this case. So the functor is not full.
+\item To prove a functor is full, we need to show for one morphism between objects in the destination category, there is at least one corresponding map in the source category. Set though could potentitally have more morphisms between its objects, which are \textbf{not} group homomorphisms, so picking one of these morphisms in $\textbf{Set}$, there is no corresponding morphism in $\textbf{Grp}$, in this case. So the functor is not full.
 \end{itemize}
 
 \paragraph{Forgetful functors that forget properties.}
@@ -237,18 +235,276 @@ The example given is $U:\textbf{Ab} \rightarrow \textbf{Grp}$, which forgets tha
 
 \paragraph{Free functors.}
 
-The free construction of a group $F(S)$ is obtained from the set S, by adding just enough new elements that it becomes a group, but without imposing any other equations other than those forced by the definition of a group. The construction given in Example 1.2.3, gives an explicit formula for the functor. Indeed $S, S^\prime$ maps $f\colon S \rightarrow S^\prime$ to $F(f)\colon F(S) \rightarrow F(S^\prime)$. So as we have an explict formula which yields a $F(f)$ for a given $f$ between two objects $S, S^\prime$, allowing us to conclude the free functor here is faithful.
+The free construction of a group $F(S)$ is obtained from the set S, by adding just enough new elements that it becomes a group, but without imposing any other equations other than those forced by the definition of a group. A more detailed definition of the free group, using the universal construction, follows.\footnote{Attribution for this section - What the functor - Caroline Terry. It is just such a comprehensive explanation, the best I've found so far on the internet.}
+
+Let $S$ be a set. Suppose we are given a group $F(S)$ and a function
+$i\colon S \rightarrow F(S)$. The group $F(S)$ is a free group on $S$ if for all groups $G$ and for all functions $g\colon S \rightarrow G$, there exists a unique homomorphism $\phi\colon F(S) \rightarrow G$ such that:
+
+\begin{center}
+\begin{tikzcd}
+  S  \arrow[d, "i"{name=f,left}]
+     \arrow[r, "g"{name=eps, below}, dashrightarrow] & G \\
+  F(S) \arrow[ru,"\phi"{name=iz,below}]
+\end{tikzcd}
+\end{center}
+
+commutes, such that $ g = \phi \circ i$.
+
+First we show such a group exists. Let $S$ be a set, and suppose that for each
+element $s \in S$ we introduce a corresponding element $s^{-1}$ in another set $S^{-1}$ and
+call this element the inverse of $s$. We then form a group from $S$ and $S^{-1}$ by
+forming words from the elements of $S$ and their inverses. We call the empty word
+the identity, and when we have an element adjacent to its inverse, we reduce the
+pair to the identity. For example, a word $s_1s_2s_2^{-1}s_3$ would reduce to $s_1s_3$. Call this group $W(S)$. Now we show this group satisfies the universal property.
+Let $S$ be a set, and let $W(S)$ be the set of words in $S$ described above. Let
+$i\colon S \rightarrow W(S)$ be the function sending each element in $S$ to the corresponding
+one-letter word in $W(S)$. Then for any group $G$, and any function $h\colon S \rightarrow G$,
+we show that there exists a unique homomorphism $\phi\colon F(S) \rightarrow G$ such that the
+above diagram commutes. For an element $w  \in W(S)$, we have by our construction
+$w = i(s_1)i(s_2) ... = s_1s_2 ...$, where $s_i \in S$ and no $s_i, s_{i+1}$ are inverses. Then we construct a function $\phi$ that sends each $w = s_1s_2 ... \in W(S)$ to $h = g(s_1)g(s_2) ... \in G$. It is clear now that the diagram commutes since, by our construction $\phi \circ i = g$. Take $F(S) = W(S)$ as the free group on $S$. Using the properties of the universal construction of the free group $F(S)$ it is also unique. The proof is in the Terry paper.
+
+The reason for the rather lengthy explanation above is that the universal construction of the free group enables us to determine faithfulness. Given $i_1\colon S_1 \rightarrow F(S_1)$, $i_2\colon S_2 \rightarrow F(S_2)$,  $f: S_1 \rightarrow S_2$. Then by the universal property, there exists a unique homomorphism $\phi$ such that the below diagram commutes. So the free functor sends each set function $f$ to the group homomorphism $Ff$, and therefore the functor is faithful.
+
+\begin{center}
+\begin{tikzcd}
+  F(S_1) \arrow[r, "\phi"{name=eps, above}, dashrightarrow] & F(S_2) \\
+  S_1 \arrow[u, "i_1"{name=f,left}] \arrow[ru,"i_2 \circ f"{name=iz,below}]
+\end{tikzcd}
+\end{center}
+
+
 
 To refute full for the free $\textbf{Set} \rightarrow \textbf{Grp}$ construction. Take $\mathbf{Set}=\{ 1 \}$. The free functor maps this to $\mathds{Z}$. Then take in $\mathds{Z}, F(f)\colon n \mapsto 2n$. There is no corresponding $f$ on $\mathbf{Set}=\{ 1 \}$ to induce $F(f)$.
+
+\paragraph{Set to $Vect_k$}
+
+\begin{itemize}
+
+\item Faithful.
+
+\item Fullness can be refuted as not every linear transformation in the destination category can be represented by a linear combination of sets. Give an example.
+
+\end{itemize}
 
 \paragraph{Group - one object category}
 
 Let $G$ and $H$ be groups. They are single object categories. So the object refers to the group. The morphisms in the one object category are the elements of G! In this example the morphisms are not functions. Compose in the category is the binary operation on the group.
 
-A functor from $G$ to $H$ is just a group homomorphism. For this functor to be faithful we require there is at most one morphism in the source category that induces a morphism in the destination category. Replacing the word morphism here with element of G and we have the defintion of injective. So if the group homomorphism in injective the functor is faithful. Similar reasoning tells us if the group homomorphism is surjective, then the functor is full.
+A functor from $G$ to $H$ is just a group homomorphism. For this functor to be faithful we require there is at most one morphism in the source category that induces a morphism in the destination category. Replacing the word morphism here with element of G and we have the defintion of injective. So if the group homomorphism is injective the functor is faithful. Similar reasoning tells us if the group homomorphism is surjective, then the functor is full.
+
+\paragraph{Order preserving map}
+
+Faithful, but not full, as not every pair in a preorder necessarily has an order defined.
+
+\paragraph{Top to ring}
+
+Not faithful, and not full. Proof by counterexamples.
+
+\begin{itemize}
+
+\item Counterexample to refute faithfulness, where $F(f)$ ignores the information provided by $f$ and we have to $f$ inducing the same $F(f)$. Choose the constant map for $X$ say $x \rightarrow a$ where $a$ is any constant. Then since $f$ is essentially ignored by $Ff$ there are many $f$ that map to the same $F(f)$.
+
+\item Counterexample to refute fullness. Choose $X$ as any indiscrete space. Say $X = \{ \{1,2\}, \emptyset \}$. Choose $Y$ to be a discrete space with more than one point, say $Y = \{ \{1\}, \{2\}, \emptyset \}$. Then any map out of $X$ into $Y$ is not continuous. For example take $f(x) = x$, $f^{-1}{1} = {1}$ is not in $X$, therefore not continuous by definition. $f$ is continuous if(f?)  the inverse image of every set is open. So with $X$ and $Y$ as above, and $C(X)$ the constant map, there is no continuous $f$ inducing $C(f)$.
+
+\end{itemize}
 
 \paragraph{Hom functor over vector spaces}
 
-$\mathbf{Hom}(-,W)$ sends $f \mapsto f^*$, where $ f^*(q) = q \circ f$. In our source category we have $f\colon V \rightarrow V^\prime$. Set $W=k$ so that $q$ maps $V^\prime$ to $k$.
+$\mathbf{Hom}(-,W)$ sends $f \mapsto f^*$, where $ f^*(q) = q \circ f$. Before beginning it helps to ask oneself, what are the objects of the category? Here the objects are the vector spaces. In our source category we have the linear map $f\colon V \rightarrow V^\prime$. $f$ induces a linear map in the destination category $q\colon V^\prime \rightarrow W$.
+
+\begin{itemize}
+
+\item Counterexample to refute faithfulness. This counterexample is the same idea as refuting faithfulness for $\mathbf{Top}$ to $\mathbf{Ring}$. Take for example, $V = W = \mathds{R}^2$, and construct $Ff$ to ignore the second dimension.
+
+\begin{equation*}
+F(f) =
+\begin{bmatrix}
+2 & 0 \\
+0 & 0 \\
+\end{bmatrix},
+f_1 =
+\begin{bmatrix}
+1 & 0 \\
+0 & 0 \\
+\end{bmatrix},
+f_2 =
+\begin{bmatrix}
+1 & 0 \\
+0 & 2 \\
+\end{bmatrix}
+\end{equation*}
+
+Then $f_1, f_2$ both get sent to $F(f)$, hence the functor is not faithful
+
+\item Fullness refute using cardinality argument. If $dim(W) = m$ and $dim(V) = n$ the dimension of $\mathbf{Hom}(\mathbf{Hom}(V,W), \mathbf{Hom}(V^{\prime},W))$ is $m^2nn^{\prime}$.  But the dimenstion of $f: V \rightarrow V^{\prime}$ is at most $nn^\prime$. But the cardinality of a vector space $V$ with over a finite field $k$ with $q$ elements = $q^{dim(V)}$. So the functor cannot be full.
+
+\end{itemize}
+
+\paragraph{Polynomial CRing to Set}
+
+Objects in the destination category are commutative rings. Whenever $f\colon A \rightarrow B$ is a ring homomorphism and $(x,y,z) \in F(A)$, where $F(A)$ is the set of triples satisfying the equations in the commutative ring.  $A$ could be a single variable polynomials with integer coefficients, $\mathds{Z}[x]$ and $B$ here could be $\mathds{C}$. So we could have an $f$ which substitutes the imaginary unit $i$ for the variable x.
+
+\begin{itemize}
+\item
+Faithful as if there is a solution to the system there will be a unique mapping by definition to $F(f)$, which maps solutions of the polynomial in the source category, by definiton.
+
+\item Full as $f$ operating on polynomial solutions in destination category, for a given polynomial in the source category, correspond by definition to a homomorphism on a polynomial in source category, $\mathbf{CRing}$.
+\end{itemize}
+
+\paragraph{Presheaf}
+
+Same results and reasoning as an order preserving map.
+
+\subsubsection*{ 1.3.27 }
+
+Need to prove $[\mathcal{A}^{op},\mathcal{B}^{op}] \cong [\mathcal{A}, \mathcal{B}]^{op}$.
+
+We need to specify a functor $\eta$ from $[\mathcal{A}^{op},\mathcal{B}^{op}]$ to
+$[\mathcal{A}, \mathcal{B}]^{op}$.
+
+For objects $\eta$ should send ${F}^{op}\colon\mathcal{A}^{op} \rightarrow \mathcal{B}^{op}$ to $F\colon\mathcal{A} \rightarrow \mathcal{B}$.
+
+The morphisms $\alpha_A$ in $[\mathcal{A}^{op},\mathcal{B}^{op}]$ are the natural transformations between functors, so for $A \text{ in } \mathcal{A}^{op}$
+\begin{equation*}
+  \{ \alpha_{A}\colon F^{op}(A) \rightarrow G^{op}(A) \} \text{ in } B^{op},
+\end{equation*}
+$\eta$ should send each $\alpha_A$ to $\overline{\alpha}_A$ for $A$ in $\mathcal{A}$ where
+\begin{equation*}
+  \{ \overline{\alpha}_A\colon G(A) \rightarrow F(A) \} \text{ in } B
+\end{equation*}
+
+So to prove $\eta$ is a functor, we need to show that $\overline{\alpha}_A$ in $[\mathcal{A}, \mathcal{B}]^{op}$ is a natural transformation, given $\alpha_{A}$ is a natural transformation in $[\mathcal{A}^{op},\mathcal{B}^{op}]$.
+
+We know $\alpha_{A}$ is a natural transformation. This means for all $f\colon A \rightarrow A^{\prime}$ with $A, A^{\prime} \in \mathcal{A}^{op}$  : the diagram below commutes
+
+\begin{center}
+\begin{tikzcd}
+  & F(A) \arrow[d,"\alpha_A"] \arrow[r, "F(f)"] & F(A') \arrow[d,"\alpha_{A^{\prime}}"{name=G,right}]\\
+  & G(A) \arrow[r,"G(f)"] & G(A^{\prime})
+\end{tikzcd}
+\end{center}
+
+Now given the commuting diagram above, we can turn all the arrows, in the diagram and within our categories $\mathcal{A}^{op}$ and $\mathcal{B}^{op}$, around to yield another diagram, which commutes in the opposite direction for all $\overline{f}\colon A \rightarrow A^{\prime}$ with $A, A^{\prime} \in \mathcal{A}$:
+
+\begin{center}
+\begin{tikzcd}
+  & G(A) \arrow[d,"\overline{\alpha}_A"] \arrow[r, "G(\overline{f})"] & G(A') \arrow[d,"\overline{\alpha}_{A^{\prime}}"{name=G,right}]\\
+  & F(A) \arrow[r,"F(\overline{f})"] & F(A^{\prime})
+\end{tikzcd}
+\end{center}
+
+In fact, since we can reverse the arrows once more to end up where we started, $\overline{\alpha}_A$ in $\mathcal{B}$ is a natural transformation if and only if $\alpha_A$ in $\mathcal{B}^{op}$ is a natural transformation, and the definition of the functor $\eta$ is complete.
+
+\subsubsection*{1.3.29}
+
+Prove the 'if direction' first:
+
+We know as given $F^A \rightarrow G^A$ is a natural transformation and that for every $f\colon B \rightarrow B^{\prime}$ the below square commutes
+
+\begin{center}
+\begin{tikzcd}
+  & F^A(B) \arrow[d,"\alpha_{A,B}"] \arrow[r, "F^A(f)"] & F^A(B^{\prime}) \arrow[d,"{\alpha}_{A,B^{\prime}}"{name=G,right}]\\
+  & G^A(B) \arrow[r,"G^A(f)"] & G^A(B^{\prime})
+\end{tikzcd}
+\end{center}
+
+Similarly for $F^B \rightarrow G^B$, for every $g\colon A \rightarrow A^{\prime}$ the square below commutes
+
+\begin{center}
+\begin{tikzcd}
+  & F^B(A) \arrow[d,"\alpha_{A,B}"] \arrow[r, "F^B(g)"] & F^B(A^{\prime}) \arrow[d,"{\alpha}_{A^{\prime},B}"{name=G,right}]\\
+  & G^B(A) \arrow[r,"G^B(g)"] & G^{A^{\prime}}(B)
+\end{tikzcd}
+\end{center}
+
+Let us try and join the squares together in some fashion to imply $F \rightarrow G$ is a natural transformation. We intend to prove the extended square below commutes.
+
+\begin{equation}
+\label{eqn:13291}
+\begin{tikzcd}
+  & F^A(B) \arrow[d,"\alpha_{A,B}"] \arrow[r, "F^A(f)"] & F^A(B^{\prime}) (= F^{B^{\prime}}(A)) \arrow[d,"{\alpha}_{A,B^{\prime}}"{name=G,right}] \arrow[d,"\alpha_{A,B^{\prime}}"] \arrow[r, "F^{B^{\prime}}(g)"] & F^{B^{\prime}}(A^{\prime}) \arrow[d,"{\alpha}_{A^{\prime},B^{\prime}}"{name=G,right}]\\
+  & G^A(B) \arrow[r,"G^A(f)"] & G^A(B^{\prime}) (= G^{B^{\prime}}(A)) \arrow[r,"G^{B^{\prime}}(g)"] & G^{A^{\prime}}(B^{\prime})
+\end{tikzcd}
+\end{equation}
+Specifically, we wish to prove, for all $f\colon B \rightarrow B^{\prime}$ and $g\colon A \rightarrow A^{\prime}$, there is $\alpha$ such that
+
+\begin{equation}
+\label{eqn:13292}
+  \alpha_{A^{\prime},B^{\prime}}F^{B^{\prime}}(g)F^A(f) = G^{B^{\prime}}(g)G^A(f)\alpha_{A,B}
+\end{equation}
+
+We know by the naturality condition on the RHS of (\ref{eqn:13291}) that for all $g\colon B \rightarrow B^{\prime}$
+
+\begin{equation}
+\label{eqn:13293}
+  \alpha_{A^{\prime},B^{\prime}}F^{B^{\prime}}(g) = G^{B^{\prime}}(g)\alpha_{A,B^\prime},
+\end{equation}
+
+and for all $f\colon A \rightarrow A^{\prime}$
+
+\begin{equation*}
+  \alpha_{A, B^\prime}F^A(f) = G^A(f)\alpha_{A,B}
+\end{equation*}
+
+Applying $G^{B^{\prime}}(g)$ which extends the map from $(A,B^\prime)$ to $(A^\prime,B^\prime)$, to both sides yields
+
+\begin{equation*}
+  G^{B^{\prime}}(g)\alpha_{A, B^\prime}F^A(f) = G^{B^{\prime}}(g)G^A(f)\alpha_{A,B}
+\end{equation*}
+
+Then making the substitution in (\ref{eqn:13293}) yields the desired equality.
+
+\begin{equation*}
+  \alpha_{A^{\prime},B^{\prime}}F^{B^{\prime}}(g)F^A(f) = G^{B^{\prime}}(g)G^A(f)\alpha_{A,B}
+\end{equation*}
+
+The 'only if' condition follows as the families $(\alpha_{A,B})_{B \in \mathcal{B}}$ and $(\alpha_{A,B})_{A \in \mathcal{A}}$ are subsets of the family of maps $(\alpha_{A,B})_{A\in \mathcal{A}, B \in \mathcal{B}}$.
+
+\subsubsection*{1.3.32}
+
+\paragraph{(a)}
+
+\textbf{Fullness}
+
+We know $\alpha_{A^\prime}f_A = (G \circ F)(f) \circ \alpha_A$  for all $ f\colon A \rightarrow A^\prime$.
+
+Take $F(f) = F(g)$. Need to show $f=g$, where $f\colon A \rightarrow A^\prime, g\colon A \rightarrow A^\prime$
+\begin{align*}
+  \alpha_{A^\prime}f &= (G \circ F)(f) \circ \alpha_{A}\\
+  \alpha_{A^\prime}g &= (G \circ F)(g) \circ \alpha_{A}, \text{ for all } A, A^\prime\\
+  \implies f &= g \quad \forall \; A^\prime \\
+\end{align*}
+
+\textbf{Faithfulness}
+
+Take an arbitrary $F(f)$ and show there exists $f \mapsto F(f)$. By natural isomorphism $\eta : 1_\mathcal{A} \rightarrow G \circ F$ we have
+\begin{align*}
+  (G\circ F)(f) \circ \alpha_A &= \alpha_{A^\prime} \circ f
+\end{align*}
+We know from the checking of fullness of $F$ above that actually $G \circ F$ is also full, so $\alpha_{A^\prime}^{-1}$ exists\footnote{Hence the hint given in the text to check faithfulness first} and
+\begin{align*}
+  f &= \alpha_{A^\prime}^{-1} \circ (F \circ G)(f) \circ \alpha_A
+\end{align*}
+
+\textbf{Essentially surjective} as $F \circ G \cong 1_B \; \implies \; F\circ G(B) \cong B$
+
+\paragraph{(b)}
+
+Need to show the square below commutes for all $f\colon B \rightarrow B^\prime$
+
+\begin{center}
+\begin{tikzcd}
+  & (F\circ G)(B) \arrow[d,"\alpha_{B}"] \arrow[r, "(F \circ G)(f)"] & (F \circ G)(B^{\prime}) \arrow[d,"{\alpha}_{B^\prime}"{name=G,right}]\\
+  & B \arrow[r,"f"] & B^\prime
+\end{tikzcd}
+\end{center}
+
+As $F$ is essentially surjective on objects $F(G(B)) \cong B$, for all $B \in \mathcal{B}$ there are maps $\alpha_B$ and $\overline{\alpha_B}$ with these properties
+\begin{align*}
+  \alpha_B \circ F(G(B)) &= B \\
+  \overline{\alpha_B} B &=  F(G(B))
+\end{align*}
+
+So $\alpha_B$, $\alpha_{B^\prime}$ exist due to the first equation above. The square exists and commutes for every $f\colon B \rightarrow B^{\prime}$ by full and faithfulness of $F$.
 
 \end{document}
