@@ -8,7 +8,7 @@
 \usepackage{parskip}
 \begin{document}
 
-\title{Leinster - Basic Category Theory - Selected problem solutions}
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapters 0 and 1}
 \author{Adam Barber}
 
 \maketitle
@@ -464,7 +464,7 @@ The 'only if' condition follows as the families $(\alpha_{A,B})_{B \in \mathcal{
 
 \paragraph{(a)}
 
-\textbf{Fullness}
+\textbf{Faithfulness}
 
 We know $\alpha_{A^\prime}f_A = (G \circ F)(f) \circ \alpha_A$  for all $ f\colon A \rightarrow A^\prime$.
 
@@ -474,19 +474,18 @@ Take $F(f) = F(g)$. Need to show $f=g$, where $f\colon A \rightarrow A^\prime, g
   \alpha_{A^\prime}g &= (G \circ F)(g) \circ \alpha_{A}, \text{ for all } A, A^\prime\\
   \implies f &= g \quad \forall \; A^\prime \\
 \end{align*}
-
-\textbf{Faithfulness}
+\textbf{Fullness}
 
 Take an arbitrary $F(f)$ and show there exists $f \mapsto F(f)$. By natural isomorphism $\eta : 1_\mathcal{A} \rightarrow G \circ F$ we have
 \begin{align*}
   (G\circ F)(f) \circ \alpha_A &= \alpha_{A^\prime} \circ f
 \end{align*}
-We know from the checking of fullness of $F$ above that actually $G \circ F$ is also full, so $\alpha_{A^\prime}^{-1}$ exists\footnote{Hence the hint given in the text to check faithfulness first} and
+We know from the checking of faithfulness of $F$ above that actually $G \circ F$ is also faithful, so $\alpha_{A^\prime}^{-1}$ exists\footnote{Hence the hint given in the text to check faithfulness first} and
 \begin{align*}
-  f &= \alpha_{A^\prime}^{-1} \circ (F \circ G)(f) \circ \alpha_A
+  f &= \alpha_{A^\prime}^{-1} \circ (G \circ F)(f) \circ \alpha_A
 \end{align*}
 
-\textbf{Essentially surjective} as $F \circ G \cong 1_B \; \implies \; F\circ G(B) \cong B$
+\textbf{Essentially surjective} as $F \circ G \cong 1_B \; \implies \; (F\circ G)(B) \cong B$
 
 \paragraph{(b)}
 
