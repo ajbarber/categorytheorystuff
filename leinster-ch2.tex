@@ -8,10 +8,62 @@
 \usepackage{parskip}
 \begin{document}
 
-\title{Leinster - Basic Category Theory - Selected problem solutions}
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 2}
 \author{Adam Barber}
 
 \maketitle
-\subsubsection*{0.10}
+\subsubsection*{2.1.16}
+\paragraph{(a)}
+
+Interesting adjoint functors to $G$-sets.
+
+The trivial group functor $I$ sends a set to a $\mathbf{G}$-set with the trivial action $gx = x$. Interesting functors
+
+Orbit functor sends a $G$-set with underlying set elements $a$ of $A$ to:
+
+$A_G = \{ g \cdot a, g \in G \}$
+
+Fixed point functor sends a $G$-set  with underlying set elements $a$ of $A$ to:
+
+$A^G = \{ a \text{ such that } g \cdot a = a \text{ for all } g \in G, a \in A \}$
+
+\paragraph{Fixed point functor - right adjoint}
+
+Morphisms in a $G$-set are functions on the underlying set, where $f$ commutes with $g$ for every $g \in G$.
+
+There is a bijection for each $A \in \mathbf{Set}$ and $B \in [G, \mathbf{Set}]$ as follows
+
+\begin{align*}
+  [G, \mathbf{Set}](I(A), B) &\rightarrow \mathbf{Set}(A, B^G) \\
+  \psi &\mapsto \overline{\psi}
+\end{align*}
+
+$\overline{\psi}$ sends each element $a$ of $A$ to $\psi(a)$ if $g \cdot a = a$, otherwise it sends $a$ to $\psi(\emptyset)$.
+
+\begin{align*}
+  \mathbf{Set}(A, B^G) &\rightarrow [G, \mathbf{Set}](I(A), B) \\
+  \phi &\mapsto \overline{\phi}
+\end{align*}
+
+$\phi$ sends each $a \in A$ in the underlying set of the $G$-set to the $G$-set $(g, \overline{\phi}(a)), g \in G$.
+
+\paragraph{Orbit functor - left adjoint}
+
+There is a bijection for each $A \in \mathbf{Set}$ and $B \in [G, \mathbf{Set}]$ as follows
+
+\begin{align*}
+  \mathbf{Set}(A_G, B) &\rightarrow [G, \mathbf{Set}](A, I(B)) \\
+  \psi &\mapsto \overline{\psi}
+\end{align*}
+
+So each morphism in $\mathbf{Set}$ sends the orbit set of an element $a$ of $A$, call it $a_G$, to $\psi(a_G)$, where $\psi$ is a function of sets.
+Set $G$-set morphism to $\overline{\psi} = \psi$, where $\overline{\psi}$ commutes with $g$ for every $g$ in $G$.
+
+\begin{align*}
+  [G, \mathbf{Set}](A, I(B)) &\rightarrow \mathbf{Set}(A_G, B)\\
+  \phi &\mapsto \overline{\phi}
+\end{align*}
+
+Choose $\overline{\phi}$ to be a disjoint union of each orbit of $a$ in $A$, $\overline{\phi}(a)$ =  $\amalg\{\phi(a), g \cdot a, g \in G\}$
 
 \end {document}
