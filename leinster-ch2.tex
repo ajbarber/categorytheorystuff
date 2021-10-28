@@ -49,21 +49,49 @@ $\phi$ sends each $a \in A$ in the underlying set of the $G$-set to the $G$-set 
 
 \paragraph{Orbit functor - left adjoint}
 
-There is a bijection for each $A \in \mathbf{Set}$ and $B \in [G, \mathbf{Set}]$ as follows
+There is a bijection for each $A \in [G, \mathbf{Set}]$ and $B \in \mathbf{Set}$ as follows
 
 \begin{align*}
   \mathbf{Set}(A_G, B) &\rightarrow [G, \mathbf{Set}](A, I(B)) \\
   \psi &\mapsto \overline{\psi}
 \end{align*}
 
-So each morphism in $\mathbf{Set}$ sends the orbit set of an element $a$ of $A$, call it $a_G$, to $\psi(a_G)$, where $\psi$ is a function of sets.
-Set $G$-set morphism to $\overline{\psi} = \psi$, where $\overline{\psi}$ commutes with $g$ for every $g$ in $G$.
+So each morphism in $\mathbf{Set}$ sends the set formed by the orbits of an element $a$ of $A$, call this $a_G$, to $\psi(a_G)$, where $\psi$ is a function of sets.
+Choose a $G$-set morphism $\overline{\psi} = \psi$, where $\overline{\psi}$ commutes with $g$ for every $g$ in $G$.
 
 \begin{align*}
   [G, \mathbf{Set}](A, I(B)) &\rightarrow \mathbf{Set}(A_G, B)\\
   \phi &\mapsto \overline{\phi}
 \end{align*}
 
-Choose $\overline{\phi}$ to be a disjoint union of each orbit of $a$ in $A$, $\overline{\phi}(a)$ =  $\amalg\{\phi(a), g \cdot a, g \in G\}$
+Choose $\overline{\phi}$ to be a disjoint union of each orbit of $a$ in $A$, $\overline{\phi}(a)$ =  $\amalg\{\phi(g \cdot a), g \in G\}$
+
+\subsubsection*{2.1.17}
+
+Write $\mathcal{O}(X)$ for the poset of open subsets of a topological space $X$ ordered by inclusion.
+
+$\Delta: \mathbf{Set} \rightarrow [\mathcal{O}(X)^{op}, \mathbf{Set}]$
+
+Write $\mathcal{P}$ for the presheaf functor category, and $P \in \mathcal{P}$ for the functor which maps $\mathcal{O}(X)^{op}$ to $\mathbf{Set}$. Take open sets $U, V$, such that $U \subseteq V$ in $X$. A presheaf consists of
+
+\begin{itemize}
+
+\item restriction maps, $P(V) \rightarrow P(U)$, these are morphisms which enforce some sort of ordering of the mapped sets,
+
+\item and the actual mapped sets $P(U), P(V)$ which are called sections.
+
+\end{itemize}
+
+Write $\Gamma P = P(X)$ for the \textbf{global} sections functor which takes an element of $\mathcal{P}$ to a $\mathbf{Set}$.
+
+\textbf {Intuition} Defining the sections functor to map the entire space in this way means in $\mathbf{Set}$ we have a map into every section. You can think of the presheaf as loosely a blueprint on how to sort the sections. So if we provide a presheaf sorting some of these sections, and a mapping of these sections, then we can get back a new presheaf sorting the mapped sections.
+
+For $A$ in $\mathbf{Set}$ and $B$ in $\mathcal{P}$
+\begin{align*}
+  \mathbf{Set}(A, \Gamma B) &\rightarrow \mathcal{P}(\Delta A, B)\\
+  \phi &\mapsto \phi \circ P
+\end{align*}
+
+In $\mathcal{P}$ we take $\phi \circ P$ as the presheaf functor.
 
 \end {document}
