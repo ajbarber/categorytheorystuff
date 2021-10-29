@@ -82,16 +82,26 @@ Write $\mathcal{P}$ for the presheaf functor category, and $P \in \mathcal{P}$ f
 
 \end{itemize}
 
+Since the question specifies a constant presheaf, by definition, the restriction maps of $\Delta A$ are identity maps. And the sections are just the $A$.
+Specifically $\Delta A (U) = A$ for subsets $U$ of $X$, and $\Delta A (\rightarrow) = 1_A$ for morphisms.
+
 Write $\Gamma P = P(X)$ for the \textbf{global} sections functor which takes an element of $\mathcal{P}$ to a $\mathbf{Set}$.
 
-\textbf {Intuition} Defining the sections functor to map the entire space in this way means in $\mathbf{Set}$ we have a map into every section. You can think of the presheaf as loosely a blueprint on how to sort the sections. So if we provide a presheaf sorting some of these sections, and a mapping of these sections, then we can get back a new presheaf sorting the mapped sections.
+\textbf {Intuition} Defining the sections functor to map the entire space in this way means in $\mathbf{Set}$ we have a map into every section.
+You can think of the presheaf as loosely a blueprint on how to sort the sections. So if we provide a sorting of some of these sections — a presheaf, and a mapping of these sections, then we can get back a new presheaf. The ’new’ presheaf is of course a blueprint on how to sort the mapped sections.
 
 For $A$ in $\mathbf{Set}$ and $B$ in $\mathcal{P}$
 \begin{align*}
   \mathbf{Set}(A, \Gamma B) &\rightarrow \mathcal{P}(\Delta A, B)\\
-  \phi &\mapsto \phi \circ P
+  \phi &\mapsto {\Delta A}^{\phi}
 \end{align*}
 
-In $\mathcal{P}$ we take $\phi \circ P$ as the presheaf functor.
+Where, continuing with our intuition of presheafs as a sorting mechanism, we simply 're-sort' using composition of $\phi$ on the functor morphisms and objects as follows.
+
+$${\Delta A}^{\phi} =
+\begin{cases}
+  \phi \cdot U & \text{on objects } U \\
+  \phi \cdot 1_A & \text{ on morphisms }
+\end{cases}$$
 
 \end {document}
