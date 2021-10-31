@@ -87,21 +87,55 @@ Specifically $\Delta A (U) = A$ for subsets $U$ of $X$, and $\Delta A (\rightarr
 
 Write $\Gamma P = P(X)$ for the \textbf{global} sections functor which takes an element of $\mathcal{P}$ to a $\mathbf{Set}$.
 
-\textbf {Intuition} Defining the sections functor to map the entire space in this way means in $\mathbf{Set}$ we have a map into every section.
-You can think of the presheaf as loosely a blueprint on how to sort the sections. So if we provide a sorting of some of these sections — a presheaf, and a mapping of these sections, then we can get back a new presheaf. The ’new’ presheaf is of course a blueprint on how to sort the mapped sections.
+We are required to show a bijection:
 
 For $A$ in $\mathbf{Set}$ and $B$ in $\mathcal{P}$
 \begin{align*}
   \mathbf{Set}(A, \Gamma B) &\rightarrow \mathcal{P}(\Delta A, B)\\
-  \phi &\mapsto {\Delta A}^{\phi}
+\end{align*}
+and
+\begin{align*}
+   \mathcal{P}(\Delta A, B) &\rightarrow \mathbf{Set}(A, \Gamma B)
 \end{align*}
 
-Where, continuing with our intuition of presheafs as a sorting mechanism, we simply 're-sort' using composition of $\phi$ on the functor morphisms and objects as follows.
+The maps between the presheaf functors in $\mathcal{P}$ are natural transformations. Natural transformations are a collection of maps $\alpha_A$: $\{ \Delta A (A) \rightarrow B(A) \}_{A \in \mathcal{A}}$. For $U \subseteq V \subseteq X$ we have the commuting square:
+\begin{equation}
+\label{eqn:13291}
+\begin{tikzcd}
+  & \Delta A(X) \arrow[d,"\alpha_X"] \arrow[r, "1_A"] & \Delta A(V) \arrow[d,"\alpha_{V}"] \arrow[r, "1_A"] & \Delta A(U) \arrow[d,"\alpha_{U}"{name=G,right}]\\
+  & B(X) \arrow[r,"B(f)"] & B(V) \arrow[r,"B(f)"] & B(U)
+\end{tikzcd}
+\end{equation}
 
-$${\Delta A}^{\phi} =
-\begin{cases}
-  \phi \cdot U & \text{on objects } U \\
-  \phi \cdot 1_A & \text{ on morphisms }
-\end{cases}$$
+Recall $\Delta A (\cdot) = A$. Then the morphism in $\mathbf{Set}$ is represented by $\alpha_X$ above. As visible from the figure above this corresponds one to one with each $\alpha_A$ in $\mathcal{A}$, so the bijection holds. Dually using the exact same reasoning $\Pi$, the left adjoint of $\Delta$ is the presheaf evaluation at the empty set, $\Pi (P) = P(\emptyset)$.
+
+For the left adjoint to $\Pi$, $\Lambda$, and for $A$ in $\mathbf{Set}$ and $B$ in $\mathcal{P}$, we need to show a bijection between:
+
+\begin{equation*}
+  \mathcal{P}(\Lambda A, B) \leftrightarrow \mathbf{Set}(A, \Pi(B))
+\end{equation*}
+
+To try and cobble together a definition of the presheaf functor $\Lambda$, start with the naturality diagram representing morphisms in $\mathcal{P}$:
+
+\begin{center}
+\begin{tikzcd}
+  & \Lambda(U) \arrow[d,"\alpha_U"] \arrow[r, "A(f)"] & \Lambda(\emptyset) \arrow[d,"\alpha_{\emptyset}"{name=G,right}]\\
+  & B(U) \arrow[r,"B(f)"] & B(\emptyset)
+\end{tikzcd}
+\end{center}
+
+Note that $\Pi (B) = B(\emptyset)$. Start by choosing $\Lambda(\emptyset) = A$, so the morphism in $\mathbf{Set}$ is $\alpha_\emptyset$. Our choice of $\Lambda$ needs to make this diagram commute for all $U$ in $\mathcal{O}(X)^{op}$. For $U \neq \emptyset$ we could try $\Lambda(U) = A$, however to force the square above to commute with this choice, will impose some structure on the presheaf $B$. Rather, try setting  $\Lambda(U) = \emptyset$ for $U \neq \emptyset$. Choosing the initial object $\emptyset$ of $\mathcal{O}(X)^{op}$, means there is one map out of the top LHS of the square in the above diagram, and the square commutes as required.
+
+We also have
+
+\begin{equation*}
+  \mathcal{P}(A, \nabla B) \leftrightarrow \mathbf{Set}(\Gamma A, B)
+\end{equation*}
+
+$\nabla$, the right adjoint to $\Gamma$ can be obtained dually, by swapping $\mathbf{Set}$ with $\mathbf{Set}^{op}$ and $\mathcal{O}(X)^{op}$ with $\mathcal{O}(X)$. This reverses the left and right adjoints.
+
+\begin{equation*}
+  \mathcal{P}(A, \nabla B) \leftrightarrow \mathbf{Set}(\Gamma A, B)
+\end{equation*}
 
 \end {document}
