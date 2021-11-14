@@ -134,4 +134,45 @@ We also have
 
 $\nabla$, the right adjoint to $\Gamma$ can be obtained dually, by swapping $\mathbf{Set}$ with $\mathbf{Set}^{op}$ and $\mathcal{O}(X)^{op}$ with $\mathcal{O}(X)$. This is simply a relabelling which has the effect of reversing the chain of adjoint functors stated in the question. We then apply analogous reasoning, take $\nabla(U) = \{*\}$, for $U \neq X$, and $\nabla(X) = B$.
 
+
+\subsubsection*{2.2.11}
+The full subcategory where $\eta_a$ is an isomorphism
+
+\subsubsection*{2.2.13}
+\paragraph{(a)}
+We have sets $S, T$, a function $f\colon S \rightarrow T$. $P(S)$ denotes the set of all subsets of $S$. The functor $f^*$ takes elements of $T$ to their inverse under $f$. Looking for left and right adjoints of $f^*$. We can immediately see the left adjoint of $f^*$ is $f$ from below.
+\begin{align}
+\label{eqn:2213a1}
+  P(S)(A,f^{-1}(B)) & \cong P(T)(f(A), B)
+\end{align}
+
+Now to find the right adjoint of $f^*$, $G$ below:
+\begin{align*}
+  P(T)(A,G(B)) & \cong P(S)(f^{-1}(A), B)
+\end{align*}
+
+Dualising
+\begin{align}
+\label{eqn:2213a2}
+  P(T)^{op}(G(B),A) & \cong P(S)^{op}(B, f^{-1}(A))
+\end{align}
+
+Equation (\ref{eqn:2213a2}) is (\ref{eqn:2213a1}) up to an isomorphism. So we choose $G = f$ here. In fact the power set $P$ is self adjoint. Loosely, this means we have an isomorphism between the opposite category and the original category. We use this isomorphism to get a representation of $G$ in $P(T)$, with the right adjoint sending $B$ to $\overline{f(\overline{B})}$.
+
+Because $f$ is a bijection, elements in $T$ that are not in $f(\overline{B})$ must have elements in $B$ as their preimage. So $\overline{f(\overline{B})}$ consists of all sets of $T$ where $f^{-1}(T) \subseteq B$. This could indeed be empty. In summary the left adjoint of $f^*$ is
+\begin{align*}
+  \{ f(s), s \in S \}
+\end{align*}
+
+and the right adjoint
+\begin{align*}
+  \{ t \in T: f^{-1}(t) \subseteq S \}
+\end{align*}
+
+\paragraph{(b)}
+
+We are asked to interpret, in light of the results in (a.), the unit $\eta\colon 1_T \rightarrow G \circ F$, and counit $\epsilon\colon F \circ G \rightarrow 1_S$.
+The unit returns a predicate $S(x)$ implying $P(x,y)$ if it exists, otherwise the empty set.
+The counit returns all predicates $S(x)$, or none, implied by $P(x,y)$.
+
 \end {document}
