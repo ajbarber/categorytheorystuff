@@ -172,7 +172,29 @@ and the right adjoint
 \paragraph{(b)}
 
 We are asked to interpret, in light of the results in (a.), the unit $\eta\colon 1_T \rightarrow G \circ F$, and counit $\epsilon\colon F \circ G \rightarrow 1_S$.
-The unit returns a predicate $S(x)$ implying $P(x,y)$ if it exists, otherwise the empty set.
-The counit returns all predicates $S(x)$, or none, implied by $P(x,y)$.
+
+\paragraph{Right adjoint}
+
+\begin{itemize}
+\item $\eta$ takes as argument the predicate $S(x)$. Applying $F$ the inverse image functor returns $R(x,y)$ implying $S(x)$. Applying $G$ to the result of $F$ in the previous step, returns $S^\prime(x)$ implied by $R(x,y)$ for all $y$.
+\item $\epsilon$ takes as argument the predicate $R(x,y)$. Applying $G$ returns $S(x)$ implied by $R(x,y)$ for all $y$. Applying $F$ the inverse image functor in turn returns the predicate $R^\prime(x,y)$.
+\end{itemize}
+
+Considered as sets rather than predicates:
+
+\begin {itemize}
+
+\item $G$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for all $y$.
+\item $F^*$ takes a set $S(x)$ and returns the $R(x,y)$ implying $S(x)$
+\item $F$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for at least one $y$.
+
+\end{itemize}
+
+\paragraph{Left adjoint}
+
+\begin{itemize}
+\item $\eta$ takes as argument the predicate $R(x,y)$.  Applying $F$ returns $S(x)$ implied by a $R(x,y)$ for some $y$. Applying $G$ the inverse image functor returns the predicate $R^\prime(x,y)$ implying $S(x)$ in the previous step.
+\item $\epsilon$ takes as argument the predicate $S(x)$. Applying $G$ the inverse image functor returns the predicate $R(x,y)$ implying $S(x)$. Applying $F$ in turn returns $S^\prime(x)$ implied by $R(x,y)$ for some $y$.
+\end{itemize}
 
 \end {document}
