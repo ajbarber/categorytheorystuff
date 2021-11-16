@@ -161,40 +161,43 @@ Equation (\ref{eqn:2213a2}) is (\ref{eqn:2213a1}) up to an isomorphism. So we ch
 
 Because $f$ is a bijection, elements in $T$ that are not in $f(\overline{B})$ must have elements in $B$ as their preimage. So $\overline{f(\overline{B})}$ consists of all sets of $T$ where $f^{-1}(T) \subseteq B$. This could indeed be empty. In summary the left adjoint of $f^*$ is
 \begin{align*}
-  \{ f(s), s \in S \}
+  \{ t \in T: \exists s \in S \; \text{such that} \; s \in f^{-1}(t) \}
 \end{align*}
 
 and the right adjoint
 \begin{align*}
-  \{ t \in T: f^{-1}(t) \subseteq S \}
+  \{ t \in T: s \in f^{-1}(t) \; \forall s \in S \}
 \end{align*}
 
 \paragraph{(b)}
 
 We are asked to interpret, in light of the results in (a.), the unit $\eta\colon 1_T \rightarrow G \circ F$, and counit $\epsilon\colon F \circ G \rightarrow 1_S$.
 
-\paragraph{Right adjoint}
+Now interpret $f^*$ as logical implication. So $R(x,y) \subseteq f^{-1}(S(x))$ means $S(x) \implies R(x,y)$, subject to some quantification constraint on $Y$.
 
-\begin{itemize}
-\item $\eta$ takes as argument the predicate $S(x)$. Applying $F$ the inverse image functor returns $R(x,y)$ implying $S(x)$. Applying $G$ to the result of $F$ in the previous step, returns $S^\prime(x)$ implied by $R(x,y)$ for all $y$.
-\item $\epsilon$ takes as argument the predicate $R(x,y)$. Applying $G$ returns $S(x)$ implied by $R(x,y)$ for all $y$. Applying $F$ the inverse image functor in turn returns the predicate $R^\prime(x,y)$.
-\end{itemize}
-
-Considered as sets rather than predicates:
+Considered as sets rather than logical predicates:
 
 \begin {itemize}
 
 \item $G$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for all $y$.
-\item $F^*$ takes a set $S(x)$ and returns the $R(x,y)$ implying $S(x)$
+\item $F^*$ takes a set $S(x)$ and returns its preimage $R(x,y)$.
 \item $F$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for at least one $y$.
 
+\end{itemize}
+
+\paragraph{Right adjoint}
+
+\begin{itemize}
+\item $\eta$ takes as argument the set $S(x)$. Applying $F$ the inverse image functor, results in the product of $S(x)$ with $Y$, the set $R(x,y)$. Essentially we are adding another dimension to our set in $y$. However we have not described $y$, it is unconstrained at this step. Applying $G$ in turn results in the set $S^\prime(x)$, where $R(x,y) \subseteq f^{-1}(S^\prime(x))$, \textbf{for all $y$}.
+\item $\epsilon$ takes as argument the set $R(x,y)$. Applying $G$ yields the set of $S(x)$ where $R(x,y) \subseteq f^{-1}(S(x))$ \textbf{for all} $y$ in $R(x,y)$. Applying $F$ the inverse image functor in turn to $S(x)$ returns a set $R^\prime(x,y)$. So $\epsilon$ takes the unconstrained $R(x,y)$, and maps it to the $R^\prime(x,y)$.
 \end{itemize}
 
 \paragraph{Left adjoint}
 
 \begin{itemize}
-\item $\eta$ takes as argument the predicate $R(x,y)$.  Applying $F$ returns $S(x)$ implied by a $R(x,y)$ for some $y$. Applying $G$ the inverse image functor returns the predicate $R^\prime(x,y)$ implying $S(x)$ in the previous step.
-\item $\epsilon$ takes as argument the predicate $S(x)$. Applying $G$ the inverse image functor returns the predicate $R(x,y)$ implying $S(x)$. Applying $F$ in turn returns $S^\prime(x)$ implied by $R(x,y)$ for some $y$.
+\item $\eta$ takes as argument the set $R(x,y)$.  Applying $F$ returns $S(x)$ with preimage in $R(x,y)$ \textbf{for some} $y$. Applying $G$ the inverse image functor returns the set $R^\prime(x,y)$ the subset of $R(x,y)$ which is the preimage in the previous step.
+\item $\epsilon$ takes as argument the set $S(x)$. Applying $G$ the inverse image functor returns the set $R(x,y)$. Applying $F$ in turn returns $S^\prime(x)$ with preimage $R(x,y)$ \textbf{for some} $y$.
 \end{itemize}
+
 
 \end {document}
