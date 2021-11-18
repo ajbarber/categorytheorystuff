@@ -159,44 +159,46 @@ Dualising
 
 Equation (\ref{eqn:2213a2}) is (\ref{eqn:2213a1}) up to an isomorphism. So we choose $G = f$ here. In fact the power set $P$ is self adjoint. Loosely, this means we have an isomorphism between the opposite category and the original category. We use this isomorphism to get a representation of $G$ in $P(T)$, with the right adjoint sending $B$ to $\overline{f(\overline{B})}$.
 
-Because $f$ is a bijection, elements in $T$ that are not in $f(\overline{B})$ must have elements in $B$ as their preimage. So $\overline{f(\overline{B})}$ consists of all sets of $T$ where $f^{-1}(T) \subseteq B$. This could indeed be empty. In summary the left adjoint of $f^*$ is
+Because $f$ is a bijection, elements in $T$ that are not in $f(\overline{B})$ must have elements in $B$ as their preimage. So $\overline{f(\overline{B})}$ consists of all sets of $T$ where $f^{-1}(T) \subseteq B$. In summary the left adjoint of $f^*$ is
 \begin{align*}
-  \{ t \in T: \exists s \in S \; \text{such that} \; s \in f^{-1}(t) \}
+  F(S) = \{ t \in T: \exists s \in S \; \text{such that} \; s \in f^{-1}(t) \}
 \end{align*}
 
 and the right adjoint
 \begin{align*}
-  \{ t \in T: s \in f^{-1}(t) \; \forall s \in S \}
+  G(S) = \{ t \in T: s \in f^{-1}(t) \; \forall s \in S \}
 \end{align*}
 
 \paragraph{(b)}
 
-We are asked to interpret, in light of the results in (a.), the unit $\eta\colon 1_T \rightarrow G \circ F$, and counit $\epsilon\colon F \circ G \rightarrow 1_S$.
+We are asked to interpret, in light of the results in (a.), the unit $\eta\colon 1_T \rightarrow G \circ F$, and counit $\epsilon\colon F \circ G \rightarrow 1_S$, for all adjunctions.
 
-Now interpret $f^*$ as logical implication. So $R(x,y) \subseteq f^{-1}(S(x))$ means $S(x) \implies R(x,y)$, subject to some quantification constraint on $Y$.
+Consider the $R(x, y)$ as a set in $X \times Y$ and $S$ as as a set in $X$. In all of the below I interpret \textbf{set inclusion as logical implication}.
 
-Considered as sets rather than logical predicates:
+Description of the functors used follows.
 
 \begin {itemize}
 
-\item $G$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for all $y$.
-\item $F^*$ takes a set $S(x)$ and returns its preimage $R(x,y)$.
-\item $F$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for at least one $y$.
-
+\item $\forall_y$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for all $y$. So each element in $R(x,y)$ inducing $S(x)$ is fully contained in $R(x,y)$.
+\item $p^*$ the inverse image functor takes a set $S(x)$ and returns its preimage $R(x,y)$. This inclusion
+  of $X$ into $X \times Y$ adds a 'dummy' dimension to our set in $Y$, it is the equivalent of $\iota=x_ie_i$ in $n$-dimensional Euclidean space.
+\item $\exists_Y$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for at least one $y$.
 \end{itemize}
 
-\paragraph{Right adjoint}
+We know from (a) that $\exists_Y \dashv p^* \dashv \forall_Y $
+
+\paragraph{$p^* \dashv \forall_Y$}
 
 \begin{itemize}
-\item $\eta$ takes as argument the set $S(x)$. Applying $F$ the inverse image functor, results in the product of $S(x)$ with $Y$, the set $R(x,y)$. Essentially we are adding another dimension to our set in $y$. However we have not described $y$, it is unconstrained at this step. Applying $G$ in turn results in the set $S^\prime(x)$, where $R(x,y) \subseteq f^{-1}(S^\prime(x))$, \textbf{for all $y$}.
-\item $\epsilon$ takes as argument the set $R(x,y)$. Applying $G$ yields the set of $S(x)$ where $R(x,y) \subseteq f^{-1}(S(x))$ \textbf{for all} $y$ in $R(x,y)$. Applying $F$ the inverse image functor in turn to $S(x)$ returns a set $R^\prime(x,y)$. So $\epsilon$ takes the unconstrained $R(x,y)$, and maps it to the $R^\prime(x,y)$.
+\item $\eta: 1_X \rightarrow  \forall_Y \circ p^*$ takes as argument the set $S(x)$. Applying $p^*$ results in the product of $S(x)$ with $Y$, the set $R(x,y)$.  Applying $\forall_Y$ in turn results in the set $S^\prime(x)$, where $R(x,y) \subseteq p^*(S^\prime(x))$, \textbf{for all $y$}. But the for all qualification here is trivial, as $y$ is just a dummy dimension, so $S^\prime(x) = S(x)$. There is no real interesting logical implication here, $\eta$ is the identity.
+\item $\epsilon: p^* \circ \forall_Y \rightarrow 1_{X \times Y}$ takes as argument the set $R(x,y)$. Applying $\forall_Y$ yields the set of $S(x)$ where $R(x,y) \subseteq p^*(S(x))$ \textbf{for all} $y$ in $R(x,y)$. To $S(x)$, $p^*$ is applied in turn to return a set $R^\prime(x,y)$. My intuition here is $\epsilon$ takes the $R(x,y)$ with a $X$ and $Y$ predicate, projects it to a $X$-predicate using $\forall_Y$, which essentially adds a dummy $Y$-variable to this $X$-condition, then returns $R^\prime(x,y)$. The key observation here is that $R^\prime(x,y) \subseteq R(x,y)$.  So $S(x) \implies R(x,y) \forall y$.
 \end{itemize}
 
-\paragraph{Left adjoint}
+\paragraph{$\exists_Y \dashv p^*$}
 
 \begin{itemize}
-\item $\eta$ takes as argument the set $R(x,y)$.  Applying $F$ returns $S(x)$ with preimage in $R(x,y)$ \textbf{for some} $y$. Applying $G$ the inverse image functor returns the set $R^\prime(x,y)$ the subset of $R(x,y)$ which is the preimage in the previous step.
-\item $\epsilon$ takes as argument the set $S(x)$. Applying $G$ the inverse image functor returns the set $R(x,y)$. Applying $F$ in turn returns $S^\prime(x)$ with preimage $R(x,y)$ \textbf{for some} $y$.
+\item $\eta: 1_{X \times Y} \rightarrow p^* \circ \exists_Y$ Applying $\exists_Y$ to $R(x,y)$ returns the projection $S(x)$ with preimage in $R(x,y)$ \textbf{for some} $y$. Applying $p^*$ to $S(x)$ returns the set $R^\prime(x,y)$. Note that $R(x,y) \subseteq R^\prime(x,y)$. So interpreting the unit statement, $\exists y: R(x,y) \implies S(x)$
+\item $\epsilon: \exists_Y \circ p^* \rightarrow 1_X $ takes as argument the set $S(x)$. Applying $p^*$ returns the set $R(x,y)$. Applying $\exists_Y$ in turn returns $S(x)$ with preimage $R(x,y)$ \textbf{for some} $y$.
 \end{itemize}
 
 
