@@ -161,13 +161,17 @@ Equation (\ref{eqn:2213a2}) is (\ref{eqn:2213a1}) up to an isomorphism. So we ch
 
 Because $f$ is a bijection, elements in $T$ that are not in $f(\overline{B})$ must have elements in $B$ as their preimage. So $\overline{f(\overline{B})}$ consists of all sets of $T$ where $f^{-1}(T) \subseteq B$. In summary the left adjoint of $f^*$ is
 \begin{align*}
-  F(S) = \{ t \in T: \exists s \in S \; \text{such that} \; s \in f^{-1}(t) \}
+  F(S) = \{ t \in T, \; \exists s \in S :\; s \in f^{-1}(t) \}
 \end{align*}
+
+$F$ represents choosing elements of $T$ such that some element of $S$ is in the inverse image of $f$.
 
 and the right adjoint
 \begin{align*}
-  G(S) = \{ t \in T: s \in f^{-1}(t) \; \forall s \in S \}
+  G(S) = \{ t \in T, \; \forall s \in S :\; s \in f^{-1}(t) \}
 \end{align*}
+
+$G$ represents choosing elements of $T$ such that every element of $S$ is in the inverse image of $f$.
 
 \paragraph{(b)}
 
@@ -181,7 +185,7 @@ Description of the functors used follows.
 
 \item $\forall_y$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for all $y$. So each element in $R(x,y)$ inducing $S(x)$ is fully contained in $R(x,y)$.
 \item $p^*$ the inverse image functor takes a set $S(x)$ and returns its preimage $R(x,y)$. This inclusion
-  of $X$ into $X \times Y$ adds a 'dummy' dimension to our set in $Y$, it is the equivalent of $\iota=x_ie_i$ in $n$-dimensional Euclidean space.
+  of $X$ into $X \times Y$ adds a variable in $Y$. To use parlance of first order logic the statement is free in $y$.
 \item $\exists_Y$ takes a set $R(x,y)$ and returns $S(x)$ with preimage in $R(x,y)$ for at least one $y$.
 \end{itemize}
 
@@ -190,16 +194,47 @@ We know from (a) that $\exists_Y \dashv p^* \dashv \forall_Y $
 \paragraph{$p^* \dashv \forall_Y$}
 
 \begin{itemize}
-\item $\eta: 1_X \rightarrow  \forall_Y \circ p^*$ takes as argument the set $S(x)$. Applying $p^*$ results in the product of $S(x)$ with $Y$, the set $R(x,y)$.  Applying $\forall_Y$ in turn results in the set $S^\prime(x)$, where $R(x,y) \subseteq p^*(S^\prime(x))$, \textbf{for all $y$}. But the for all qualification here is trivial, as $y$ is just a dummy dimension, so $S^\prime(x) = S(x)$. There is no real interesting logical implication here, $\eta$ is the identity.
-\item $\epsilon: p^* \circ \forall_Y \rightarrow 1_{X \times Y}$ takes as argument the set $R(x,y)$. Applying $\forall_Y$ yields the set of $S(x)$ where $R(x,y) \subseteq p^*(S(x))$ \textbf{for all} $y$ in $R(x,y)$. To $S(x)$, $p^*$ is applied in turn to return a set $R^\prime(x,y)$. My intuition here is $\epsilon$ takes the $R(x,y)$ with a $X$ and $Y$ predicate, projects it to a $X$-predicate using $\forall_Y$, which essentially adds a dummy $Y$-variable to this $X$-condition, then returns $R^\prime(x,y)$. The key observation here is that $R^\prime(x,y) \subseteq R(x,y)$.  So $S(x) \implies R(x,y) \forall y$.
+\item $\eta: 1_X \rightarrow  \forall_Y \circ p^*$ Plug in as argument to both sides of the implication the set $S(x)$. Evaluating the RHS, applying $p^*$ results in the product of $S(x)$ with $Y$, the set $R(x,y)$. So $\eta$ can be interpreted as $S(x) \implies R(x,y) \; \forall y$.
+\item $\epsilon: p^* \circ \forall_Y \rightarrow 1_{X \times Y}$. (??) The universal functor is projection of a subset of $x$-values for the set $R(x,y)$ passed to the functor. Applying $p^*$ to yield say $R^Y(x,y)$ makes the statement on the LHS free in $y$, so it requires assignment for the statement to be meaningful. If we were to assign $y$ on the LHS for corresponding to the $y$ value for each RHS predicate, elementwise, then we essentially just have the statement that $R^Y(x,y) \implies R(x,y)$.
 \end{itemize}
 
 \paragraph{$\exists_Y \dashv p^*$}
 
 \begin{itemize}
-\item $\eta: 1_{X \times Y} \rightarrow p^* \circ \exists_Y$ Applying $\exists_Y$ to $R(x,y)$ returns the projection $S(x)$ with preimage in $R(x,y)$ \textbf{for some} $y$. Applying $p^*$ to $S(x)$ returns the set $R^\prime(x,y)$. Note that $R(x,y) \subseteq R^\prime(x,y)$. So interpreting the unit statement, $\exists y: R(x,y) \implies S(x)$
-\item $\epsilon: \exists_Y \circ p^* \rightarrow 1_X $ takes as argument the set $S(x)$. Applying $p^*$ returns the set $R(x,y)$. Applying $\exists_Y$ in turn returns $S(x)$ with preimage $R(x,y)$ \textbf{for some} $y$.
+\item $\eta: 1_{X \times Y} \rightarrow   p^* \circ \exists_Y$.  (??) The existence functor is just projection of all the $x$ values for a given set of $(x,y)$. The resulting statement on the right hand side is free in $Y$ after applying $p^*$ so requires assignment to be meaningful. If we were to assign $y$ on the RHS for corresponding to the $y$ value for each LHS predicate, elementwise, then we essentially just have an identity.
+\item $\epsilon: \exists_Y \circ p^* \rightarrow 1_X $ Plug in as argument to both sides of the implication the set $S(x)$. Applying $p^*$ returns the set $R(x,y)$. So $\epsilon$ can be interpreted as $\exists y: R(x,y) \implies S(x)$.
 \end{itemize}
 
+\paragraph {2.2.14 }
+
+Natural transformations for $[\mathcal{A}, \mathcal{B}]$.
+
+\begin{center}
+\begin{tikzcd}
+  & FA \arrow[d,"\alpha_A"] \arrow[r, "F(f)"] & FA^\prime \arrow[d,"\alpha_{A^\prime}"{name=G,right}]\\
+  & GA \arrow[r,"G(f)"] & GA^\prime
+\end{tikzcd}
+\end{center}
+
+$Y \in [\mathcal{B},\mathcal{I}], F^*(Y) = Y \circ F$. Natural transformations for $[[\mathcal{A},\mathcal{I}], [\mathcal{B},\mathcal{I}]]$.
+
+\begin{center}
+\begin{tikzcd}
+  & F^*Y = Y \circ F \arrow[d,"\alpha^*_Y"] \arrow[r, "F^*(f)"] & F^*Y^\prime = Y^\prime \circ F \arrow[d,"\alpha^*_{Y^\prime}"{name=G,right}]\\
+  & G^*Y = Y \circ G \arrow[r,"G^*(f)"] & G^*Y^\prime = Y^\prime \circ G
+\end{tikzcd}
+\end{center}
+
+So it is evident from comparing the above natural transformation diagrams that we have the relationship $\alpha^*_Y = Y \circ \alpha$
+
+Using first triangle inequality starting at point $F^*(Y)$ we have
+\begin{align*}
+  \epsilon^*_{F^*(Y)}F^*(\eta_Y^*)F^*(Y) = & F^*(Y) (\epsilon F) F^*(\eta_Y^*)F^*(Y) \\
+  = & Y F(\epsilon F)(\eta F) \\
+  = & YF1_F \text{ since } \epsilon F \circ F \eta = 1_F\\
+  = & F^*(Y)
+\end{align*}
+
+The other triangle follows similarly. So by Theorem 2.2.5 we have an adjunction between $F^*$ and $G^*$.
 
 \end {document}
