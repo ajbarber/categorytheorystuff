@@ -138,6 +138,42 @@ $\nabla$, the right adjoint to $\Gamma$ can be obtained dually, by swapping $\ma
 \subsubsection*{2.2.11}
 The full subcategory where $\eta_a$ is an isomorphism
 
+\subsubsection*{2.2.12}
+\paragraph{(a)}
+
+\textbf{Heuristic sort of proof}
+if the counit, $FG (f) \rightarrow f, B \in \mathcal{B}$ is isomorphic then a mapping back exists $f \rightarrow FG (f)$ such that their composition is the identity. So for a given $B$ and $B^\prime$ and $FG(f)$ and $f$ are one to one. Which necessarily means $f$ and $Gf$ are one to one, so $G$ is full and faithful.
+
+\textbf{Algebraic proof}
+From (2.2) the naturality axiom states:
+\begin{equation*}
+\overline{(FG(B) \xrightarrow{\epsilon} B \xrightarrow{q} {B^\prime}} =
+G(B) \xrightarrow{1_{G(B)}} G(B) \xrightarrow{G(q)} G(B^\prime)
+\end{equation*}
+
+$\epsilon$ injective implies faithful:
+$G(q_1) = G(q_2) \implies \epsilon q_1 = \epsilon q_2 \implies q_1 = q_2$
+
+faithful implies $\epsilon$ injective:
+$\epsilon q_1 = \epsilon q_2 \implies G(q_1) = G(q_2) \implies q_1 = q2$
+
+$\epsilon$ is injective implies full:
+For a given $h = G(q)$, need to find $q: \mathcal{B} \rightarrow \mathcal{B}$ inducing $h$. We know from naturality equation above that $G(q) = \overline{q\epsilon}$. $\epsilon$ needs to be invertible to retrieve $q$ and hence satisfy fullness requirement.
+
+full implies $\epsilon$ is injective: Put $B^\prime = FG(B)$ in the naturality condition above to give:
+\begin{equation*}
+\overline{(FG(B) \xrightarrow{\epsilon} B \xrightarrow{\lambda} {FG(B)}} =
+G(B) \xrightarrow{1_{G(B)}} G(B) \xrightarrow{G(\lambda)} GFG(B)
+\end{equation*}
+
+Using fullness choose $\lambda$ such that $G\lambda = \eta$. Then
+\begin{align*}
+  \overline{1_{FG}}(B) &= \eta_G(B), \text{ therefore } \\
+  1_{FG}(B) &= \overline{\eta_G}(B) = \lambda\epsilon_G(B) \\
+\end{align*}
+
+So $\epsilon$ has an inverse and is therefore injective.
+
 \subsubsection*{2.2.13}
 \paragraph{(a)}
 We have sets $S, T$, a function $f\colon S \rightarrow T$. $P(S)$ denotes the set of all subsets of $S$. The functor $f^*$ takes elements of $T$ to their inverse under $f$. Looking for left and right adjoints of $f^*$. We can immediately see the left adjoint of $f^*$ is $f$ from below.
