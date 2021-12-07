@@ -169,9 +169,8 @@ G(B) \xrightarrow{1_{G(B)}} G(B) \xrightarrow{G(\lambda)} GFG(B)
 Using fullness choose $\lambda$ such that $G\lambda = \eta$. Then
 \begin{align*}
   \overline{1_{FG}}(B) &= \eta_G(B), \text{ therefore } \\
-  1_{FG}(B) &= \overline{\eta_G}(B) = \lambda\epsilon_G(B) \\
+  1_{FG}(B) &= \overline{\eta_G}(B) = \lambda\epsilon_G(B). \\
 \end{align*}
-
 So $\epsilon$ has an inverse and is therefore injective.
 
 \subsubsection*{2.2.13}
@@ -273,4 +272,44 @@ Using first triangle inequality starting at point $F^*(Y)$ we have
 
 The other triangle follows similarly. So by Theorem 2.2.5 we have an adjunction between $F^*$ and $G^*$.
 
+\paragraph {2.3.12 }
+
+\paragraph{Par}
+\begin{itemize}
+  \item Objects: sets $X$
+   \item Morphisms: Partial functions, written $(f, D)$, where $f\colon X \rightarrow Y, \; X \subseteq D$, morphisms are only defined when $X \subseteq D$.
+\end{itemize}
+
+$\mathbf{Set_*}$
+\begin{itemize}
+  \item Objects: sets $X \cup \{*\}$
+  \item Morphisms: $f^*(X) = Y, X \subseteq D, \text{ o.w } \{*\}$
+\end{itemize}
+
+$F\colon \mathbf{Par} \rightarrow \mathbf{Set_*}$
+\begin{align*}
+  F(f, D) &= x \mapsto \begin{cases}
+    f(X), & \text{if $X \subseteq D$}.\\
+    {*}, & \text{otherwise}.\\
+  \end{cases} \\
+  F(X) &= X \cup \{*\} \; \text{on objects}
+\end{align*}
+
+$G\colon \mathbf{Set_*} \rightarrow \mathbf{Par}$
+
+\begin{align*}
+  G(f^*) &= (f^*, X \setminus \{*\}),\\
+  G(X) &= X \setminus \{*\} \;\text{on objects}
+\end{align*}
+
+So we are mapping the undefined value of $\{*\}$ to the empty set. Which means
+$GF(\{*\}) = \emptyset$. So $F$ and $G$ are not isomorphic. However its seems we can construct a natural isomorphism $\alpha_X$ between $1_{\mathbf{Par}}$ and $GF$. An easier way to prove equivalence though is to show $F$ is full, faithful and essentially surjective on objects.
+
+$F$ is faithful as for a morphism in $\mathbf{Par}$, $(X \rightarrow Y, D)$  there is at most one corresponding morphism in $\mathbf{Set_*}$, described in the definition of $F$. Alternatively, the domain of $f$ can be recovered from $Ff$. It is those points which get mapped to something $\neq \{*\}$, since morphisms preserve distinguished elements. But since we have the domain then $f$ can be recovered from $Ff$, since $f$ is the restriction of $Ff$ to the domain of $Ff$. \footnote{https://math.stackexchange.com/questions/884451/why-are-the-category-of-pointed-sets-and-the-category-of-sets-and-partial-functi}
+
+$F$ is full as for a morphism in $\mathbf{Set_*}$, $Ff \colon X \rightarrow Y$ there is at least one morphism inducing it in $\mathbf{Par}$, define $L = \{x\colon f(x) = \{*\}\}$, then the preimage partial function is $(f, X \setminus L)$, again by definition of $F$.
+
+Finally $F$ is essentially surjective on objects, because for all objects $B \in \mathbf{Set_*}$ there exists $A$ in $\mathbf{Par}$ such that $F(A)\cong B$. Specifically $A = B \setminus \{*\}$.
+
+So $\mathbf{Par}$ and $\mathbf{Set_*}$ are equivalent.
 \end {document}
