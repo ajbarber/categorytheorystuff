@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{parskip}
+\begin{document}
+
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 3}
+\author{Adam Barber}
+
+\maketitle
+
+\subsubsection*{3.1.1}
+
+There are bijections
+
+\begin{align*}
+  (A + B, C) &\leftrightarrow ((A,B), \Delta C) \\
+  f &\leftrightarrow \overline{f}
+\end{align*}
+
+where $\overline{f} = (f,f)$
+
+\begin{align*}
+  (\Delta A, (B, C)) &\leftrightarrow (A, B \times C) \\
+  g = (p,q) &\leftrightarrow \overline{g}
+\end{align*}
+
+where $\overline{g}(x) = (p(x), q(x))$
+
+So the sum is left adjoint to $\Delta$, and the product is its right adjoint.
+
+\subsubsection*{3.1.2}
+
+$x_0 = a$, and $x_{n+1} = r(x_n)$.
+
+We are given the definition of a sequence, where there is a unique function $x$ such that the square below commutes.
+
+\begin{center}
+\begin{tikzcd}
+  & \mathds{N} \arrow[d,"x"] \arrow[r, "s"] & \mathds{N} \arrow[d,"x"{name=G,right}]\\
+  & X \arrow[r,"r"] & X
+\end{tikzcd}
+\end{center}
+
+This is precisely the definition of the comma category $(\mathds{N} \Rightarrow X)$, where objects are $(n \in \mathds{N}, x, t \in X)$.
+
+\end {document}

@@ -272,7 +272,52 @@ Using first triangle inequality starting at point $F^*(Y)$ we have
 
 The other triangle follows similarly. So by Theorem 2.2.5 we have an adjunction between $F^*$ and $G^*$.
 
-\paragraph {2.3.12 }
+\subsubsection*{2.3.10}
+
+Equivalence between $(F, G, \eta, \epsilon)$ means for each $A$ the square below commutes.
+
+\begin{center}
+\begin{tikzcd}
+  & 1_A \arrow[d,"\alpha_A"] \arrow[r, "f"] & 1_{A^\prime} \arrow[d,"\alpha_{A^\prime}"{name=G,right}]\\
+  & GF(A) \arrow[r,"GF(f)"] & GF(A^\prime)
+\end{tikzcd}
+\end{center}
+
+as well as in the other direction, for all $A \in \mathcal{A}$, the below square commutes
+
+\begin{center}
+\begin{tikzcd}
+  & GF(A) \arrow[d,"\alpha_A^{-1}"] \arrow[r, "GF(f)"] & GF(A^\prime) \arrow[d,"\alpha_{A^\prime}^{-1}"{name=G,right}]\\
+  & A \arrow[r,"f"] & A^\prime
+\end{tikzcd}
+\end{center}
+
+For $F$ left adjoint to $G$ using the definition based upon initial objects, we require
+
+A map $(F(A), \eta_A) \rightarrow (B,f)$ in $(A \Rightarrow B)$ is a map $q\colon F(A) \rightarrow B$ in $\mathcal{B}$
+\begin{center}
+\begin{tikzcd}
+  A \arrow[r, "\eta_A"] \arrow[dr, "f"{name=H,below}, dashrightarrow] & GF(A) \arrow[d,"GF(q)"{name=U,right}] \\
+& G(B)
+\end{tikzcd}
+\end{center}
+
+that commutes. So we choose $GF(q) = f\alpha_A^{-1}$.
+
+\subsubsection*{2.3.11}
+
+A map $(F(S), \eta_S) \rightarrow (A,f)$ in $(S \Rightarrow U)$ is a map $q\colon F(S) \rightarrow A$ in $\mathcal{A}$
+
+\begin{center}
+\begin{tikzcd}
+  S \arrow[r, "\eta_S"] \arrow[dr, "f"{name=H,below}, dashrightarrow] & UF(S) \arrow[d,"U(q)"{name=U,right}] \\
+& U(A)
+\end{tikzcd}
+\end{center}
+
+$U(q) \circ \eta_S$ and $f$ commute. So in the case $f$ is injective, then $U(q) \circ \eta_S$ must be injective. This implies in turn that $\eta_S$ is injective.
+
+\subsubsection*{2.3.12 }
 
 \paragraph{Par}
 \begin{itemize}
@@ -294,6 +339,7 @@ $F\colon \mathbf{Par} \rightarrow \mathbf{Set_*}$
   \end{cases} \\
   F(X) &= X \cup \{*\} \; \text{on objects}
 \end{align*}
+\end {document}
 
 $G\colon \mathbf{Set_*} \rightarrow \mathbf{Par}$
 
