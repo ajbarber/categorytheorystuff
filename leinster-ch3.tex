@@ -48,4 +48,48 @@ We have $x_0 = a$, and $x_{n+1} = r(x_n)$.
 
 This is precisely the definition of the comma category $(\mathds{N} \Rightarrow X)$, where objects are $(n \in \mathds{N}, x, t \in X)$.
 
+\subsubsection*{3.2.12}
+\paragraph{(a)}
+
+\begin{align*}
+  \theta(S) = \bigcup \theta(R) \supseteq \bigcup R = S
+\end{align*}
+
+But $\theta^2(S) = \theta(S)$, so $\theta(S) \subseteq S$.
+
+Taken together, the above implies $\theta(S) = S$.
+
+\paragraph{(b)}
+\begin{align*}
+  A &\subseteq B \\
+  \implies fA &\subseteq fB \\
+  \implies gfA &\subseteq gfB \\
+\end{align*}
+
+$g$ and $f$ are taken to be injections here.
+
+So $gf$ is order preserving. Which means by (a) there is some $gf(S) = S$, $S \in A$.
+This implies $gf(A \setminus S) = A \setminus S$. Since $g$ is an injection $f(A \setminus S)$ = $B \setminus fS$, giving
+$ g(B \setminus fS) = A \setminus S.\; (*)$.
+
+\paragraph{(c)}
+
+So by the injectivity of $f$ and $g$ we can vary $A$ and $B$, leading to the isomorphism below
+\begin{align*}
+  (g \circ f)(A \setminus S) &= A \setminus S, \; \text{and} \\
+  (f \circ g)(B \setminus fS) &= B \setminus fS \\
+\end{align*}
+
+\subsubsection*{3.2.14}
+
+Need to prove that for any family $(A_i)_{i `\in I}$  of objects of $\mathcal{A}$, there is some object of $\mathcal{A}$ not isomorphic to $A_i$ for $i \in I$.
+It suffices to prove for $A$ in $F(S)$,  $F: \mathbf{Set} \rightarrow \mathcal{A}$, then we know the condition holds for $\mathcal{A}$. Now $UF$ is injective by Exercise 2.3.11,
+so $U$ is injective on objects $A$ of $F(S)$. So if $UA_i$ is not isomorphic to $UA_j$, this would imply $A_i$ is not isomorphic to $A_j$. So we need to prove for a given $i$,  $|UA_i| < |\mathcal{P}(UA)|$:
+
+\begin{equation*}
+  |UA_i| \leq |\Sigma UA_i| < |\mathcal{P}(UA)|
+\end{equation*}
+
+The strict equality due to Theorem 3.2.2.
+
 \end {document}
