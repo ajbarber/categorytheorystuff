@@ -66,19 +66,14 @@ Taken together, the above implies $\theta(S) = S$.
   \implies gfA &\subseteq gfB \\
 \end{align*}
 
-$g$ and $f$ are taken to be injections here.
+$g$ and $f$ are taken to be injections here. We need to prove there is a bijection between $A$ and $B$. \textbf{Note:} this does not follow immediately from $g$
+and $f$ being injections.
 
-So $gf$ is order preserving. Which means by (a) there is some $gf(S) = S$, $S \in A$.
-This implies $gf(A \setminus S) = A \setminus S$. Since $g$ is an injection $f(A \setminus S)$ = $B \setminus fS$, giving
-$ g(B \setminus fS) = A \setminus S.\; (*)$.
+So $gf$ is order preserving. Which means by (a) there is some $gf(S) = S$, $S \in A$. So we know how the bijection behaves on $S$, but we need to specify its behaviour for $A \setminus S$. Set $g(B) = A$. Then $g(B) - S = g(B) - gf(S) = g(B \setminus fS) = A \setminus S$. (*).
 
 \paragraph{(c)}
 
-So by the injectivity of $f$ and $g$ we can vary $A$ and $B$, leading to the isomorphism below
-\begin{align*}
-  (g \circ f)(A \setminus S) &= A \setminus S, \; \text{and} \\
-  (f \circ g)(B \setminus fS) &= B \setminus fS \\
-\end{align*}
+We need to prove surjectivity of $g$ to deduce the theorem. So for all $a \in A$ we need some $b$ such that $g(b) = a$. For $a \in S$ this holds immediately since $gf(S) = S$. For $a \in A \setminus S$, we have the equation for $g$ derived in (b).
 
 \subsubsection*{3.2.14}
 
