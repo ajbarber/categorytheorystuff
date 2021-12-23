@@ -69,11 +69,22 @@ Taken together, the above implies $\theta(S) = S$.
 $g$ and $f$ are taken to be injections here. We need to prove there is a bijection between $A$ and $B$. \textbf{Note:} this does not follow immediately from $g$
 and $f$ being injections.
 
-So $gf$ is order preserving. Which means by (a) there is some $gf(S) = S$, $S \in A$. So we know how the bijection behaves on $S$, but we need to specify its behaviour for $A \setminus S$. Set $g(B) = A$. Then $g(B) - S = g(B) - gf(S) = g(B \setminus fS) = A \setminus S$. (*).
+Take $\theta(S) = A - g(B \setminus fS)$. Then $S_1 \subseteq S_2 \implies \theta(S_1) \subseteq \theta(S_2)$. Since $f, g$ and hence $\theta$ is order preserving, we may apply the result in (a). Specifically, there exists $S$ such that $S = A - g(B \setminus fS) \implies g(B \setminus fS) = A \setminus S$.
 
 \paragraph{(c)}
 
-We need to prove surjectivity of $g$ to deduce the theorem. So for all $a \in A$ we need some $b$ such that $g(b) = a$. For $a \in S$ this holds immediately since $gf(S) = S$. For $a \in A \setminus S$, we have the equation for $g$ derived in (b).
+We need to prove a bijection between $A$ and $B$ to deduce the theorem. Consider $h\colon A \rightarrow B$
+
+\begin{align*}
+  h(x) &= \begin{cases}
+    f(x), & x \in S,  \\
+    g^{-1}(x), & x \in A \setminus S
+  \end{cases} \\
+\end{align*}
+
+$f$ has a codomain of $fS$, so every element of the codomain has a preimage in $S$. We are given that $f$ is injective.
+
+$g$ is injective and hence invertible. Using the result in (b) we have a direct expression for $g^{-1}$. Hence we have $gh = 1_A$, and $hg = 1_B$, for $x$ in $A \setminus S$.
 
 \subsubsection*{3.2.14}
 
