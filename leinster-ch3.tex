@@ -99,13 +99,16 @@ so $U$ is injective on objects $A$ of $F(S)$. So if $UA_i$ is not isomorphic to 
 The strict equality due to Theorem 3.2.2.
 
 \subsubsection*{3.2.15}
+
+The key point here is that $Set$ is not small. I think of $Set$ as a power set of an arbitrary family of sets, as in the proof for Proposition 3.2.4. Set is locally small however, as for any two objects $A$ and $B$, the functions between $A$ and $B$ form a set. This question is a little too wooly for me, I struggled, without the necessary background, to reason my way though so many ambiguities that presented themselves. Here is a shot.
+
 \paragraph{(a)}
 \textbf{Mon} is equivalent to a single object category, which is small. So \textbf{Mon} is essentially small.
 \paragraph{(b)}
-$\mathds{Z}$, the group of integers viewed as a one object category, is small. The maps between integers form a set, if $\mathds{Z}$ has $n$ elements, then the morphisms between them have $n^2$ elements.
+$\mathds{Z}$, the group of integers viewed as a one object category, is locally small. Groups are just an 'enriched' set.
 \paragraph{(c)}
-The ordered set of integers have one map between each so form a set, hence it is a small category.
-\paragraph{(d)} ??
-\paragraph{(e)} \textbf{Guess}. Same as (a). Cardinals are just a set, and morphisms between them form a set, so essentially small.
+The ordered set of integers still has a large class of isomorphism classes (?) My guess here is it locally small, as there is one map between each two objects.
+\paragraph{(d)} Using the existence of a left adjoint proved in 3.2.16, and the result of 3.2.14, tells us the class of isomorphism classes of \textbf{Cat} is large. So \textbf{Cat} is not essentially small. For locally small we would require the set of natural transformations between \textbf{Cat} and \textbf{Set} be a set. There is one component for each object in $\textbf{Cat}$ which is small, hence the morphisms form a single element set. $Cat$ is locally small. (?)
+\paragraph{(e)} \textbf{Guess}. Same reasoning as (a), locally small.
 
 \end {document}
