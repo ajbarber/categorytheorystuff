@@ -86,6 +86,8 @@ $f$ has a codomain of $fS$, so every element of the codomain has a preimage in $
 
 $g$ is injective and hence invertible. Using the result in (b) we have a direct expression for $g^{-1}$. Hence we have $gh = 1_A$, and $hg = 1_B$, for $x$ in $A \setminus S$.
 
+An alternative proof, has a similar basic idea, of partitioning the domain of the bijection around the fixed point. \textbf{Sketch proof} Set $A_0 = A$. $A_{i+1} = gfA_{i}$. Define $k(x) = gf(x)$ if $x \in A_{i}$ for some $i$, otherwise $k(x) = x$. To prove $k$ is surjective comes down to two cases. Suppose $y \in A_{n}$, for some $n$ then $A_{n-1}$ is the $x$-value such that $k(x) = y$. If $y$ is not in $A_{n}$ for any arbitrarily large $n$, then we must have $k(x) = x$.
+
 \subsubsection*{3.2.14}
 
 Need to prove that for any family $(A_i)_{i `\in I}$  of objects of $\mathcal{A}$, there is some object of $\mathcal{A}$ not isomorphic to $A_i$ for $i \in I$.
