@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{parskip}
+\begin{document}
+
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 3}
+\author{Adam Barber}
+
+\maketitle
+
+\subsubsection*{4.1.27}
+
+Take maps $f: A \rightarrow A^\prime$, and $g: A^\prime \rightarrow A$.
+
+The component of the natural transformation from $H_A$ to $H_{A^\prime}$  can be expressed $p \mapsto f \circ p$, where $p$ is $H_A(B), \;B \in \mathcal{A}$. The component of the natural transformation from $H_{A^\prime}$ to $H_A$ can be expressed $q \mapsto g \circ q$, where $q = H_{A^\prime}(B), \; B \in \mathcal{A}$.
+
+Composing these maps gives $q \mapsto f \circ g \circ q$. Since we are given $H_A \cong H_{A^\prime}$, this mapping is the identity, for all $B$ in $\mathcal{A}$. Applying any element of $B$ to both sides yields $fgA^\prime = A^\prime$. The other direction can be checked analogously. Hence $A \cong A^\prime$.
+
+
+\end {document}
