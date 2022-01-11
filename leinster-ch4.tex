@@ -15,11 +15,18 @@
 
 \subsubsection*{4.1.27}
 
-Take maps $f: A \rightarrow A^\prime$, and $g: A^\prime \rightarrow A$.
+Take maps $f: A \rightarrow A^\prime$, and $g: A^\prime \rightarrow A$. We need to show $f \circ g = 1_{A^\prime}$ and $g \circ f = 1_A$.
 
-The component of the natural transformation from $H_A$ to $H_{A^\prime}$  can be expressed $p \mapsto f \circ p$, where $p$ is $H_A(B), \;B \in \mathcal{A}$. The component of the natural transformation from $H_{A^\prime}$ to $H_A$ can be expressed $q \mapsto g \circ q$, where $q = H_{A^\prime}(B), \; B \in \mathcal{A}$.
+Fix a $B$ in $\mathcal{A}$. The component at $B$ of the natural transformation from $H_A$ to $H_{A^\prime}$  can be expressed $p \mapsto f \circ p$, where $p$ is $H_A(B)$. The component at $B$ of the natural transformation from $H_{A^\prime}$ to $H_A$ can be expressed $q \mapsto g \circ q$, where $q = H_{A^\prime}(B)$.
 
-Composing these maps gives $q \mapsto f \circ g \circ q$. Since we are given $H_A \cong H_{A^\prime}$, this mapping is the identity, for all $B$ in $\mathcal{A}$. Applying any element of $B$ to both sides yields $fgA^\prime = A^\prime$. The other direction can be checked analogously. Hence $A \cong A^\prime$.
+Composing these maps gives $q \mapsto f \circ g \circ q$. Since we are given $H_A \cong H_{A^\prime}$, this map is the identity
+
+\begin{equation}
+\label{eqn:4127a}
+   f \circ g = 1_{H_{A^\prime}(B)}.
+\end{equation}
+
+We can view equality of two functions as equality of two sets of ordered pairs. Each pair contains an element of domain and codomain. Equation (\ref{eqn:4127a}) holds for all $B$ in $\mathcal{A}$, the domain of the functions on left and right side.  Therefore the codomains on each side must be equal. So this equality can viewed as an equality of functions acting on $A^\prime$. We then have $fg = 1_{A^\prime}$. The other direction can be checked analogously. Hence $A \cong A^\prime$.
 
 
 \end {document}
