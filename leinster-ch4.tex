@@ -15,18 +15,32 @@
 
 \subsubsection*{4.1.27}
 
-Take maps $f: A \rightarrow A^\prime$, and $g: A^\prime \rightarrow A$. We need to show $f \circ g = 1_{A^\prime}$ and $g \circ f = 1_A$.
+Take the naturality square of $H_A$, and construct with $A, A^\prime$ in the following way.
+For every map $f: A \rightarrow A^\prime$, the following square commutes.
 
-Fix a $B$ in $\mathcal{A}$. The component at $B$ of the natural transformation from $H_A$ to $H_{A^\prime}$  can be expressed $p \mapsto f \circ p$, where $p$ is $H_A(B)$. The component at $B$ of the natural transformation from $H_{A^\prime}$ to $H_A$ can be expressed $q \mapsto g \circ q$, where $q = H_{A^\prime}(B)$.
+\begin{equation*}
+\begin{tikzcd}
+  & H_A(A) \arrow[d,"\alpha_A = f \circ \mathit{-}"] \arrow[r, "H_A(f) = \mathit{-} \circ f"] & H_A(A^\prime) \arrow[d,"\alpha_{A^\prime} = f \circ \mathit{-}"] \\
+  & H_{A^\prime}(A) \arrow[r,"H_{A^\prime}(f) = \mathit{-} \circ f"] & H_{A^\prime}(A^\prime)
+\end{tikzcd}
+\end{equation*}
 
-Composing these maps gives $q \mapsto f \circ g \circ q$. Since we are given $H_A \cong H_{A^\prime}$, this map is the identity
+Moreover, since $H_A \cong H_{A^\prime}$,  $\alpha_A$ is an isomorphism for every $A$ in the codomain of $f$. Consider the left hand side component $\alpha_A$, which represents a map of $\mathbf{1} \rightarrow H_{A^\prime}(A)$. Now a map of $\mathbf{1}$ into $\mathcal{A}$ is the same thing as an object of $\mathcal{A}$, so we take $\alpha_A = \mathcal{A}(A,A^\prime)$, that is $\alpha_A$ represents an isomorphism in $\mathcal{A}$, and $A \cong A^\prime$.
 
-\begin{equation}
-\label{eqn:4127a}
-   f \circ g = 1_{H_{A^\prime}(B)}.
-\end{equation}
+\subsubsection*{4.1.28}
 
-We can view equality of two functions as equality of two sets of ordered pairs. Each pair contains an element of domain and codomain. Equation (\ref{eqn:4127a}) holds for all $B$ in $\mathcal{A}$, the domain of the functions on left and right side.  Therefore the codomains on each side must be equal. So this equality can viewed as an equality of functions acting on $A^\prime$. We then have $fg = 1_{A^\prime}$. The other direction can be checked analogously. Hence $A \cong A^\prime$.
+Here we construct a bijection between the set $U_p(G)$ and a group homomorphism $\phi$.
+
+\begin{equation*}
+\begin{tikzcd}
+  & U_p(G) \arrow[d,"\alpha_G"] \arrow[r, "h"] & U_p(H) \arrow[d,"\alpha_{H}"] \\
+  & \mathbf{Grp}(\mathds{Z}/p\mathds{Z}, G) \arrow[r,"h"] & \mathbf{Grp}(\mathds{Z}/p\mathds{Z}, H)
+\end{tikzcd}
+\end{equation*}
+
+$U_p(G)$ is the set of $\{g \in G\colon g^p = 1\}$.
+
+For the present question, take an arbitrary $g$ in $G$. Set $\phi(1) = g$. By the properties of a homormorphism we shall see this maps the additive group $\mathds{Z}/p\mathds{Z}$ to $U_p(G)$. $\phi$ preserves the identity so $\phi(0) = 1$. Since $\phi(1 + 1) = g^2$, generally $\phi(n) = g^n$. So $\phi(p) = g^p = \phi(0) = 1$. So $\phi$ maps to a group with order $p$, or simply order $1$ if $g$ is the element of the trivial group. So $\mathds{Z}/p\mathds{Z}$ sees groups of order $p$ or 1. This result means we have the required bijection, $\alpha$ and $\alpha^{-1}$ in the diagram above. Observing the diagram we just need to specify how morphisms in $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, -)$ work. They are simply group homomorphisms $h$, that take $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, G)$ to $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, H)$. So referring to the diagram, naturality holds, and we can conclude $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, -)$ and $U_p$ are naturally isomorphic. \footnote{A well known result is as follows. For a group homomorphism $\psi: G_1 \rightarrow G_2$, let $g \in G_1$ be of finite order $n$. Then $\psi(g)$ divides the order of $g$. Because $g^n = e_1$ implies $\psi(g)^n = \psi(g^n) = \psi(e_1) = e_2$. So if $p$ is prime then the resulting homomorphism maps to a group of order $p$ or 1.}
 
 
 \end {document}
