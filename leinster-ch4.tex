@@ -8,24 +8,58 @@
 \usepackage{parskip}
 \begin{document}
 
-\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 3}
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 4}
 \author{Adam Barber}
 
 \maketitle
 
 \subsubsection*{4.1.27}
 
-Take the naturality square of $H_A$, and construct with $A, A^\prime$ in the following way.
-For every map $f: A \rightarrow A^\prime$, the following square commutes.
+$H_A$ is naturally isomorphic if and only if $\alpha_A: H_A(B) \rightarrow H_{A^\prime}(B)$ is isomorphic for all $B$ in $\mathcal{A}$.
+
+The naturality square of $H_A$ is constructed below.
+For every map $g: B^\prime \rightarrow B$, $B, B^\prime$ in $\mathcal{A}$, the following square commutes
 
 \begin{equation*}
 \begin{tikzcd}
-  & H_A(A) \arrow[d,"\alpha_A = f \circ \mathit{-}"] \arrow[r, "H_A(f) = \mathit{-} \circ f"] & H_A(A^\prime) \arrow[d,"\alpha_{A^\prime} = f \circ \mathit{-}"] \\
-  & H_{A^\prime}(A) \arrow[r,"H_{A^\prime}(f) = \mathit{-} \circ f"] & H_{A^\prime}(A^\prime)
+  & H_A(B) \arrow[d,"\alpha_A"] \arrow[r, "H_A(g) = \mathit{-} \circ g"] & H_A(B^\prime) \arrow[d,"\alpha_{A^\prime}"] \\
+  & H_{A^\prime}(B) \arrow[r,"H_{A^\prime}(g) = \mathit{-} \circ g"] & H_{A^\prime}(B^\prime)
 \end{tikzcd}
 \end{equation*}
 
-Moreover, since $H_A \cong H_{A^\prime}$,  $\alpha_A$ is an isomorphism for every $A$ in the codomain of $f$. Consider the left hand side component $\alpha_A$, which represents a map of $\mathbf{1} \rightarrow H_{A^\prime}(A)$. Now a map of $\mathbf{1}$ into $\mathcal{A}$ is the same thing as an object of $\mathcal{A}$, so we take $\alpha_A = \mathcal{A}(A,A^\prime)$, that is $\alpha_A$ represents an isomorphism in $\mathcal{A}$, and $A \cong A^\prime$.
+Moreover, since $H_A \cong H_{A^\prime}$,  $\alpha_A$ is an isomorphism for every $B$ in $\mathcal{A}$.
+
+Now consider the square below. For an arbitrary $B$ in $\mathcal{A}$ we need to show there is a bijection between the component $\alpha_A$ and a morphism $\overline{f}$ in $\mathcal{A}$.
+
+\begin{equation*}
+\begin{tikzcd}
+  & \mathcal{A}(B,A) \arrow[r, "\alpha_A = f \circ \mathit{-}"] & \mathcal{A}(B,A^\prime) \arrow[d,"(\mathit{-})(B)"] \\
+  & A \arrow[u,"(\mathit{-})^B"] \arrow[r,"\overline{f}"] & A^\prime
+\end{tikzcd}
+\end{equation*}
+
+But $(\mathit{-})^B$ and $(\mathit{-})(B)$ are unique and inverses so take $f,\overline{f}\colon A \rightarrow A^\prime$ as $\overline{f}(A) = f(A^B)(B) = A^\prime$ and  we have our required bijection, hence $A$ and $A^\prime$ are isomorphic. Note that the isomorphism of $\alpha_A$ must hold for all $B$ in $\mathcal{A}$. To see why, suppose there exists a $B$, such that $\alpha_A$ is a bijective morphism but not an isomorphism, then $\overline{f}$ is not an isomorphism, and we have a contradiction. Suppose, alternatively, there exists a $B$, such that $\alpha_A$ is not bijective, then our expression for $\overline{f}$ implies $\overline{f}$ is not bijective, and again we have a contradiction.
+
+\subsubsection*{4.1.27 - another less convoluted attempt}
+
+With $f\colon A \rightarrow B$, $A, B \in \mathcal{A}$ consider the following diagram
+
+\begin{equation*}
+\begin{tikzcd}
+  & H_A(B) \arrow[d,"\alpha_B"] \arrow[r, "\mathit{-} \circ f"] & H_A(A) \arrow[d,"\alpha_{A}"] \\
+  & H_{B}(B) \arrow[r,"\mathit{-} \circ f"] & H_{B}(A)
+\end{tikzcd}
+\end{equation*}
+
+We require $g \circ f = 1_A$ and $f \circ g = 1_B$.
+
+Set $g\colon B \rightarrow A$. By naturality above square commutes, so
+\begin{align*}
+  \alpha_A(g \circ f) &= (\alpha_B \circ g)(f),   \\
+  \alpha_A(g \circ f) &= 1_B(f), \\
+  g \circ f &= \alpha_A^{-1}1_Bf = 1_{H_A(A)} = 1_A, \\
+\end{align*}
+the last equality just being a matter of notation. The other direction proceeds analogously.
 
 \subsubsection*{4.1.28}
 
