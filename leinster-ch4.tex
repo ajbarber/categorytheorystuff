@@ -97,4 +97,22 @@ For $\alpha_R^{-1}$, we simply forget the ring structure by applying $U$.
 
 From (0.13) we have there exists a unique ring homomorphism $\phi\colon \mathds{Z}[x] \rightarrow R$ such that $\phi(x) = r$. One can observe this ring homomorphism is analogous to the group homormorphism in (4.1.28), it is completely determined by the choice of $\phi(x)$. So the maps $\mathbf{CRing}(\mathds{Z}[x], R)$ are essentially the same as elements of $R$, and the description of the bijection is complete. The only thing remaining is to verify naturality, which here boils down to the morphisms $h$ being the same, whether acting on sets or rings.
 
+\subsubsection*{4.1.30}
+
+Let $X$ be a topological space, and $S$ be the Sierpinski space.
+
+\begin{equation*}
+\begin{tikzcd}
+  & \mathcal{O}(X) \arrow[d,"\alpha_X"] \arrow[r, "g"] & \mathcal{O}(Y) \arrow[d,"\alpha_Y"] \\
+  & (f\colon X \rightarrow S) \arrow[r,"\mathit{-}\circ g"] & (fg\colon Y \rightarrow S)
+\end{tikzcd}
+\end{equation*}
+
+\textbf{Note:} A function $f$ from one topological space $X$ into another topological space $S$ is continuous if and only if for every open set $V$ in $S$, $f^{-1}(V)$ is open in $X$.
+
+Let $f$ be the continous map $f\colon X \rightarrow S$, let the singleton open set in the Sierpinski space $S$ be $V$. Since $f$ is continuous, we retrieve the open sets of $X$ by setting $\alpha_X^{-1} = f^{-1}(V)$.
+
+In the $\alpha_X$ direction take the open sets of $X$, $\overline{X} = \mathcal{O}(X)$ and map them to $V$. So $\alpha_X = \overline{X} \mapsto (\overline{X} \rightarrow V)$.
+
+To prove $\mathcal{O} \cong H_S$, we need to show the isomorphism is natural, specifically the square above commutes.
 \end {document}
