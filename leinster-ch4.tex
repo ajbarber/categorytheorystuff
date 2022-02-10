@@ -61,6 +61,10 @@ Set $g\colon B \rightarrow A$. By naturality above square commutes, so
 \end{align*}
 the last equality just being a matter of notation. The other direction proceeds analogously.
 
+\subsubsection*{4.1.27 - even shorter version}
+
+$H_A \cong H_{A^\prime}$. Both sides are functors from $\mathcal{A}^{op}$ to $\mathbf{Set}$. Functors preserve identity, so $H_A(A) = 1_{H_A(A)} = 1_A$, and similarly $H_{A^\prime}(A^\prime) = 1_{H_{A^\prime}(A^\prime)} = 1_{A^\prime}$. So $1_A \cong 1_{A^\prime}$.
+
 \subsubsection*{4.1.28}
 
 Here we construct a bijection between the set $U_p(G)$ and a group homomorphism $\phi$.
@@ -76,5 +80,21 @@ $U_p(G)$ is the set of $\{g \in G\colon g^p = 1\}$.
 
 For the present question, take an arbitrary $g$ in $G$. Set $\phi(1) = g$. By the properties of a homormorphism we shall see this maps the additive group $\mathds{Z}/p\mathds{Z}$ to $U_p(G)$. $\phi$ preserves the identity so $\phi(0) = 1$. Since $\phi(1 + 1) = g^2$, generally $\phi(n) = g^n$. So $\phi(p) = g^p = \phi(0) = 1$. So $\phi$ maps to a group with order $p$, or simply order $1$ if $g$ is the element of the trivial group. So $\mathds{Z}/p\mathds{Z}$ sees groups of order $p$ or 1. This result means we have the required bijection, $\alpha$ and $\alpha^{-1}$ in the diagram above. Observing the diagram we just need to specify how morphisms in $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, -)$ work. They are simply group homomorphisms $h$, that take $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, G)$ to $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, H)$. So referring to the diagram, naturality holds, and we can conclude $\mathbf{Grp}(\mathds{Z}/p\mathds{Z}, -)$ and $U_p$ are naturally isomorphic. \footnote{A well known result is as follows. For a group homomorphism $\psi: G_1 \rightarrow G_2$, let $g \in G_1$ be of finite order $n$. Then $\psi(g)$ divides the order of $g$. Because $g^n = e_1$ implies $\psi(g)^n = \psi(g^n) = \psi(e_1) = e_2$. So if $p$ is prime then the resulting homomorphism maps to a group of order $p$ or 1.}
 
+\subsubsection*{4.1.29}
+
+Here we show a natural isomorphism between $\mathbf{CRing} \rightarrow \mathbf{Set}$ and $\mathbf{CRing}(\mathds{Z}[x],\mathit{-})$. Let $R$ be a ring, and $h\colon R \rightarrow S$ be a ring homomorphism.
+
+\begin{equation*}
+\begin{tikzcd}
+  & U(R) \arrow[d,"\alpha_R"] \arrow[r, "h"] & U(S) \arrow[d,"\alpha_S"] \\
+  & \mathbf{CRing}(\mathds{Z}[x], R) \arrow[r,"h"] & \mathbf{CRing}(\mathds{Z}[x], S)
+\end{tikzcd}
+\end{equation*}
+
+For $\alpha_R$, we only require the \textbf{elements} of $r \in U(R)$ to construct the ring homomorphism from $\mathds{Z}[x]$ to $R$.
+
+For $\alpha_R^{-1}$, we simply forget the ring structure by applying $U$.
+
+From (0.13) we have there exists a unique ring homomorphism $\phi\colon \mathds{Z}[x] \rightarrow R$ such that $\phi(x) = r$. One can observe this ring homomorphism is analogous to the group homormorphism in (4.1.28), it is completely determined by the choice of $\phi(x)$. So the maps $\mathbf{CRing}(\mathds{Z}[x], R)$ are essentially the same as elements of $R$, and the description of the bijection is complete. The only thing remaining is to verify naturality, which here boils down to the morphisms $h$ being the same, whether acting on sets or rings.
 
 \end {document}
