@@ -103,7 +103,7 @@ Let $X$ be a topological space, and $S$ be the Sierpinski space.
 
 \begin{equation*}
 \begin{tikzcd}
-  & \mathcal{O}(X) \arrow[d,"\alpha_X"] \arrow[r, "g"] & \mathcal{O}(Y) \arrow[d,"\alpha_Y"] \\
+  & O(X) \arrow[d,"\alpha_X"] \arrow[r, "\mathcal{O}(g)"] & \mathcal{O}(Y) \arrow[d,"\alpha_Y"] \\
   & (f\colon X \rightarrow S) \arrow[r,"\mathit{-}\circ g"] & (fg\colon Y \rightarrow S)
 \end{tikzcd}
 \end{equation*}
@@ -114,5 +114,5 @@ Let $f$ be the continous map $f\colon X \rightarrow S$, let the singleton open s
 
 In the $\alpha_X$ direction take the open sets of $X$, $\overline{X} = \mathcal{O}(X)$ and map them to $V$. So $\alpha_X = \overline{X} \mapsto (\overline{X} \rightarrow V)$.
 
-To prove $\mathcal{O} \cong H_S$, we need to show the isomorphism is natural, specifically the square above commutes.
+To prove $\mathcal{O} \cong H_S$, we need to show the isomorphism is natural, specifically the square above commutes. But in the category $Top$ the morphisms are defined as the continous functions, so there is a one to one correspondence between $\mathcal{O}(g)$ and $\mathit{-} \circ g$, and the square indeed commutes.
 \end {document}
