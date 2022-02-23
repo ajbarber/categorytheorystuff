@@ -115,4 +115,40 @@ Let $f$ be the continous map $f\colon X \rightarrow S$, let the singleton open s
 In the $\alpha_X$ direction take the open sets of $X$, $\overline{X} = \mathcal{O}(X)$ and map them to $V$. So $\alpha_X = \overline{X} \mapsto (\overline{X} \rightarrow V)$.
 
 To prove $\mathcal{O} \cong H_S$, we need to show the isomorphism is natural, specifically the square above commutes. But in the category $Top$ the morphisms are defined as the continous functions, so there is a one to one correspondence between $\mathcal{O}(g)$ and $\mathit{-} \circ g$, and the square indeed commutes.
+
+\subsubsection*{4.1.32}
+
+The naturality square of the composite functors, with $f: A^\prime \rightarrow A$, and $g: B \rightarrow B^\prime, p\colon A\rightarrow B$
+
+\begin{equation*}
+\begin{tikzcd}
+  & \mathcal{B}(F(A),B) \arrow[d,"\alpha_{A,B}"] \arrow[r, "g \circ \mathit{-} \circ f"] & \mathcal{B}(F(A^\prime),B^\prime) \arrow[d,"\alpha_{A^\prime,B^\prime}"] \\
+  & \mathcal{A}(A,G(B)) \arrow[r,"g \circ \mathit{-} \circ f"] & \mathcal{A}(A^\prime,G(B^\prime))
+\end{tikzcd}
+\end{equation*}
+
+
+Maps in $\mathcal{B}(F(\mathit{-}),\mathit{-})$, represented by the top row, are
+\begin{equation}
+\label{eqn:41321}
+F(A) \xrightarrow{Ff} F(A^\prime)\xrightarrow{q} B\xrightarrow{g} B^\prime.
+\end{equation}
+
+Maps in $\mathcal{A}(\mathit{-},G(\mathit{-}))$, represented by the bottom row, are
+\begin{equation}
+\label{eqn:41322}
+  A \xrightarrow{f} A^\prime \xrightarrow{p} G(B) \xrightarrow{Gg} G(B^\prime).
+\end{equation}
+
+If the above square is a natural isomorphism, then the $\alpha$ are invertible for all $f, g$, and $p$. Equivalently the maps (\ref{eqn:41321}) and (\ref{eqn:41322}) are one to one.
+
+In the other direction, if $F$ and $G$ are adjoint, then the $\alpha$ are one to one, for all $f, g$, by definition of adjointness (2.1). Also (\ref{eqn:41321}) and (\ref{eqn:41322}) are one to one by the result of Exercise 2.1.14. Hence natural isomorphism between $\mathcal{B}(F(\mathit{-}),\mathit{-})$ and $\mathcal{A}(\mathit{-},G(\mathit{-}))$ follows.
+
+\subsubsection*{4.2.3}
+
+Definition of functor $M^{op} \rightarrow \mathbf{Set}$. There is a single object in $M$, the underlying set of the group. So the functor is determined by its effect on morphisms. \textbf{Note: }Morphisms in the group category are simply elements of the group. So the functor $F(m)(x) = x \cdot m$. The contravariant nature of the functor is convention, because we are right applying the group action, rather than left.
+
+\paragraph{(a)} Since $M$ has only one object, then every other functor out of $M$, is isomorphic to $F(m)$ above. So the $F(m)$ is the unique representable functor, up to isomorphism.
+
+
 \end {document}
