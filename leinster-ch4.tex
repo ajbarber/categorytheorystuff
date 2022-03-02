@@ -146,9 +146,20 @@ In the other direction, if $F$ and $G$ are adjoint, then the $\alpha$ are one to
 
 \subsubsection*{4.2.3}
 
-Definition of functor $M^{op} \rightarrow \mathbf{Set}$. There is a single object in $M$, the underlying set of the group. So the functor is determined by its effect on morphisms. \textbf{Note: }Morphisms in the group category are simply elements of the group. So the functor $F(m)(x) = x \cdot m$. The contravariant nature of the functor is convention, because we are right applying the group action, rather than left.
+Definition of functor $M^{op} \rightarrow \mathbf{Set}$. There is a single object in $M$, the underlying set of the group. So the functor is determined by its effect on morphisms. \textbf{Note: }Morphisms in the group category are simply elements of the group. So the functor is described as $F(m)(x) = x \cdot m$. The contravariant nature of the functor is convention, because we are right applying the group action, rather than left.
 
 \paragraph{(a)} Since $M$ has only one object, then every other functor out of $M$, is isomorphic to $F(m)$ above. So the $F(m)$ is the unique representable functor, up to isomorphism.
 
+\paragraph{(b)} Set $\alpha\colon \underline{M}  \rightarrow X$ to be $\alpha(1) = x \cdot m$ for all $m \in M$. Morphisms of $G$-sets preserve the group action, but have the equivariant property. Specifically, for $\alpha$, we require $\alpha(x) \cdot g = \alpha (x \cdot g)$, for all $x, g$. We have
+\begin{equation}
+\label{eqn:4231}
+\begin{aligned}
+  \alpha(m) &= \alpha(1) \cdot m \\
+  \alpha(m^2) &= \alpha(1) \cdot m^2 \\
+  \alpha(m^3) &= \alpha(1) \cdot m^3 \\
+  \; \vdots
+\end{aligned}
+\end{equation}
+So fixing $\alpha(1) = x$ fully determines the $M$-set map, which is unique. To see it is unique assume there is another map $\beta(1) = x$, then apply (\ref{eqn:4231}) analogously to recover $\beta = \alpha$.
 
 \end {document}
