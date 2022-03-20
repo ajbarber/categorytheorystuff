@@ -162,4 +162,31 @@ Definition of functor $M^{op} \rightarrow \mathbf{Set}$. There is a single objec
 \end{equation}
 So fixing $\alpha(1) = x$ fully determines the $M$-set map, which is unique. To see it is unique assume there is another map $\beta(1) = x$, then apply (\ref{eqn:4231}) analogously to recover $\beta = \alpha$.
 
+\subsubsection*{4.3.15}
+
+\paragraph{(a)}
+$J(f)$ is an isomorphism so for $A, B \in \mathcal{A}$, $J(f)J(g) = 1_{J(B)}$, and $J(g)J(f) = 1_{J(A)}$. By the functor laws $J(f)J(g)=J(fg)=1_{J(B)}=J(1_B) \iff fg = 1_B$, for a given $A, B \in \mathcal{A}$. The expression for $gf$ proceeds analogously.
+
+\paragraph{(b)} Follows from (a) and full and faithfulness.
+
+\paragraph{(c)} If objects $A$ and $A^\prime$ are isomorphic, then there are maps $f\colon A \rightarrow A^\prime$, and $g\colon A^\prime \rightarrow A$ such that $fg = 1_A$, $gf=1_{A^\prime}$. The existence of $f, g$ imply isomorphisms $J(f), J(g)$ in $\mathcal{B}$ by (a), and hence objects $J(A), J(A^\prime)$ in $\mathcal{B}$ which are isomorphic. The other direction proceeds similarly.
+
+\subsubsection*{4.3.16}
+
+\paragraph{(a)}
+
+Need to show that for $f \rightarrow H_f$, $f \neq g \implies H_f \neq H_g$. $H_f$ is defined as $p \mapsto f \circ p$, where $H_A(B) = p$. Consider $H_f$ at $B=A$, then $p=1_A$ and if $f \neq g$, indeed $H_f(1_A) \neq H_g(1_A)$
+
+\paragraph{(b)}
+Take $f: A \rightarrow A^{\prime}$. We need to show for every $H_f$, there is an inducing $f$.
+
+With $g: B \rightarrow A$ in the following naturality diagram, observe that by naturality of $H_A$, $f$ is one to one with $H_f$.
+
+\begin{equation*}
+\begin{tikzcd}
+  & H_A(A) \arrow[d,"H_f(1_A) = f"] \arrow[r, "\mathit{-} \circ g"] & H_A(B) \arrow[d,"H_f"] \\
+  & H_{A^\prime}(A) \arrow[r,"\mathit{-} \circ g"] & H_{A^\prime}(B))
+\end{tikzcd}
+\end{equation*}
+
 \end {document}
