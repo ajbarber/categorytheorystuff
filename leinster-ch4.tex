@@ -189,4 +189,43 @@ With $g: B \rightarrow A$ in the following naturality diagram, observe that by n
 \end{tikzcd}
 \end{equation*}
 
+\paragraph{(c)}
+
+The universal quality of $X\colon \mathcal{A^{\text{op}}} \rightarrow \textbf{Set}$ states a representation of $X$ consists of an object $A \in \mathcal{A}$, together with an  element $u \in X(A)$, such that
+\textit{for each $B$ in $\mathcal{A}$, there is a unique map $\overline{x}\colon \mathcal{B} \rightarrow \mathcal{A}$ such that $X\overline{x}(u) = x$.}  So fixing $A$, and taking $\overline{x}=f\colon \mathcal{B} \rightarrow \mathcal{A}$, maps $f$ are in bijection with maps $Xf$. And maps $f$ are in bijection with $H_f$. The isomorphism between $H_A$ and $X$ is made clear by the following diagram. For a $A^\prime \in \mathcal{A}$:
+
+\begin{equation*}
+\begin{tikzcd}
+  & H_A(A^\prime) \arrow[d, <->] \arrow[r, "H_f"] & H_{B}(A^\prime) \arrow[d, <->] \\
+  & A \arrow[d, <->] \arrow[r,"f"] & B \arrow[d, <->] \\
+  & X(A) \arrow[r, "Xf", {description}] & X(B)
+\end{tikzcd}
+\end{equation*}
+
+Noting the both $H_A$ and $X$ are contravariant functors.
+
+\subsubsection*{4.3.18}
+
+\paragraph{(a)}
+
+We are given $J\colon \mathcal{C} \rightarrow \mathcal{D}$ is fully faithful. We need to show $\mathit{-} \mapsto J \circ \mathit{-}$ is fully faithful. In a functor category this means that for a given pair of functors $F, F^\prime$ in $[\mathcal{B,C}]$,  the natural transformation in $[\mathcal{B,C}]$ is in one to one correspondence with the natural transformation between $J \circ F$ and $J \circ F^\prime$ in $[\mathcal{B},\mathcal{D}]$. The proof is best illustrated graphically:
+
+Let $f$ be a morphism in $\mathcal{B}$.
+
+\begin{tikzcd} [sep = .5 cm]
+& & & F(B) \arrow [dl, dotted, red] \arrow [rr, "Ff"] \arrow [dd,"\alpha{B}"] & & F^\prime(B) \arrow [dl, dotted, red, "J"] \arrow [dd, "\alpha_{B^\prime}"] \\
+& & J \circ F(B) \arrow [rr, "JFf" {description, right}, crossing over] & & J \circ F(B^\prime) \\
+& & & F^\prime(B) \arrow [dl, dotted, red] \arrow [rr,"F^\prime f" {description}] & & F^\prime(B) \arrow [dl, dotted, red] \\
+& & J\circ F^\prime(B) \arrow [rr, "JF^\prime f" {description, right}] \arrow [from = uu, crossing over] & & J \circ F(B^\prime) \arrow [from = uu, crossing over]\\
+\end{tikzcd}
+
+In the figure above, the mapping $Ff$, $JFf$ are one to one, by full and faithfulness of $J$. By the same reasoning, the rest of the mappings in the foremost square are one to one their respective mapping in the square behind. The diagram shows the one to one relationship between natural transformations between $F$  and $F^\prime$, and $J\circ F$ and $J \circ F^\prime$.
+\paragraph{(b)}
+
+Follows from Lemma 4.3.8 (c).
+
+\paragraph{(c)}
+
+We have $F \dashv G$, and $F \dashv G^\prime$. So $\mathcal{A}(A, G(B)) \cong \mathcal{B}(F(A),B) \cong \mathcal{A}(A,G^\prime(B))$, naturally in $A, B$.  Considering  the morphisms in $\mathcal{A}$, this can be written $H_{GB} \cong H_{G^\prime B}$, naturally in $A \in \mathcal{A}, B \in \mathcal{B}$. Alternatively this can be expressed as an application of the Yoneda embedding, $H_\bullet$. Specifically $H_{\bullet}\circ G(B) \cong H_{\bullet} \circ G^\prime(B)$, for all $B \in \mathcal{B}$, naturally.\footnote{Here $H_\bullet$ encapsulates the naturality in $A$ of this isomorphism} So we have $H_{\bullet} \circ G \cong H_{\bullet} \circ G^\prime$, and by (b) $G \cong G^\prime$.
+
 \end {document}
