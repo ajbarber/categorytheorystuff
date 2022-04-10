@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{parskip}
+\begin{document}
+
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 5}
+\author{Adam Barber}
+
+\maketitle
+
+\subsubsection*{4.1.27}
+
+Suppose the right hand square is a pullback. We need to prove the left hand square is a pullback if and only if the full rectangle, which composes both squares, is a pullback.
+
+\paragraph{Only if}
+
+Assume the left hand square and right hand squares are pullbacks. Show full rectangle is a pullback, that is show $g_1 = p_{2\cdot}p_{12}\overline{f}$, and $f_2 = p_{1\cdot}\overline{f}$
+
+\begin{tikzcd}
+A
+\arrow[drr, bend left, "f_1"]
+\arrow[drr, "\overline{g}", dashed, yshift=0.2ex, red]
+\arrow[ddr, bend right, "f_2"]
+\arrow[dr, dashed, "\overline{f}" description]
+\arrow[drrr, bend left=50, dotted, red, yshift=0.3ex, "g_1"]
+\arrow[ddrr, bend right=90, dotted, red, yshift=-0.8ex, "g_2"'] & & \\
+& P_1 \arrow[r, "p_{12}"] \arrow[d, "p_{1\cdot}"] & P_2 \arrow[r, "p_{2\cdot}", red] \arrow[d, "", red]
+& \cdot \arrow[d, "" , red] \\
+& \cdot \arrow[r, ""] & \cdot \arrow[r, "", red]
+& \cdot
+\end{tikzcd}
+
+\textbf{Left square pullback (black):} For any $f_1$ and $f_2$, there is a unique map $\overline{f}$ such that the left square above commutes.
+
+\textbf{Right square pullback (red):}  For any $g_1$ and $g_2$, there is a unique $\overline{g}$ such that the red diagram commutes.
+
+Due to the left hand square being a pullback, for each $f_1$, and $f_2$, there is a unique map $\overline{f}$ such that $f_2 = p_{1\cdot}\overline{f}$ and $f_1 = p_{12}\overline{f}$. Set $f_1 = \overline{g}$.   From the right hand side being a pullback,  $g_1 = p_{2\cdot}\overline{g}=p_{2\cdot}p_{12}\overline{f}$ as required.
+
+\paragraph{If}
+
+Assume the outer rectangle and right hand square are both pullbacks. Show the left hand side square is a pullback, that is $f_1 = p_{12}\overline{h}$, and $h_2=p_{1\cdot}\overline{h}$, for any $f_1,  h_2$.
+
+\begin{tikzcd}
+A
+\arrow[drrr, bend left, "h_1"]
+\arrow[drr, "\overline{g}", yshift=0.2ex, dotted, red]
+\arrow[ddr, bend right, "h_2"]
+\arrow[dr, dotted, "\overline{h}" description]
+\arrow[drrr, bend left=50, dotted, red, yshift=0.5ex, "g_1"]
+\arrow[ddrr, bend right=90, dotted, red, yshift=-0.8ex, "g_2"'] & & \\
+& P_1 \arrow[r, "p_{12}"] \arrow[d, "p{1\cdot}"] & P_2 \arrow[r, "p_{2\cdot}"] \arrow[d, ""]
+& \cdot \arrow[d, ""] \\
+& \cdot \arrow[r, ""] & \cdot \arrow[r, ""]
+& \cdot
+\end{tikzcd}
+
+\textbf{Full rectangle pullback (black):}  For any $h_1$ and $h_2$, there is a unique $\overline{h}$ such that the black diagram commutes.
+
+Since the right hand square is a pullback, for any $g_1$, there is a unique $\overline{g}$ such that $g_1 = p_{2\cdot}\overline{g}$. Since the rectangle is a pullback, for any $h_1$, there exists a unique $\overline{h}$ such that $p_{2\cdot}p_{12}\overline{h} = h_1$, and $p_{1\cdot}\overline{h} = h_2$. Set $g_1=h_1$, then $p_{2\cdot}p_{12}\overline{h} = p_{2\cdot}\overline{g}$, so $p_{12}\overline{h} = \overline{g}$. $\overline{g}$ can be regarded as an arbitrary $f_1$, as there is a one to one correspondence with $\overline{g}$ and the arbitrary choice of $g_1$, or equivalently, $h_1$.
+
+\end {document}
