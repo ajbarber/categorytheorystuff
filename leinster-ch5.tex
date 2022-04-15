@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{dsfont}
 \usepackage{tikz-cd}
 \usetikzlibrary{matrix}
@@ -69,4 +70,83 @@ A
 
 Since the right hand square is a pullback, for any $g_1$, there is a unique $\overline{g}$ such that $g_1 = p_{2\cdot}\overline{g}$. Since the rectangle is a pullback, for any $h_1$, there exists a unique $\overline{h}$ such that $p_{2\cdot}p_{12}\overline{h} = h_1$, and $p_{1\cdot}\overline{h} = h_2$. Set $g_1=h_1$, then $p_{2\cdot}p_{12}\overline{h} = p_{2\cdot}\overline{g}$, so $p_{12}\overline{h} = \overline{g}$. $\overline{g}$ can be regarded as an arbitrary $f_1$, as there is a one to one correspondence with $\overline{g}$ and the arbitrary choice of $g_1$, or equivalently, $h_1$.
 
+\subsubsection*{5.1.36}
+
+\paragraph{(a)}
+
+If $(L \xrightarrow{p_I} D(I))_{i \in I}$ is a limit cone, there exists a unique $h$ such that $p_I \circ h = f_I$. However we are given that $p_I \circ h = p_I \circ h^\prime = f_I$, so $h$ must equal $h^\prime$.
+
+\paragraph{(b)}
+
+When $I$ is the two object discrete category, say $X \times Y$, $\mathcal{A}=\mathbf{Set}$, and $A=1$, the statement in (a) says if $x = x^\prime, y = y^\prime$, then $(x, y) = (x^\prime, y^\prime)$.
+
+\subsubsection*{5.1.37}
+
+For any $A \in \mathcal{A}$, and all maps $I \xrightarrow{u} J$, a cone on D is
+
+\begin{equation}
+\label{eqn:5137}
+\begin{tikzcd}
+A \arrow{r}{f_I} \arrow{rd}{f_J}
+  & D(I) \arrow{d}{Du} \\
+    & D(J)
+  \end{tikzcd}
+\end{equation}
+
+A limit of $D$ is a cone $(L \xrightarrow{p_I} D(I))_{I \in \mathbf{I}}$, such that for any cone on $D$ with vertex A (\ref{eqn:5137}), there exists a unique map $\overline{f}\colon A \rightarrow L$ such that $p_J \circ \overline{f} = f_J$, for all $J \in \mathbf{I}$.
+
+We have the set $\{ (x_I)_{I \in \mathbf{I}} | x_I \in D(I) \text{ for all } I\in \mathbf{I} \text{ and } (Du)(x_I)=x_J, \text{ for all } I \xrightarrow{u} J in \mathbf{I} \}.$ The product limit formed is easier seen graphically.
+
+\begin{tikzcd}
+A \arrow{r}{f_I} \arrow{rd}{f_J}
+  & D(I) \arrow{d}{Du} \\
+    & D(J)
+  \end{tikzcd}
+
+
+Then fix $p_J = Du$, $\overline{f}=f_I$,  and we have from definition of a cone and (\ref{eqn:5137}) above $p_J \circ \overline{f} = f_J$, for all $J \in \mathbf{I}$. $\overline{f}$ is also unique. To see this assume there are two maps $\overline{f}$ and $\overline{f}^\prime$, that make the above triangle commute. Then $Du \circ \overline{f} = Du \circ  \overline{f}^\prime$, for all maps $I \rightarrow J$. Set $I=J$ to retrieve $\overline{f} = \overline{f}^\prime$.
+
+So if any cone exists in $\mathbf{Set}$, then a limit exists. Does a cone always exist in $\mathbf{Set}$?
+
+\subsubsection*{5.1.38}
+\paragraph{(a)}
+
+We are given maps $s$ and $t$,
+
+\begin{equation*}
+  \prod_{I \in \mathbf{I}} D(I) \mathop{\rightrightarrows}_t^{s} \prod_{J \xrightarrow{u} K \text{ in } \mathbf{I}} D(K)
+\end{equation*}
+
+The $u$-component of $s$ is the composite
+\begin{equation*}
+  \prod_{I \in \mathbf{I}}D(I) \xrightarrow{pr_J} D(J) \xrightarrow{Du} D(K)
+\end{equation*}
+
+The $u$-component of $t$ is $pr_K$.
+
+The fork property of the equalizer, says that the below diagram commutes for all maps $u$, $J \xrightarrow{u} K \text{ in } \mathbf{I}$, essentially that maps $(A \rightarrow D(J))_{J \in \mathbf{I}}$ are a cone on $D$.
+
+\begin{equation}
+\label{eqn:5138a}
+\begin{tikzcd}
+  A \arrow{d} &\\
+  \prod_{I \in \mathbf{I}}D(I) \arrow{r}{pr_J} \arrow{rd}{pr_K}
+  & D(J) \arrow{d}{Du} \\
+    & D(K)
+  \end{tikzcd}
+\end{equation}
+
+The other important property of the equalizer is that for any fork, or as above, cone, there exists a unique map $\overline{f} \colon A \rightarrow L$ such that
+
+\begin{equation}
+\label{eqn:5138b}
+\begin{tikzcd}
+  A \arrow{d}{\overline{f}} \arrow{dr}{f} & \\
+  L \arrow{r}{i} & \prod_{I \in \mathbf{I}}D(I)
+\end{tikzcd}
+\end{equation}
+
+commutes.
+
+Now $(L \xrightarrow{pr_J \circ i} D(J))_{J \in \mathbf{J}}$ is a cone, as it factors through $\prod_{I \in \mathbf{I}}D(I)$, as $A$ does in (\ref{eqn:5138a}). (\ref{eqn:5138b}) also implies $pr_J \circ i \circ \overline{f} = f_J$ for all $J$, where $f_J \colon A \rightarrow D(J) = pr_J \circ f$.
 \end {document}
