@@ -156,4 +156,26 @@ The definition of a finite limit is a limit of shape $\mathbf{I}$ for some finit
 
 \subsubsection*{5.1.39}
 
-\end {document}
+A pullback (5.7) from page 114, with $Z$ as the terminal object, collapses to a binary product. The key point here is that the limit is unique up to isomorphism, so limits in a category with pullbacks and a terminal object are binary products, and hence finite.
+
+\subsubsection*{5.1.40}
+
+We are given $X \xrightarrow{m} A$, and $X^\prime \xrightarrow{m^\prime} A$ are monics in $\mathbf{Set}$. $\mathbf{Monic}(A)$ is the full subcategory of the slice category $\mathcal{A} / A$, whose objects have as their maps the monics. Recall in $\mathcal {A}/A$, objects are tuples $(X, m)$ such that the following diagram commutes
+\begin{equation*}
+\begin{tikzcd}
+X \arrow{dr}{m} \arrow{rr}{f}
+& & X^\prime \arrow{dl}{m^\prime} \\
+& A
+\end{tikzcd}
+\end{equation*}
+
+\paragraph{Isomorphic implies equal images:}
+Note that if $m$ and $m^\prime$ are isomorphic, then $f$ must be a bijection. The bijection can then be written $m = m^\prime \circ f$, and $m^\prime = m \circ f^{-1}$. Note also the m$m$ and $m\prime$, by virtue of them as monics, are injective. \textbf{Intuition:} We can essentially roundtrip on the triangle above, starting from an element in the image of $m$ (or conversely $m^\prime$), and map it to an element in the image of $m^\prime$ (respectively $m$).  Explicitly we can write $\{ m(x), x \in X \} = \{ m^\prime \circ f (x), x \in X \} = \{ m^\prime (x), x \in X^\prime \}$.
+
+\paragraph{Equal images implies isomorphic:}
+
+If images of $m$ and $m^\prime$ are equal,
+
+$|{m^{\prime}}^{-1}(A)| = |m^{-1}(A)|$, which implies a bijection between $X$ and $X^\prime$, and hence a bijection between maps $m$ and $m^\prime$ as in the previous paragraph.
+
+\end{document}
