@@ -178,4 +178,29 @@ If images of $m$ and $m^\prime$ are equal,
 
 $|{m^{\prime}}^{-1}(A)| = |m^{-1}(A)|$, which implies a bijection between $X$ and $X^\prime$, and hence a bijection between maps $m$ and $m^\prime$ as in the previous paragraph.
 
+\subsubsection*{5.1.42}
+
+The given square is a pullback, which means any other commuting square factors through it as follows.
+
+\begin{equation*}
+\begin{tikzcd}
+Y
+\arrow[drr, bend left, "f \overline{f}"]
+\arrow[ddr, bend right, "m^\prime\overline{f}"]
+\arrow[dr, dashed, "\overline{f}" description] & \\
+& X^\prime \arrow[r, "f"] \arrow[d, "m^\prime"]
+& X \arrow[d,"m"] \\
+& A^\prime \arrow[r, "f^\prime"]
+& A
+\end{tikzcd}
+\end{equation*}
+
+We know from the properties of a pullback that $\overline{f}: Y \rightarrow X^\prime$ is unique for each distinct pair of maps, $Y \rightarrow X$, and $Y \rightarrow A^\prime$, such that the diagram above commutes.
+
+\paragraph{Proof by contradiction}
+
+Now we know $m$ is monic, so consider two distinct $\overline{f}_1$ and $\overline{f}_2$ in respect of two commuting diagrams as above. There must indeed be two distinct $mf\overline{f}_1 \neq mf\overline{f}_2$, such that each respective diagram commutes.
+
+Now assume $m^\prime$ is not monic to try and force a contradiction. Specifically assume $\overline{f}_1 \neq \overline{f}_2 \implies m^\prime\overline{f}_1 =m^\prime\overline{f}_2$. Then only one of the two diagrams commutes and we have a contradiction. $m^\prime$ must be monic.
+
 \end{document}
