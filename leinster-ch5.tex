@@ -225,4 +225,39 @@ In the following we use the contrapositive form of monic, so for maps $x, x^\pri
 
 Now we know $m$ is monic, so consider two distinct $\overline{f}_1$ and $\overline{f}_2$ in respect of two commuting diagrams as above. There must indeed be two distinct $mf\overline{f}_1 \neq mf\overline{f}_2$, such that each respective diagram commutes. Since the outer arrows commute, $mf\overline{f}_1 = f^\prime m^\prime \overline{f}_1$, and $mf\overline{f}_2 = f^\prime m^\prime \overline{f}_2$. So $f^\prime m^\prime \overline{f}_1 \neq f^\prime m^\prime \overline{f}_2 \implies m^\prime \overline{f}_1 \neq m^\prime \overline{f}_2$, and $m^\prime$ is monic.
 
+\subsubsection*{5.1.42}
+
+The equaliser is a map $f$ below such that $si = ti$, together with a universal property. The coequaliser is a map $p$ satisfying $ps=pt$, and universal with this property.
+
+\begin{equation*}
+\begin{tikzcd}
+E  \ar[r,"i"] &
+X \ar[r,shift left=.75ex,"s"]
+  \ar[r,shift right=.75ex,swap,"t"] & Y
+  \ar[r,"p"] & C
+\end{tikzcd}
+\end{equation*}
+
+If $f$ is isomorphic then there is a $\overline{f}$ such that $f\overline{f}=1_E, \overline{f}f=1_X$, so $sf\overline{f} = s = tf\overline{f}=t$.
+
+In the opposite direction, we need to show if $s=t$, then the equaliser exists and is isomorphic. To do this we will use the universal property of the equaliser. Specifically, any $f$ that is a fork factors through $i$ as below
+
+\begin{equation*}
+\begin{tikzcd}
+  E \ar[r,"i"] & X \ar[r,shift left=.75ex,"s"]
+  \ar[r,shift right=.75ex,swap,"t"] & Y \\
+  A \ar[u,"\overline{f}"] \ar[ur,swap,"f"] &
+\end{tikzcd}
+\end{equation*}
+
+Since $s=t$ we can choose any function $f$ and it will be a fork, and hence an equaliser exists. Immediately we can see that if we choose $f=1_X$ then we have $i \circ \overline{i}=1_X$, where $\overline{i}$ is the unique morphism depicted by $\overline{f}$ in the diagram below. Now we need to show $\overline{i} \circ i = 1_E$. Put $f=i\overline{i}i$ below, then there is a unique $h$ such that
+
+\begin{equation}
+  \label{5142eqn1}
+  i\overline{i}i=ih.
+\end{equation}
+
+This implies $h=\overline{i}i$. Substituting $i\overline{i}=1_X$ into (\ref{5142eqn1}) yields $h=1_E$. So $\overline{i}i = 1_E$.
+
+Proof works the same dualised for the coequaliser.
 \end{document}
