@@ -225,7 +225,7 @@ In the following we use the contrapositive form of monic, so for maps $x, x^\pri
 
 Now we know $m$ is monic, so consider two distinct $\overline{f}_1$ and $\overline{f}_2$ in respect of two commuting diagrams as above. There must indeed be two distinct $mf\overline{f}_1 \neq mf\overline{f}_2$, such that each respective diagram commutes. Since the outer arrows commute, $mf\overline{f}_1 = f^\prime m^\prime \overline{f}_1$, and $mf\overline{f}_2 = f^\prime m^\prime \overline{f}_2$. So $f^\prime m^\prime \overline{f}_1 \neq f^\prime m^\prime \overline{f}_2 \implies m^\prime \overline{f}_1 \neq m^\prime \overline{f}_2$, and $m^\prime$ is monic.
 
-\subsubsection*{5.1.42}
+\subsubsection*{5.2.21}
 
 The equaliser is a map $f$ below such that $si = ti$, together with a universal property. The coequaliser is a map $p$ satisfying $ps=pt$, and universal with this property.
 
@@ -259,5 +259,48 @@ Since $s=t$ we can choose any function $f$ and it will be a fork, and hence an e
 
 This implies $h=\overline{i}i$. Substituting $i\overline{i}=1_X$ into (\ref{5142eqn1}) yields $h=1_E$. So $\overline{i}i = 1_E$.
 
-Proof works the same dualised for the coequaliser.
+Proof for the coequaliser works the same, but dualised.
+
+\subsubsection*{5.2.22}
+
+\paragraph{(a)}
+
+The coequaliser of
+
+\begin{equation}
+\label{eqn5143}
+\begin{tikzcd}
+  X \ar[r,shift left=.75ex,"f"]
+    \ar[r,shift right=.75ex,swap,"1"] & X
+\end{tikzcd}
+\end{equation}
+
+in \textbf{Set} is described as follows. Let $\sim$ be the equivalence relation between domain and codomain of $f$, $x \sim fx$, for all $x \in X$. The coequaliser (\ref{eqn5143}) is then the quotient map $p\colon X \rightarrow X/\sim$.
+
+\paragraph{(b)}
+
+WIP
+
+\subsubsection*{5.2.23}
+\paragraph{(a)}
+
+We have the inclusion $f: (\mathds{N},+,0) \rightarrow (\mathds{Z},+,0)$. If $g\circ f = g^\prime\circ f$, we need to show $g=g^\prime$. $g\circ f$ is essentially a group homomorphism restricted to a domain of $\mathds{N}$, whereas $g$ is the respective homomorphism on the expanded domain of $\mathds{Z}$. The idea here is to stitch together a group homomorphism on the expanded domain using the group homomorphism on $\mathds{N}$.
+
+Define, for $x \in \mathds{N}$
+\begin{align*}
+  h(x) &= \begin{cases}
+    g \circ f(x), &  x >=0,  \\
+    g \circ f(-x), &  x < 0
+  \end{cases} \\
+\end{align*} and define $h^\prime$ analogously.
+
+Since $g \circ f(-x) = -g \circ f (x) = -g^\prime \circ f (x) = g^\prime \circ f (-x)$, then $h=h^\prime$ on $\{\forall z \in \mathds{Z}\}$.
+
+\paragraph{(b)}
+We have $i: \mathds{Z} \rightarrow \mathds{Q}$, and $hi=h^\prime i$. We need to show $h=h^
+\prime$, on the full domain of $\mathds{Q}$.
+A rational number is defined as $p/q, p,q \in \mathds{Z}, q \neq 0$. The answer is a similar concept to (a), stitch together a ring homomorphism from the $hi$ on $\mathds{Z}$, and show equality holds on the full domain of $\mathds{Q}$.
+
+Define $h(x) = hi(p)hi(1/q) = \frac{hi(p)}{hi(q)}$, and it follows that $h=h^\prime$ as required.
+
 \end{document}
