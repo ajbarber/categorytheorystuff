@@ -279,7 +279,22 @@ in \textbf{Set} is described as follows. Let $\sim$ be the equivalence relation 
 
 \paragraph{(b)}
 
-WIP
+The quotient needs to be something quite degenerate in that no subsets of it can be open, in order to form an indiscrete topology as the question requires. So this rules out any type of $g$-orbit quotient which would take the points on the circle to $g$-orbits on the plane, e.g $e^{i2\pi z} \mapsto z \mod 1$. Any such mapping would map an open arc in $S^1$ to a family of open sets in $\mathds{R}$, and hence not have the indiscrete topology.
+
+So here is a solution. Let $X$ be the circle $S^1= \{e^{i2\pi x}, x \in [0,1)\}$. Define an equivalence relation $x \sim y$ if $y - x \in \mathds{Q}$. A set $V=S^1/\mathds{Q}$ is open if $\{x \in [0,1)\colon [x] \in V \}$ is open in $[0,1)$. Here $[x]$ is the equivalence class of $x$, i.e
+\begin{equation*}
+  \{ x \in [0,1)\colon y - x \in \mathds{Q} \}
+\end{equation*}
+
+If $V \subset S^1/\mathds{Q}$ is open and nonempty then $\{ x \in [0,1): [x] \in V  \}$ should contain an interval $(a,b), a \ge 0, a < 1$. So $(a,b) \subset \{ x \in [0,1): [x] \in V  \}$, which means that
+\begin{equation*}
+  x \in (a,b) \implies [x] \in V
+\end{equation*}
+
+But consider $z \in [0,1)$. Then there exists a $z^\prime \in (a,b)$, such that $z - z^\prime \in \mathds{Q}$.
+
+Hence $[z] = [z^\prime] \in V$. Hence $V = S^1/\mathds{Q}$. So our quotient has the indiscrete topology.  \footnote{https://math.stackexchange.com/questions/4452608/quotient-map-on-s1-such-that-that-the-quotient-is-an-uncountable-space-with-the}
+\paragraph{Cardinality}  Informally the elements of the quotient are of the form $\{ a + q, q \in \mathds{Q} \}$, where $a \in [0,1)$, so uncountable as is $[0,1)$.
 
 \subsubsection*{5.2.23}
 \paragraph{(a)}
