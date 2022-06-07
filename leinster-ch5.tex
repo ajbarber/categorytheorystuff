@@ -318,4 +318,155 @@ A rational number is defined as $p/q, p,q \in \mathds{Z}, q \neq 0$. The answer 
 
 Define $h(x) = h(p)h(1/q) = \frac{hi(p)}{hi(q)}$, and it follows that $h=h^\prime$ as required.
 
+\subsubsection*{5.2.24}
+\paragraph{(a)}
+
+\begin{equation*}
+\begin{tikzcd}
+X \arrow{rr}{f} & & X^\prime \\
+& \arrow{ul}{e} A \arrow{ur}{e^\prime}
+\end{tikzcd}
+\end{equation*}
+
+$e, e^\prime$ in $\mathbf{Epic}(A)$. The equivalence relation on $A$ is written
+
+\begin{equation*}
+a \sim a^\prime \implies f(a) = f(a^\prime)
+\end{equation*}
+
+\paragraph{Same equivalence relation implies isomorphism}
+
+Consider the following two equivalence relations
+\begin{equation}
+  \label{eqn5224a1}
+  a \sim a^\prime \implies e(a) = e(a^\prime),
+\end{equation}
+\begin{equation}
+  \label{eqn5224a2}
+  a \approx a^\prime  \implies e^\prime(a) = e^\prime(a^\prime)
+\end{equation}
+From Chapter 3 p70, we know that a map $p: A \rightarrow A/\sim$ sending an element to its equivalence class, has a universal property. Any function $f: A \rightarrow B$ such that
+\begin{align*}
+  \forall a, a^\prime \in A, a \sim a^\prime \implies f(a)=f(a^\prime)
+\end{align*}
+
+factorises uniquely through $p$, as in the diagram
+\begin{equation*}
+\begin{tikzcd}
+A \arrow[rd,"f"] \arrow[r, "p"] & A/\sim \arrow[d, "\overline{f}"] \\
+& C
+\end{tikzcd}
+\end{equation*}
+
+Now if indeed both $e$ and $e^\prime$ induce the \textbf{same} equivalance relation, then $a \sim a^\prime$ also implies $e^\prime(a) = e^\prime(a^\prime)$. We can then use the universal property of the relation $\sim$ as follows
+
+\begin{equation*}
+\begin{tikzcd}
+X \arrow[rd,"e^\prime"] \arrow[r, "e"] & X/\sim \arrow[d, "\overline{e}"] \\
+& A^\prime
+\end{tikzcd}
+\end{equation*}
+
+And similarly, with the relation $\approx$ (\ref{eqn5224a2}) we have
+
+\begin{equation*}
+\begin{tikzcd}
+X \arrow[rd,"e"] \arrow[r, "e^\prime"] & X/\approx \arrow[d, "\overline{e^\prime}"] \\
+& A
+\end{tikzcd}
+\end{equation*}
+
+Equating from the diagrams, $A=X/\sim$, and $A^\prime=X/\approx$. So the quotient sets are isomorphic, and isomorphisms of $e$ and $e^\prime$ follow.
+
+\textbf{Note} The surjective property of $e$ and $e^\prime$ is implicit in them being quotient maps. Speicifcally each equivalence class has at least one member.
+
+\textbf{Aside} More generally isomorphisms are coequalizers of identity morphisms:
+
+\begin{equation*}
+\label{eqn5143}
+\begin{tikzcd}
+  X \ar[r,shift left=.75ex,"1"]
+    \ar[r,shift right=.75ex,swap,"1"] & X
+\end{tikzcd}
+\end{equation*}
+
+\paragraph{Isomorphism implies same equivalence relation}
+
+If $e$ and $e^\prime$ are isomorphic then there is an injective $f$ such that
+
+\begin{align*}
+  e^\prime &= f e, \;\text{and}\\
+  e &= f^{-1}e^\prime
+\end{align*}
+
+So any relation $R = \{(a,a^\prime)\colon e(a) = e(a^\prime)\} = \{(a,a^\prime)\colon e^\prime(a) = e^\prime(a^\prime)\}$ by injectivity of $f$.
+
+\subsubsection*{5.2.25}
+\paragraph{(a)}
+
+An \textbf{equaliser} of $s$ and $t$, is a map $i$ such that $s$ is a fork, that is $si=ti$. Furthermore any other fork $f$ factors through $i$ as below
+
+\begin{equation*}
+\begin{tikzcd}
+A \arrow[rd,"f"] \arrow[d, "\overline{e}"] & \\
+E \arrow[r,"i"] & X
+\end{tikzcd}
+\end{equation*}
+
+\paragraph{Split monic $\implies$ regular monic}
+
+If we have $em = 1_A$, then $m$ is an equaliser of
+
+\begin{equation*}
+\label{eqn5143}
+\begin{tikzcd}
+  X \ar[r,shift left=.75ex,"1"]
+    \ar[r,shift right=.75ex,swap,"1"] & X
+\end{tikzcd}
+\end{equation*}
+
+and the universal map is
+
+\begin{equation*}
+\begin{tikzcd}
+A \arrow[rd,"f"] \arrow[d, "fe"] & \\
+E \arrow[r,"m"] & B
+\end{tikzcd}
+\end{equation*}
+
+\paragraph{Regular monic $\implies$ monic}
+
+$m$ has to be monic for the universal property of $m$ as an equaliser to hold. The universal property states that for all forks $f$ factor through $m$. To see this, consider two such forks $f_1 \neq f_2$, with their corresponding unique maps $\overline{f}_1 \neq \overline{f}_2$. To get a contradiction assume $m$ is not monic and $m\overline{f}_1 = m\overline{f}_2$. Then the triangle does not commute and the universal property does not hold.
+
+\textbf{Alternative more elegant proof\footnote{https://math.stackexchange.com/questions/81296/every-equalizer-is-monic}}
+
+This is a much simpler proof than my attempt above, that an equaliser is monic.
+
+Assume $i\colon E \rightarrow A$ equalises $f\colon A \rightarrow B, g\colon A \rightarrow B$.  For maps $j, l: D \rightarrow E$ such that $i \circ j = i \circ l$, we know $f (i \circ j) = (f \circ i) \circ j = (g \circ i) \circ j = g (i \circ j)$. Reminder: maps in a category are associative. So $i \circ j$ is a fork. By the universal property there exists a \textit{unique} $k$ such that $i \circ k = i \circ j$. So $j = k = l$, and $i \circ j = i \circ l \implies j = l$ as required.
+
+\paragraph{(b)}
+
+Need to find two maps that a monic $m\colon A \rightarrow B$ in \textbf{Ab} equalises. They are $g: B \rightarrow B/\text{im}(M)$, and the zero map $0: B \rightarrow 0$. The zero object in \textbf{Ab} is by definition the initial and terminal object, which is the trivial group. So $m$ equalises $f$ and $g$. You can see $g$ composing $m$ means the codomain will be $\text{im}(m)/\text{im}(m)$ which is isomorphic to $0$.
+
+For the second part need to find a monic $m$ which we can't invert. $f:\mathds{Z} \rightarrow \mathds{Q}$ works.
+
+\paragraph{(c)}
+
+\begin{equation*}
+\label{eqn5143}
+\begin{tikzcd}
+ A \ar[r, "m"] &
+ B \ar[r,shift left=.75ex,"f"]
+   \ar[r,shift right=.75ex,swap,"g"] & C
+\end{tikzcd}
+\end{equation*}
+
+The question is to find a monic in $\mathbf{Top}$ which is not regular.
+
+Some background, and my progress so far:
+
+The monics $m: A \rightarrow B$ in $\mathbf{Top}$ are injections. So if we consider the restriction of $B$ to the image of $m$, and equip it with the subspace topology, then we have a homeomorphism from $A$ onto $m[A]$, or an embedding of $A$.   Now consider two maps $f,g: B \rightarrow \{0,1\}$, where {0,1} has the indiscrete topology, $f$ maps everything to $1$ and $g$ maps the elements of $m[A]$ to $1$. Then the equalizer $fm=gm$ represents the subspace embeddings. Specifically, the equalizer is a set consisting of all embeddings of $X$ for all $X \subseteq A$. The \textbf{regular} monics are those where an equalizer exists, and where an equalizer exists in $\mathbf{Top}$, it is the subspace embeddings as described. This is because equalizers are a limit, and limits are unique up to isomorphism.
+
+Now I am after a monic that is \textbf{not} regular. This is a monic that does not admit an equalizer with some $f \neq g$, as above. Choose $m$ with an image that is equipped with a finer topology then the subspace topology of $B$.
+
 \end{document}
