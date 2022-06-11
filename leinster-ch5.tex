@@ -467,6 +467,7 @@ Some background, and my progress so far:
 
 The monics $m: A \rightarrow B$ in $\mathbf{Top}$ are injections. So if we consider the restriction of $B$ to the image of $m$, and equip it with the subspace topology, then we have a homeomorphism from $A$ onto $m[A]$, or an embedding of $A$.   Now consider two maps $f,g: B \rightarrow \{0,1\}$, where {0,1} has the indiscrete topology, $f$ maps everything to $1$ and $g$ maps the elements of $m[A]$ to $1$. Then the equalizer $fm=gm$ represents the subspace embeddings. Specifically, the equalizer is a set consisting of all embeddings of $X$ for all $X \subseteq A$. The \textbf{regular} monics are those where an equalizer exists, and where an equalizer exists in $\mathbf{Top}$, it is the subspace embeddings as described. This is because equalizers are a limit, and limits are unique up to isomorphism.
 
-Now I am after a monic that is \textbf{not} regular. This is a monic that does not admit an equalizer with some $f \neq g$, as above. Choose $m$ with an image that is equipped with a finer topology then the subspace topology of $B$.
+Now we need a monic that is \textbf{not} regular. This is a monic that does not admit an equalizer with some $f \neq g$, as above. We know all regular monics in \textbf{Top} are the inclusion of a subspace. We also know that all injections are monics. So we simply need to find an injection between spaces which is not the inclusion of a subspace.
+So choose $m$ with an domain that is equipped with a finer topology than the subspace topology of $B$. Under a finer topology for $A$ we'll have at least one open set in $A$ mapping to a closed set in $m(A)$. However this means $g$ is not continuous at this point, so no such pair of mappings exist.
 
 \end{document}
