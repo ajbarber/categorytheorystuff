@@ -1,3 +1,4 @@
+
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -463,11 +464,135 @@ For the second part need to find a monic $m$ which we can't invert. $f:\mathds{Z
 
 The question is to find a monic in $\mathbf{Top}$ which is not regular.
 
-Some background, and my progress so far:
-
 The monics $m: A \rightarrow B$ in $\mathbf{Top}$ are injections. So if we consider the restriction of $B$ to the image of $m$, and equip it with the subspace topology, then we have a homeomorphism from $A$ onto $m[A]$, or an embedding of $A$.   Now consider two maps $f,g: B \rightarrow \{0,1\}$, where {0,1} has the indiscrete topology, $f$ maps everything to $1$ and $g$ maps the elements of $m[A]$ to $1$. Then the equalizer $fm=gm$ represents the subspace embeddings. Specifically, the equalizer is a set consisting of all embeddings of $X$ for all $X \subseteq A$. The \textbf{regular} monics are those where an equalizer exists, and where an equalizer exists in $\mathbf{Top}$, it is the subspace embeddings as described. This is because equalizers are a limit, and limits are unique up to isomorphism.
 
 Now we need a monic that is \textbf{not} regular. This is a monic that does not admit an equalizer of some $f, g$, as above. We know all regular monics in \textbf{Top} are the inclusion of a subspace. We also know that all injections are monics. So we simply need to find an injection between spaces which is not the inclusion of a subspace.
 So equip $A$ with a finer topology than that induced by the subspace topology of $B$. Under a finer topology for $A$ there is at least one open set in $A$ mapping to a closed set in $m(A)$. However this means we have a $g^{-1}(b), b \in {0, 1}$ that is closed, hence $g$ is not continuous at this point, so no such pair of mappings in \textbf{Top} exist.
+
+\subsubsection*{5.2.26}
+\paragraph{(a)}
+
+\paragraph{Regular epic and monic $\implies$ isomorphic}
+Regular epic means we have maps $f, g$
+
+\begin{equation*}
+\label{eqn5143}
+\begin{tikzcd}
+ A \ar[r,shift left=.75ex,"f"]
+   \ar[r,shift right=.75ex,swap,"g"] & B
+\end{tikzcd}
+\end{equation*}
+
+of which $e$ is a coequalizer. We are given $e$ is also monic, which taken with the coequalizer property means $f=g$. Since $f=g$, $1$ is factorised by $e$, due to the universal property of the coequalizer. This is presented below
+
+\begin{equation*}
+\begin{tikzcd}
+A \ar[r,shift left=.75ex,"f"]
+  \ar[r,shift right=.75ex,swap,"f"]
+&
+B \ar[r,"e"] \ar[dr,swap,"1"]
+&
+Y \ar[d,densely dotted, "l"]
+\\
+& & Z
+\end{tikzcd}
+\end{equation*}
+
+So we have $le=1$, for some $l\colon Y \rightarrow Z$. Applying $e$ to both sides gives $ele=e \implies el=1$, since $e$ is epic.
+
+\paragraph{Isomorphic $\implies$ monic}
+
+Suppose we have an isomorphic $f: X \rightarrow Z$ where
+$f\circ e_1 = f\circ e_2$
+
+Since $f$ is an isomorphism there is a $\overline{f}:Z\rightarrow X$ such that $\overline{f}f=1_X$. So applying $\overline{f}$ to both sides yields $e_1=e_2$.
+
+\paragraph{Isomorphic $\implies$ regular epic}
+
+The coequalizer of
+
+\begin{equation*}
+\label{eqn5143}
+\begin{tikzcd}
+ A \ar[r,shift left=.75ex,"1"]
+   \ar[r,shift right=.75ex,swap,"1"] & B
+\end{tikzcd}
+\end{equation*}
+
+is precisely an ismorphic $e$. The universal property can be checked, loosely it proceeds along the same lines as in \textbf{Regular epic and monic $\implies$ isomorphic}.
+
+\paragraph{(b)}
+
+\paragraph{Epic $\implies$ regular epic}
+
+Each epic map in \textbf{Set} can be regarded as a quotient map $p \colon A \rightarrow A/\sim$ of an equivalence class $\sim$. This quotient map has the property that $p(a) = p(a^\prime) \iff a \sim a^\prime$, for $a,a^\prime \in A$. So here we are using the given epic map to define the equivalence relation $\sim$ on $A$. Along the same lines as Example 5.2.9, $p$ is the coequalizer of maps $s,t$ in $A$.
+
+\paragraph{Split epic $\implies$ regular epic}
+
+\begin{equation*}
+\label{eqn5143}
+\begin{tikzcd}
+ Y \ar[r,shift left=.75ex,"g"]
+   \ar[r,shift right=.75ex,swap,"g^\prime"] & Z
+\end{tikzcd}
+\end{equation*}
+
+\begin{equation*}
+  g \circ f = g^\prime \circ f \implies g = g^\prime
+\end{equation*}
+
+The axiom of choice in \textbf{Set} says that, for an epic $c$, there is a $s$ such that  $cs = 1_X$. So
+
+\begin{equation*}
+\begin{tikzcd}
+X \ar[r,shift left=.75ex,"s \circ c"]
+  \ar[r,shift right=.75ex,swap,"1"]
+&
+X \ar[r,"c"] \ar[dr,swap,"g"]
+&
+Y \ar[d,densely dotted, "\overline{g}"]
+\\
+& & Z
+\end{tikzcd}
+\end{equation*}
+
+So in $\mathbf{Set}$, $c$ is a coequalizer of the maps $s\circ c$ and $1$. $c$ is also universal as indicated above, this can be confirmed by checking for any $g$ that factors through $c$ that the diagram commutes. The only thing remaning to prove is uniqueness of $c$, but this follows directly from the epic property, since $c$ is epic.
+
+\paragraph{Regular epic $\implies$ split epic}
+
+The map $1$, is factorised by the coequalizer $e$, and from this fact we can derive the existence of a right inverse from the universal property. Similar reasoning to 5.2.26 (a).
+
+\paragraph{Regular epic $\implies$ epic}
+
+$e$ is a regular epic means that for any $h$ such that $hf = hg$, there is a unique $\overline{h}$ such that $h = \overline{h}e$, and $ef = eg$. So suppose we have two maps $g g^\prime$, such that $g\circ e = g^\prime \circ e$. But this factorisation is unique according to the stated universal property of $e$, so $g = \overline{h} = g^\prime$, and $e$ is epic.
+
+\paragraph{Spit epic $\implies$ epic}
+
+Split epic means there exists a $c$ such that $e \circ c=1$. Suppose there is a split epic $e$ such that $g \circ e = g^\prime e$. Apply both sides to $c$ to get $g = g^\prime$.
+
+\paragraph{(c)}
+
+Take $\phi\colon \mathds{Z}_4 \rightarrow \mathds{Z}_2$. Rewrite as abstract cyclic groups $\{1, h\}$, and $\{1, g, g^2, g^3\}$. So $\phi(g)=h$ and $\phi$ is surjective and it follows in $Grp$ that it is epic. However let's try and construct a right inverse say $\psi: \mathds{Z_2} \rightarrow \mathds{Z_4}$. We have $\psi(1)=1$, $\psi(h^2)=\psi(1)=1$, now $\psi(h)=g$ will mean $\psi(h^2) = g^2$, so the only choice to map $h$ then is $\psi(h)=g^2$.  However $\phi \circ \psi (h) = 1$, and so $\phi$ is not split.
+
+For \textbf{Top} we need to come up with a map that has no right inverse. Informally, a surjective map $f$ which takes at least one open set to a closed set works. Then a right inverse of $f$ will not be continuous, and hence not exist in \textbf{Top}, as all maps there are continuous by definition.
+
+\subsubsection*{5.2.27}
+
+We already have from monics are closed under pullback, from \textbf{5.1.42}. For a split epic $e\colon X \rightarrow A$ consider the pullback diagram
+
+\begin{equation*}
+\begin{tikzcd}
+A^\prime
+\arrow[drr, bend left, "1"]
+\arrow[ddr, bend right, "sf"]
+\arrow[dr, dashed, "\overline{f}" description] & \\
+& X^\prime \arrow[r, "e^\prime"] \arrow[d, "f^\prime"]
+& A^\prime \arrow[d,"f"] \\
+& X \arrow[r, "e"]
+& A
+\end{tikzcd}
+\end{equation*}
+
+where $s$ is the right inverse of $e$. So $e$ split epic implies $e^\prime$ has a right inverse, and is a split epic also as required.
 
 \end{document}
