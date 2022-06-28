@@ -597,4 +597,82 @@ where $s$ is the right inverse of $e$. So $e$ split epic implies $e^\prime$ has 
 
 Monics, split monics, epics and split epics are closed under composition. This can be checked easily against the definitions provided in the text.
 
+\subsubsection*{5.3.9}
+
+Need to prove directly that
+
+\begin{equation*}
+\mathcal{A}(A, X \times Y) \cong \mathcal{A}(A,X) \times \mathcal{A}(A,Y)
+\end{equation*}
+
+naturally in $A, X, Y \in \mathcal{A}$. Begin with naturality in $X$. With $f^\prime \colon X \rightarrow X_1$
+
+\begin{equation}
+  \label{eqn:5391}
+  \begin{tikzcd}
+    \begin{array}{c}
+      \mathcal{A}(A, X \times Y) \\
+      = h
+    \end{array}
+    \arrow[r, "\phi"] \arrow[d, "\alpha_{A,X,Y}"]
+    & \mathcal{A}(A, X_1 \times Y) \arrow[d, "\alpha_{A,X_1,Y}"] \\
+    \begin{array}{c}
+      \mathcal{A}(A,X) \times \mathcal{A}(A,Y) \\
+      = p_1h \times p_2h
+    \end{array}
+    \arrow[r, "\psi"]
+    &
+    \begin{array}{c}
+      \mathcal{A}(A,X_1) \times \mathcal{A}(A,Y) \\
+      = f^\prime p_1h \times p_2h
+    \end{array}
+  \end{tikzcd}
+\end{equation}
+
+Now the binary product $P = X \times Y$ is such that for all object and maps $f_1, f_2$ in $\mathcal{A}$, there exists a unique map $\overline{f} \colon A \rightarrow P$ such that the below diagram commutes.
+
+\begin{equation}
+  \label{eqn:5392}
+  \begin{tikzcd}[row sep=1cm]
+    &A\arrow[ddl,"f_1"']\arrow[ddr,"f_2"]\arrow[d,dotted,"\bar{f}" description]\\
+    &P\arrow[dl,"p_1"]\arrow[dr,"p_2"']\\
+    X&&Y
+  \end{tikzcd}
+\end{equation}
+
+So by defintion of the product there is a bijection represented by $\alpha$ in the diagram (\ref{eqn:5391}). For $\alpha$, in the downwards direction we have $h \mapsto (p_1\circ h) \times (p_2 \circ h)$. In the upwards direction we can establish existence and uniqueness of an inducing map $\overline{h}$ from the commuting diagram (\ref{eqn:5392}). Specifically $f \times g \mapsto \overline{h}$. The mapping in this direction presupposes the existence of a product for each $X$ and $Y$, otherwise there would be no commuting diagram with which to identify our inducing map $\overline{h}$. We were of course given in the question $\mathcal{A}$ is a category with binary products.
+
+So we have the required bijection. To prove naturality in $X$, we must also show the diagram (\ref{eqn:5391}) commutes. The following key question arises in evaluating the maps in each direction presented in the diagram. Suppose we have a product of $X$ and $Y$, $P = X \times Y$. If we have a map $f^\prime: X \mapsto X_1, \; X,X_1 \in \mathcal{A}$, how do we write down the definition of $X_1 \times Y$, using our knowledge of $P$? Observe that for a map from $A$ to $X_1$, $f^\prime \circ f_1$, there is a map from $P$ to $X_1$, $f^\prime \circ p_1$, such that the product diagram commutes for all maps $A \rightarrow X_1$. This is by nature of $\mathcal{A}$ as a category, we can construct all maps $A$ to $X_1$, since we have maps $f \colon A \rightarrow X$, and $f^\prime \colon X \rightarrow X_1$ at our disposal. Written in equation form, $f^\prime \circ p_1 \circ \overline{f} = f^\prime \circ f_1$ for all maps $f^\prime$, and $f_1$. And since $P$ and $p_1, p_2$ are unique up to isomorphism, we have just characterised the product $X_1 \times Y$. Written as a triplet it is $(P, f^\prime p_1, p_2)$. So $\phi$ maps $p_1$ to $f^\prime p_1$, and is the identity on $P$ and $p_2$. And $\psi\colon \mathcal{A}(A,X) \times \mathcal{A}(A,Y) \rightarrow \mathcal{A}(A,X_1) \times \mathcal{A}(A,Y) = f \times g \mapsto f^\prime f \times g$. Elementary checking with these maps shows (\ref{eqn:5391}) commutes. The proof for naturality in $Y$ follows analogously.
+
+For naturality in $A$ consider, for $h^* = A \mapsto B$
+
+\begin{equation}
+  \label{eqn:5393}
+  \begin{tikzcd}
+    \begin{array}{c}
+      \mathcal{A}(B, X \times Y) \\
+      h
+    \end{array}
+    \arrow[r, "\mathit{-} \circ h^*"] \arrow[d, "\alpha_{B,X,Y}"]
+    &
+    \begin{array}{c}
+      \mathcal{A}(A, X \times Y) \\
+      hh^*
+    \end{array}
+    \arrow[d, "\alpha_{A,X,Y}"]\\
+    \begin{array}{c}
+      \mathcal{A}(B,X) \times \mathcal{A}(B,Y) \\
+      = p_1h \times p_2h
+     \end{array}
+    \arrow[r, "\;\mathit{-} \circ h^* \times \mathit{-} \circ h^*\;"]
+    &
+    \begin{array}{c}
+      \mathcal{A}(A,X) \times \mathcal{A}(A,Y) \\
+      = p_1hh^* \times p_2hh^*
+    \end{array}
+  \end{tikzcd}
+\end{equation}
+
+Observe that if we 'reseat' our map into $P$ from $B$ to $A \in \mathcal{A}$, $P, p_1, p_2$ do not change, it is the unique map into $P$ that changes, by precomposing with $h^*$. Elementary checks using our $\alpha$ show the above diagram commutes, and hence we have naturality in $A$.
+
 \end{document}
