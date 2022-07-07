@@ -675,4 +675,24 @@ For naturality in $A$ consider, for $h^* = A \mapsto B$
 
 Observe that if we 'reseat' our map into $P$ from $B$ to $A \in \mathcal{A}$, $P, p_1, p_2$ do not change, it is the unique map into $P$ that changes, by precomposing with $h^*$. Elementary checks using our $\alpha$ show the above diagram commutes, and hence we have naturality in $A$.
 
+\subsubsection*{5.3.11}
+From 5.1.22 limits $L$ in \textbf{Set} were defined as
+\begin{equation}
+  \label{5311:eqn1}
+  \lim_{\leftarrow \mathbf{I}} D \cong \{(x_I)_{I \in \mathbf{I}} \mid x_I \in D(I) \; \text{for all} \; I \in \mathbf{I} \; \text{and} \; (Du)(x_I)=x_J \; \text{for all} \; I \xrightarrow{u} J \; \text{in} \; \mathbf{I}\}
+\end{equation}
+
+We also have the projections
+
+\begin{equation}
+  \label{5311:eqn2}
+  p_J((x_I)_{I \in \mathbf{I}}) = x_J
+\end{equation}
+
+Now, along the lines of Example 5.34, we wish to prove there is only one group structure on $(x_I)_{I \in \mathbf{I}}$ with the property that the $p_J$ are homomorphisms. To do this we need to show, from the properties of a homomorphism, we can identify a unique group structure on $(x_I)_{I\in\mathbf{I}}$, that is multiplication, inverse, and identity map for the group. Here and in the following I am writing $(x_I)_{I\in\mathbf{I}}$, informally to refer to the subset specified in the equation (\ref{5311:eqn1}) defining $\lim_{\leftarrow \mathbf{I}} D$.  Parroting the logic in 5.3.4, let $(x_I)_{I\in\mathbf{I}} \cdot (y_I)_{I\in\mathbf{I}} = (z_I)_{I\in\mathbf{I}}$. Then $z_J = p_J((z_I)_{I\in\mathbf{I}}) = p_J((x_I)_{I\in\mathbf{I}} \cdot p_J((y_I)_{I\in\mathbf{I}}) = x_Jy_J$. So it follows directly from the properties of the homomorphism $p_J$ that multiplication on the limit is defined pointwise as follows
+\begin{equation*}
+  (x_I)_{I\in\mathbf{I}} \cdot (y_I)_{I\in\mathbf{I}} = (x_Iy_I)_{I\in\mathbf{I}}
+\end{equation*}
+
+For the inverse suppose $(x_I)_{I\in\mathbf{I}} \cdot (x^\prime_I)_{I\in\mathbf{I}} = 1$. Then, using pointwise group multiplication as above $(x_I)_{I\in\mathbf{I}} \cdot (x^\prime_I)_{I\in\mathbf{I}} = (x_Ix^\prime_I)_{I\in\mathbf{I}} = 1 \implies x_I^\prime = x_I^{-1}$.
 \end{document}
