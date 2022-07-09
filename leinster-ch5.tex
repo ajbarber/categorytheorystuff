@@ -100,18 +100,10 @@ A \arrow{r}{f_I} \arrow{rd}{f_J}
 
 A limit of $D$ is a cone $(L \xrightarrow{p_I} D(I))_{I \in \mathbf{I}}$, such that for any cone on $D$ with vertex A (\ref{eqn:5137}), there exists a unique map $\overline{f}\colon A \rightarrow L$ such that $p_J \circ \overline{f} = f_J$, for all $J \in \mathbf{I}$.
 
-We have the set $\{ (x_I)_{I \in \mathbf{I}} | x_I \in D(I) \text{ for all } I\in \mathbf{I} \text{ and } (Du)(x_I)=x_J, \text{ for all } I \xrightarrow{u} J \text{ in } \mathbf{I} \}.$ The product limit formed is easier seen graphically. There is a family of maps for each $I \in \mathbf{I}$, each with
+We have the set $\{ (x_I)_{I \in \mathbf{I}} | x_I \in D(I) \text{ for all } I\in \mathbf{I} \text{ and } (Du)(x_I)=x_J, \text{ for all } I \xrightarrow{u} J \text{ in } \mathbf{I} \}.$
 
-\begin{equation*}
-\begin{tikzcd}
-1 \arrow{r}{f_I} \arrow{rd}{f_J}
-  & x_I \in D(I) \arrow{d}{Du} \\
-    & x_J \in D(J)
-  \end{tikzcd}
-\end{equation*}
-
-\textbf{The above was nonsense, need to redo this}
-
+We are already given that the projections $p_J((x_I)_{I \in \mathbf{I}}) = x_J$. Now I visualise $p_J$ in the product sense, something which just slices up the $(x_I)_{I \in \mathbf{I}}$ into each dimension. There is only one way, up to isomorphism, to do this slicing up, so $p_J$ is unique. So for an $f_J\colon A \rightarrow D(J)$ we now have to show there exists a unique map $\overline{f}$ such that $p_J \circ \overline{f} = f_J$. For existence, choose $\overline{f}=f(x_I))_{I \in \mathbf{I}}$. Uniqueness of $\overline{f}$ follows from that it commutes with $p_J$ which is unique.
+1
 \subsubsection*{5.1.38}
 \paragraph{(a)}
 
