@@ -684,4 +684,27 @@ Now, along the lines of Example 5.34, we wish to prove there is only one group s
 \end{equation*}
 
 For the inverse suppose $(x_I)_{I\in\mathbf{I}} \cdot (x^\prime_I)_{I\in\mathbf{I}} = 1$. Then, using pointwise group multiplication as above $(x_I)_{I\in\mathbf{I}} \cdot (x^\prime_I)_{I\in\mathbf{I}} = (x_Ix^\prime_I)_{I\in\mathbf{I}} = 1 \implies x_I^\prime = x_I^{-1}$.
+
+\subsubsection*{5.3.13}
+\paragraph{(a)}
+
+With $P=F(A)$, we have the adjunction given
+
+\begin{equation*}
+ \begin{tikzcd}
+   \mathbf{Set} \arrow[r,shift left=0.4ex]
+    \arrow[r,draw=none,"\scriptscriptstyle\perp" marking] &
+    \mathcal{B} \arrow[l,shift left=0.75ex]
+  \end{tikzcd}
+\end{equation*}
+
+and we need to prove $F(S)$ is projective for all sets $S$. The adjunction means maps $\mathcal{B}(F(A),B)$ are one to one with maps $\mathbf{Set}(A, G(B))$. We need to prove that $f$ epic $\implies$ $\mathcal{B}(F(A),f)$ is epic.
+
+With $f\colon B \rightarrow B^\prime$, $B,B^\prime \in \mathcal{B}$ the $\mathcal{B}(F(S), f)$ is shorthand for a map, say $g$ such that $(F(S) \rightarrow B) \rightarrow (F(S) \rightarrow fB))$. Now we know from the properties of an adjunction that $g$ is one to one with some say $\hat{g}$ in \textbf{Set} such that $\hat{g}\colon (A \rightarrow G(B)) \rightarrow (A \rightarrow Gf(B))$. The adjunction given is useful because as we are in \textbf{Set}, we know that in \textbf{Set} epic maps are precisely the surjections.
+We are given in $\mathbf{Set}$ that $Gf$ is epic, hence surjective, which implies the map $\hat{g}$ is epic. Specifically, given a map $A \rightarrow Gf(B)$, we can identify its inducing map by virtue of the fact that $Gf$ has a right inverse. Since $\hat{g}$ is one to one with $g$, conclude that its adjoint $g$ is epic.
+
+\paragraph{(b)}
+
+The key in this question is realising that \textbf{maps} of Abelian groups form Abelian groups themselves. Then we can just use the property given in Example 5.2.19, that surjective maps are epic in \textbf{Ab}. We require an object $P$ such that $\mathbf{Ab}(P,f)$ is not epic for an epic $f$. Suppose $P=\mathds{Z}_m$. We know by standard results there is an isomorphism of $\text{Hom}(\mathds{Z}_m, \mathds{Z}_n) \cong \mathds{Z}_{gcd(m,n)}$. So we just need to craftily pick $m$, $p$ and $q$ such that $f\colon\mathds{Z}_p \rightarrow \mathds{Z}_q$ is epic, but $\mathds{Z}_m \rightarrow \mathds{Z}_p$ is a trivial homomorphism. $\text{Hom}(\mathds{Z}_{1},\mathds{Z}_{4}) \rightarrow \text{Hom}(\mathds{Z}_{1},\mathds{Z}_2)$ works.
+
 \end{document}
