@@ -1,0 +1,135 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{parskip}
+\begin{document}
+
+\title{Leinster - Basic Category Theory - Selected problem solutions for Chapter 6}
+\author{Adam Barber}
+
+\maketitle
+
+\subsubsection*{6.2.20}
+
+\paragraph{(a)}
+
+\begin{equation}
+  \label{eqn:5391}
+  \begin{tikzcd}
+    \begin{array}{c}
+      X \\
+    \end{array}
+    \arrow[r, "1"] \arrow[d, "1"]
+    & X \arrow[d, "\alpha"] \\
+    \begin{array}{c}
+      X
+    \end{array}
+    \arrow[r, "\alpha"]
+    &
+    \begin{array}{c}
+     Y
+    \end{array}
+  \end{tikzcd}
+\end{equation}
+
+where $X, Y$ are functors in the category $\left[A,\mathcal{S}\right]$
+
+By Lemma 5.1.32 $\alpha$ is monic in  $\left[A,\mathcal{S}\right]$ if and only if the above square is a pullback. Using Theorem 6.2.5 there is a pullback whose image under the evaluation functor $ev_A$ is a pullback for each $A \in \mathbf{A}$ in $\mathcal{S}$. So by the lemma $\alpha_A$ is monic for all $A \in \mathcal{A}$. The other direction holds by virtue of the same theorem, that there is only one way to extend the pullback on $\mathcal{S}$ for each A, to a pullback on $\alpha_A$ to a pullback on $\left[A,\mathcal{S}\right]$
+
+\paragraph{(b)}
+
+Monics in $\left[\mathbf{A^{op}},\mathbf{Set}\right]$ are epics in $\left[\mathbf{A},\mathbf{Set}\right]$ and vice versa.
+
+\subsubsection*{6.2.21}
+
+\paragraph{(a)}
+
+Use a cardinality argument as follows. There is only one identity map represented by the left hand side of the following expresssion. $H_A(A) \cong X(A) + Y(A)$, for all $A$ in $\mathcal{A}$. Which means that either $X(A)$ or $Y(A)$ must be the empty set for all $A$ in $\mathcal{A}$.
+
+\subsubsection*{6.2.22}
+
+The category of elements can be represented by $(1 \rightarrow X)$, where $1$ is a single element set. The comma category commuting diagram becomes
+
+\begin{equation}
+\begin{tikzcd}
+1 \arrow{r} \arrow{rd}
+  & x \arrow{d}{Xf} \\
+    & x^{\prime}
+  \end{tikzcd}
+\end{equation}
+
+where $x \in X(A)$, and $x^{\prime} \in X(A')$, and $f: A' \rightarrow A$. The above diagram shows under our choice of comma category that $Xf(x) = x'$ as required.
+
+\subsubsection*{6.2.23}
+
+A category of elememts with a terminal object by definition is equivalent to the definition of a representation as a universal element in (4.6).
+
+\subsubsection*{6.2.24}
+
+Let $E$ be a functor in the functor category $\left[\mathbf{A}^{op}, \mathbf{Set}\right]$ and $E \rightarrow X$ be an object of the slice category, where $X$ is a presheaf on $\mathbf{A}$. We need an equivalance functor to map $E \rightarrow X$ to some $\left[\mathbf{B}^{op}, \mathbf{Set}\right]$. For a given $A$, and consider $\alpha_A: E(A) \rightarrow X(A)$. For a $x \in  X(A)$  back out the definition of $E$ with
+\begin{equation}
+\label{eqn:6224}
+  \beta_A(x) = \{e : \alpha_A(e) = x  \}
+\end{equation}
+where $e \in E(A), x \in X(A)$.
+
+So now we have $(A, x)$ pairs as in the definition of the category of elements in Definition 6.2.16, and can construct a functor using them informally as $(A, x) \rightarrow  \beta_A(x)$. However we do need to show that $\beta_A(x)$ and $\beta_{A'}(x)$ induce an $f$ such that $(Xf)(x')=x$. Because the morphism of $E$ to $X$ is a natural transformation we know that with $f\colon A \rightarrow A'$, that $\alpha_A(e) = (Xf)(\alpha_{A'}e')$ taken with (\ref{eqn:6224}) means $(Xf)(x')= x'$ as required.
+
+In the other direction, if $E$ is a presheaf on the category of elements,
+\begin{equation}
+  E(a) = \bigsqcup_{x \in X(a)}E(a,x)
+\end{equation}
+
+and for $e \in E(a), x \in X(a)$ define $f(e) = x$.
+
+Source of ideas for this proof.\footnote{https://math.stackexchange.com/questions/3633646/every-slice-of-a-presheaf-category-is-again-a-presheaf-category}
+
+\subsubsection*{6.2.25}
+
+\paragraph{(a) i.}
+Functoriality of $\text{Lan}_FX$
+
+Let the diagram given for our colimit be $D_B:= X$, with $(A, FA \rightarrow B)$ in $\left(F \Rightarrow B\right)$. To prove $\text{Lan}_FX$ is a functor we need to consider $\text{Lan}_FX$ on morphisms $f\colon B \rightarrow B'$, and $f'\colon B' \rightarrow B''$. $f$ and $f'$ induce the maps presented below:
+
+\begin{equation}
+  \label{eqn:5391}
+  \begin{tikzcd}
+    \begin{array}{c}
+      D_B \\
+    \end{array}
+    \arrow[r, "p_I"] \arrow[d, "D(f)"]
+    & Lan_F(B) \arrow[d, "L(f)"] \\
+    \begin{array}{c}
+      D_{B'}
+    \end{array}
+    \arrow[r, "p_{I'}"] \arrow[d, "D(f')"]
+    &
+    \begin{array}{c}
+      Lan_F(B') \arrow[d, "L(f')"]
+    \end{array} \\
+    \begin{array}{c}
+      D_{B''}
+    \end{array}
+    \arrow[r, "p_{I''}"]
+    &
+    \begin{array}{c}
+     Lan_F(B'')
+    \end{array}
+  \end{tikzcd}
+\end{equation}
+
+The map from $\text{Lan}_FB \rightarrow \text{Lan}_FB''$ is a unique map by the colimit property of $\text{Lan}_FB$ and hence $L(f')(f) = L(f'f)$ as required.
+
+\paragraph{(a) ii.}
+Bijection between $\text{Lan}_FX \rightarrow Y$ and $X \rightarrow Y F$.
+
+Consider the cocone $\big(X(A) \xrightarrow{p_I} \text{Lan}_FX(B)\big)_{\{FA \rightarrow B\}}$, for all $\left(A,FA \rightarrow B\right)$ in $\left(F \Rightarrow B\right)$. To form the bijection required, make the canonical choice of $1_F(A)$ in $(F \Rightarrow F(A))$ and reevaluate $p_I$ above which now becomes $X(A) \rightarrow \text{Lan}_FXF(A)$. With this choice there is a single base of the cocone $X(A)$ for every $\text{Lan}_FXF(A)$ so we can form the required bijection between $\text{Lan}_FX \rightarrow Y$ and $X \rightarrow Y F$. The task remaining is to prove naturality between $\text{Lan}_FX$ and $X$.
+
+
+\end{document}
