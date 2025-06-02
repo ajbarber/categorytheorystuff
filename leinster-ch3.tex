@@ -62,14 +62,14 @@ Taken together, the above implies $\theta(S) = S$.
 \paragraph{(b)}
 \begin{align*}
   A &\subseteq B \\
-  \implies fA &\subseteq fB \\
-  \implies gfA &\subseteq gfB \\
+  \implies f\left[A\right] &\subseteq f\left[B\right] \\
+  \implies gf\left[A\right] &\subseteq gf\left[B\right] \\
 \end{align*}
 
 $g$ and $f$ are taken to be injections here. We need to prove there is a bijection between $A$ and $B$. \textbf{Note:} this does not follow immediately from $g$
 and $f$ being injections.
 
-Take $\theta(S) = A - g(B \setminus fS)$. Then $S_1 \subseteq S_2 \implies \theta(S_1) \subseteq \theta(S_2)$. Since $f, g$ and hence $\theta$ is order preserving, we may apply the result in (a). Specifically, there exists $S$ such that $S = A - g(B \setminus fS) \implies g(B \setminus fS) = A \setminus S$.
+Take $\theta(S) = A - g(B \setminus f\left[S\right])$. Then $S_1 \subseteq S_2 \implies \theta(S_1) \subseteq \theta(S_2)$. Since $f, g$ and hence $\theta$ is order preserving, we may apply the result in (a). Specifically, there exists $S$ such that $S = A - g\left[B \setminus f\left[S\right]\right] \implies g\left[B \setminus f\left[S\right]\right] = A \setminus S$.
 
 \paragraph{(c)}
 
@@ -82,7 +82,7 @@ We need to prove a bijection between $A$ and $B$ to deduce the theorem. Consider
   \end{cases} \\
 \end{align*}
 
-$f$ has a codomain of $fS$, so every element of the codomain has a preimage in $S$. We are given that $f$ is injective.
+$f$ has a codomain of $f\left[S\right]$, so every element of the codomain has a preimage in $S$. We are given that $f$ is injective.
 
 $g$ is injective and hence invertible. Using the result in (b) we have a direct expression for $g^{-1}$. Hence we have $gh = 1_A$, and $hg = 1_B$, for $x$ in $A \setminus S$.
 
