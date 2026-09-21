@@ -5,12 +5,26 @@ Require Import Morphisms.
 Import ListNotations.
 Require Import RelationClasses.
 From Stdlib Require Import Logic.FunctionalExtensionality.
-
 Import ListNotations.
 
 Section Evaluation.
 
-(** Proof of exercise 0.13 (a) in Leinster category theory **)
+(** Proof of exercise 0.13 (a) in Leinster category theory
+    I could not use the Horner homomorphism in MathComp because it assumes 
+    a homomorphism to a commutative Ring, which is more restrictive than 
+    what 0.13 (a) is asking.
+
+    I represent a polynomial as a list of it's coefficients in increasing order.
+
+    [c0, c1, c2,.... ] = c0 + c1x + c2x^2 + ...
+
+    For the uniqueness part of the question we need to show if an arbitrary mapping g
+    is a homorphism then it is the polynomial evaluation function. The only structure 
+    imposed on g is at [0,1], i.e p(r) = (0 + 1*r) it equals r, along with some other trivial
+    regularity assumptions like g ( 0 + 0*r + 0*r^2 ) = g (0).  These regularity assumptions
+    need to be provided as the checker does not know that a polynomial, whose coefficients 
+    are represented by [0, 0, 0] is zero as is [0].
+  **)
 
 (** 1. Representing Z[x] as a list of integer coefficients **)
 Definition poly_Z := list Z.
@@ -89,8 +103,6 @@ Record Ring : Type := mkRing {
 }.
 
 Variable (my_ring : Ring).
-
-Print mk_rt.
 
 Add Ring my_ring_instance : 
   (mk_rt 
@@ -176,8 +188,6 @@ Definition from_Z (z : Z) : R my_ring :=
   | Zneg p => - (from_positive p)
   end.
 
-SearchRewrite (((_ + _) * _)%positive).
-
 Lemma eq_preserve : forall (a b c: R my_ring),  (a + c)%R = (b + c)%R -> a = b.
 Proof.
   intros.
@@ -227,10 +237,6 @@ Proof.
       ring.
     + rewrite <- Pos.mul_add_distr_r; reflexivity.
 Qed.      
-
-Locate pos_sub_spec.
-Locate opp_neg.
-About Z.neg.
 
 Lemma from_positive_neg: forall (p q:positive), (q < p)%positive -> from_positive (p - q) = ((from_positive p) + - (from_positive q))%R.
 Proof.
@@ -328,7 +334,7 @@ Proof.
     { rewrite from_positive_add_assoc; ring. }
 Qed.
 
-(** 2. Defining Polynomial Evaluation at a Real Number r **)
+(** 2. Defining Polynomial Evaluation at an arbitrary Ring element r **)
 Fixpoint eval_poly (p : poly_Z) (r : R my_ring) : R my_ring :=
   match p with
   | [] => 0
@@ -414,8 +420,6 @@ Proof.
   - apply IHpoly_eq.
     reflexivity.
 Qed.
-
-SearchRewrite ((_ _ [])).
 
 Lemma drop_nil_zero_poly : forall p, strip_zeros p = [] -> is_zero_poly p.
 Proof.
@@ -578,8 +582,6 @@ Record IsRingHomomorphism (f : poly_Z -> R my_ring) : Prop := {
   hom_one  : f [1%Z] = 1%R
 }.
 
-SearchRewrite (_ = _).
-
 Lemma Radd_0_r: forall (r : Ring) (x : R r), x = (x + 0)%R.
 Proof.
   intros.
@@ -636,8 +638,6 @@ Proof.
       (* We want: (I c1 + r * ev t1) + (I c2 + r * ev t2) *)
 Qed.
 
-SearchRewrite (_ * 0).
-
 Lemma eval_poly_decomp : forall (r:R my_ring) (c:Z) (q: poly_Z),
   eval_poly (c::q) r = (from_Z c + r * eval_poly q r)%R.
 Proof.
@@ -645,8 +645,6 @@ Proof.
   simpl.
   reflexivity.
 Qed.
-
-SearchRewrite ((_ + 0)%Z).
 
 Lemma poly_decomp: forall (c: Z) (q:poly_Z), (c::q) ~ (poly_add [c] (0::q))%Z.
 Proof.
@@ -679,8 +677,6 @@ Proof.
   simpl.
   reflexivity.
 Qed.
-
-SearchRewrite ( _ * _ ).
 
 Lemma scalar_mul_eq0 : forall (r : R my_ring) (c:Z) (q: poly_Z), 
   ev r (poly_scalar_mul c q) = (from_Z c * (ev r q))%R.
@@ -728,8 +724,6 @@ Proof.
   - simpl; ring.
 Qed.
 
-Search (_ * 1)%R.
-
 Lemma Rmul_1_r: forall (r : Ring) (x : R r), (x * 1 )%R = x.
 Proof.
   intros.
@@ -745,8 +739,6 @@ Proof.
   reflexivity.
 Qed.
 
-Locate ring_opp_l.
-
 Lemma homo_iter: forall (a:Z) (g: poly_Z -> R my_ring), IsRingHomomorphism g -> g [(a + 1)%Z] = ( g[a] + g[1%Z] )%R.
 Proof.
   intros.
@@ -755,10 +747,6 @@ Proof.
   rewrite poly_add_ids in hom_add0.
   assumption.
 Qed.  
-
-SearchRewrite ((_ + _ - _)%R).
-
-SearchRewrite (_ + _ = _ -> _ = _ - _)%R.
 
 Lemma homo_const_iter: forall (a:Z) (g: poly_Z -> R my_ring), IsRingHomomorphism g -> g [(a + 1)%Z] = ( from_Z (a + 1) * g[1%Z] )%R.
 Proof.
@@ -818,8 +806,6 @@ Proof.
        ring.
 Qed.
 
-SearchRewrite ((1 * _)%Z).
-
 Lemma poly_scalar_mul_0: forall (a:Z) (p:poly_Z), (poly_scalar_mul 0%Z (a::p)) = (0%Z :: poly_scalar_mul 0 p).
 Proof.
   intros.
@@ -857,9 +843,6 @@ Proof.
       apply zero_nil.
     + reflexivity.
 Qed.
-Search (list %Z).
-
-About nil.
 
 Lemma poly_add_zero: forall (p:poly_Z), (poly_add [] p) ~ p.
 Proof.
@@ -871,7 +854,6 @@ Proof.
    reflexivity.
 Qed.   
 
-SearchRewrite ((_ + 0)%Z).
 Lemma poly_add_decomp2: forall (a: Z) (p: poly_Z), poly_add [0%Z] (a :: p) = poly_add [a] (0%Z :: p).  
 Proof.
   intros.
