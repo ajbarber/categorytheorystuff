@@ -88,7 +88,6 @@ Record Ring : Type := mkRing {
   Radd_opp_r : forall x : R, Radd x (Ropp x) = Rzero
 }.
 
-
 Variable (my_ring : Ring).
 
 Print mk_rt.
@@ -761,7 +760,6 @@ SearchRewrite ((_ + _ - _)%R).
 
 SearchRewrite (_ + _ = _ -> _ = _ - _)%R.
 
-
 Lemma homo_const_iter: forall (a:Z) (g: poly_Z -> R my_ring), IsRingHomomorphism g -> g [(a + 1)%Z] = ( from_Z (a + 1) * g[1%Z] )%R.
 Proof.
   intros.
@@ -934,7 +932,6 @@ Proof.
     rewrite poly_scalar_mul_0_eq.
     rewrite poly_scalar_mul_1_eq.
     rewrite poly_add_zero. 
-    
     replace (poly_add (a:: p) [0%Z]) with (a :: p).
     simpl.
     reflexivity.
@@ -944,7 +941,6 @@ Proof.
     rewrite Z.add_0_r.
     reflexivity.
 Qed.
-
 
 Lemma ev_is_unique_homo : forall (p: poly_Z) (r: R my_ring) (g: R my_ring -> poly_Z -> R my_ring), 
   IsRingHomomorphism (g r) /\ g r [0%Z; 1%Z] = r -> (g r p = ev r p).
