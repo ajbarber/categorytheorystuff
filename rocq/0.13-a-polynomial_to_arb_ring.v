@@ -9,12 +9,12 @@ Import ListNotations.
 
 Section Evaluation.
 
-(** Proof of exercise 0.13 (a) in Leinster category theory
+  (** Proof of exercise 0.13 (a) in Leinster - Basic Category Theory
     I could not use the Horner homomorphism in MathComp because it assumes 
     a homomorphism to a commutative Ring, which is more restrictive than 
     what 0.13 (a) is asking.
 
-    I represent a polynomial as a list of it's coefficients in increasing order.
+    I represent a polynomial as a list of its coefficients in increasing order.
 
     [c0, c1, c2,.... ] = c0 + c1x + c2x^2 + ...
 
