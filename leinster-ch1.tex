@@ -67,8 +67,9 @@ and the additive property to get $\iota(p_i)\iota(x)^i = p_i\iota(x)^i$ remember
 
 Going in the direction $A \rightarrow \mathds{Z}[x]$ we know as provided in (b) that,
 taking $R=\mathds{Z}[x]$, and $\phi=\iota^\prime$, there exists a unique ring homomorphism such that $\iota^\prime(a)=x$.
-So $\iota^\prime $ maps $\sum_{i=1}^np_ia^i$ to $\sum_{i=1}^{n}p_ix^i$ and $\iota^\prime \circ \iota = 1_{\mathds{Z}[x]}$.
-Also using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
+Using definitions of $\iota$ and $\iota^\prime$ easily yields $\iota \circ \iota^\prime = 1_A$.
+
+Also see the proof in this repository for a fully formalised Rocq answer to this question.
 
 \subsubsection*{0.14}
 \paragraph{(a)}
@@ -205,7 +206,25 @@ We need to prove that $F$ is a functor. We are given in this question that $F_A$
 
 So functions compose under the functor $F$, the identity maps, and all objects are mapped. So we have established $F$ exists and is a functor. We still need to determine uniqueness.
 
-Uniqueness of the functor is actually shown by the commuting diagram in (\ref{eqn:1225b2}). The central result of this diagram is that for any $f$ there is a unique functor mapping from $(A,B)$ to $F(A^{\prime},B^{\prime})$, using the 'components' $F^A$ and $F_B$. Using these components, there are two ways to get from $(A,B)$ to $F(A',B')$, and as the diagram commutes, both are equal. Hence $F$ is the unique map on the diagonal of (\ref{eqn:1225b2}) from $(A,B)$ to $F(A',B')$.
+Assume there are two functors $F$ and $G$ satisfying the conditions in (a).
+
+On objects
+\begin{align*}
+	F(A, B) &= F_A(B)\\
+	G(A,B) &= F_A(B)
+\end{align*}
+
+	On morphisms, let $(f, g): (A, B) \rightarrow (A', B')$. Then by functoriality of $F$
+\begin{align*}
+	F(f, g) &= F(f, 1_{B'}) \circ F(1_A, g)\\
+	G(f, g) & =G(f, 1_{B'}) \circ G(1_A, g)
+\end{align*}
+
+By the definition provided in (a) $G(f,1_B') = F_{B'}(g)$, and similarly $G(1_A, g) = F^A(g)$, and
+	$F(1_A, g) = F^A(g)$ and $F(f, 1_{B'}) = F_{B'}(g)$. Substituting these expressions above leads to $F(f, g) = G(f, g)$.
+
+
+So an arbitrary $F$ is definitionally equal to an arbitrary $G$ on objects and morphisms, and hence F is unique.
 
 \subsubsection*{1.2.28}
 
