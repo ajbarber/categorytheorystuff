@@ -93,6 +93,15 @@ $p_1\colon X\times{Y} \rightarrow X$ \\
 $p_2\colon X\times{Y} \rightarrow Y$
 \end{center}
 
+\textbf{Uniqueness of $f$}
+
+Assume there is a $g$ such that $p_1 \circ g = f_1$ and $p_2 \circ g = f_2$.
+\begin{align*}
+	g(x, y) &= (p_1(g(x, y)), p_2(g(x,y))) \\
+	g(x, y) &= (f_1(x), f_2(y))
+\end{align*}
+So $g(x,y) = f(x,y)$ and hence $f$ is unique.
+
 \paragraph{(b)}
 
 Proving uniqueness involves taking two arbitrary cones with the property stated in (a).
