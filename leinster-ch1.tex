@@ -385,43 +385,56 @@ Same results and reasoning as an order preserving map.
 
 \subsubsection*{ 1.3.27 }
 
-Need to prove $[\mathcal{A}^{op},\mathcal{B}^{op}] \cong [\mathcal{A}, \mathcal{B}]^{op}$.
+To prove the categorical isomorphism \textbf{$[\mathcal{A}^\text{op}, \mathcal{B}^\text{op}] \cong [\mathcal{A}, \mathcal{B}]^\text{op}$}, we construct a functor $\Phi: [\mathcal{A}^\text{op}, \mathcal{B}^\text{op}] \to [\mathcal{A}, \mathcal{B}]^\text{op}$ and show that it acts as a bijection on both objects (functors) and morphisms (natural transformations) while preserving composition and identities.
 
-We need to specify a functor $\eta$ from $[\mathcal{A}^{op},\mathcal{B}^{op}]$ to
-$[\mathcal{A}, \mathcal{B}]^{op}$.
+\textbf{Action on Objects (Functors)}
+Let $F: \mathcal{A}^\text{op} \to \mathcal{B}^\text{op}$ be an object in $[\mathcal{A}^\text{op}, \mathcal{B}^\text{op}]$. We define a corresponding covariant functor $F': \mathcal{A} \to \mathcal{B}$ as follows:
 
-For objects $\eta$ should send ${F}^{op}\colon\mathcal{A}^{op} \rightarrow \mathcal{B}^{op}$ to $F\colon\mathcal{A} \rightarrow \mathcal{B}$.
+\begin{itemize}
+    \item \textbf{On objects:} For any object $A \in \mathcal{A}$, the object $F(A)$ belongs to $\mathcal{B}^\text{op}$, which shares the exact same objects as $\mathcal{B}$. Thus, we define:
+    \[ F'(A) = F(A) \]
+    
+    \item \textbf{On morphisms:} Let $f: A \to A'$ be a morphism in $\mathcal{A}$. This corresponds uniquely to a morphism $f^\text{op}: A' \to A$ in $\mathcal{A}^\text{op}$. Applying $F$ yields a morphism $F(f^\text{op}): F(A') \to F(A)$ in $\mathcal{B}^\text{op}$. Taking the opposite again gives a morphism in $\mathcal{B}$ going from $F(A)$ to $F(A')$. Thus, we define:
+    \[ F'(f) = F(f^\text{op})^\text{op}: F'(A) \to F'(A') \]
+\end{itemize}
 
-The morphisms $\alpha_A$ in $[\mathcal{A}^{op},\mathcal{B}^{op}]$ are the natural transformations between functors, so for $A \text{ in } \mathcal{A}^{op}$
-\begin{equation*}
-  \{ \alpha_{A}\colon F^{op}(A) \rightarrow G^{op}(A) \} \text{ in } B^{op},
-\end{equation*}
-$\eta$ should send each $\alpha_A$ to $\overline{\alpha}_A$ for $A$ in $\mathcal{A}$ where
-\begin{equation*}
-  \{ \overline{\alpha}_A\colon G(A) \rightarrow F(A) \} \text{ in } B
-\end{equation*}
+\textbf{Functoriality Check for $F'$}
+\begin{enumerate}
+    \item \textbf{Identity:} 
+    \[ F'(1_A) = F(1_A^\text{op})^\text{op} = F(1_{A^\text{op}})^\text{op} = (1_{F(A)})^\text{op} = 1_{F'(A)} \]
+    
+    \item \textbf{Composition:} For $f: A \to A'$ and $g: A' \to A''$ in $\mathcal{A}$, we have $(g \circ f)^\text{op} = f^\text{op} \circ g^\text{op}$ in $\mathcal{A}^\text{op}$. Then:
+    \[ F'(g \circ f) = F((g \circ f)^\text{op})^\text{op} = F(f^\text{op} \circ g^\text{op})^\text{op} = (F(f^\text{op}) \circ F(g^\text{op}))^\text{op} \]
+    By the definition of composition in the opposite category $\mathcal{B}$, this reverses:
+    \[ (F(f^\text{op}) \circ F(g^\text{op}))^\text{op} = F(g^\text{op})^\text{op} \circ F(f^\text{op})^\text{op} = F'(g) \circ F'(f) \]
+\end{enumerate}
+Hence, $F'$ is a valid covariant functor, meaning $F' \in [\mathcal{A}, \mathcal{B}]$, which forms the same collection of objects as $[\mathcal{A}, \mathcal{B}]^\text{op}$. We set $\Phi(F) = F'$.
 
-So to prove $\eta$ is a functor, we need to show that $\overline{\alpha}_A$ in $[\mathcal{A}, \mathcal{B}]^{op}$ is a natural transformation, given $\alpha_{A}$ is a natural transformation in $[\mathcal{A}^{op},\mathcal{B}^{op}]$.
+\textbf{Action on Morphisms (Natural Transformations)}
+Let $\alpha: F \to G$ be a natural transformation between two functors in $[\mathcal{A}^\text{op}, \mathcal{B}^\text{op}]$. 
 
-We know $\alpha_{A}$ is a natural transformation. This means for all $f\colon A \rightarrow A^{\prime}$ with $A, A^{\prime} \in \mathcal{A}^{op}$  : the diagram below commutes
+For every object $A \in \mathcal{A}$, its component $\alpha_A: F(A) \to G(A)$ is a morphism in $\mathcal{B}^\text{op}$. Reversing it gives a morphism in $\mathcal{B}$:
+\[ \alpha_A^\text{op}: G'(A) \to F'(A) \]
+We want to show that these components assemble into a natural transformation $\alpha^\text{op}: G' \to F'$ in $[\mathcal{A}, \mathcal{B}]$, which represents a morphism from $F'$ to $G'$ in the opposite category $[\mathcal{A}, \mathcal{B}]^\text{op}$.
 
-\begin{center}
-\begin{tikzcd}
-  & F(A) \arrow[d,"\alpha_A"] \arrow[r, "F(f)"] & F(A') \arrow[d,"\alpha_{A^{\prime}}"{name=G,right}]\\
-  & G(A) \arrow[r,"G(f)"] & G(A^{\prime})
-\end{tikzcd}
-\end{center}
+\textbf{Naturality Check for $\alpha^\text{op}$}
+For any morphism $f: A \to A'$ in $\mathcal{A}$, the naturality of $\alpha$ with respect to $f^\text{op}: A' \to A$ in $\mathcal{A}^\text{op}$ provides the commuting square $\alpha_A \circ F(f^\text{op}) = G(f^\text{op}) \circ \alpha_{A'}$ in $\mathcal{B}^\text{op}$. Taking the dual of this equation yields:
+\[ (\alpha_A \circ F(f^\text{op}))^\text{op} = (G(f^\text{op}) \circ \alpha_{A'})^\text{op} \]
+\[ F(f^\text{op})^\text{op} \circ \alpha_A^\text{op} = \alpha_{A'}^\text{op} \circ G(f^\text{op})^\text{op} \]
+Substituting our definitions for $F'$ and $G'$ gives:
+\[ F'(f) \circ \alpha_A^\text{op} = \alpha_{A'}^\text{op} \circ G'(f) \]
+This is precisely the naturality condition required for $\alpha^\text{op}: G' \to F'$ in $[\mathcal{A}, \mathcal{B}]$. Consequently, $\Phi(\alpha) = \alpha^\text{op}$ gives a valid morphism $F' \to G'$ in $[\mathcal{A}, \mathcal{B}]^\text{op}$.
 
-Now given the commuting diagram above, we can turn all the arrows, in the diagram and within our categories $\mathcal{A}^{op}$ and $\mathcal{B}^{op}$, around to yield another diagram, which commutes in the opposite direction for all $\overline{f}\colon A \rightarrow A^{\prime}$ with $A, A^{\prime} \in \mathcal{A}$:
+\textbf{Preservation of Identity and Composition}
+\begin{itemize}
+    \item \textbf{Identities:} The components of the identity natural transformation $1_F$ are $(1_F)_A = 1_{F(A)}$. Taking the dual gives $(1_{F(A)})^\text{op} = 1_{F'(A)}$, which matches the identity components of $1_{F'}$. Thus, $\Phi(1_F) = 1_{\Phi(F)}$.
+    
+    \item \textbf{Composition:} For two natural transformations $\alpha: F \to G$ and $\beta: G \to H$ in $[\mathcal{A}^\text{op}, \mathcal{B}^\text{op}]$, their vertical composition is given component-wise by $(\beta \circ \alpha)_A = \beta_A \circ \alpha_A$ in $\mathcal{B}^\text{op}$. Dually:
+    \[ \Phi(\beta \circ \alpha)_A = (\beta_A \circ \alpha_A)^\text{op} = \alpha_A^\text{op} \circ \beta_A^\text{op} \]
+    This is the definition of composition in $[\mathcal{A}, \mathcal{B}]$, which exactly corresponds to the arrow composition order $\Phi(\beta) \circ_{[\mathcal{A}, \mathcal{B}]^\text{op}} \Phi(\alpha)$.
+\end{itemize}
 
-\begin{center}
-\begin{tikzcd}
-  & G(A) \arrow[d,"\overline{\alpha}_A"] \arrow[r, "G(\overline{f})"] & G(A') \arrow[d,"\overline{\alpha}_{A^{\prime}}"{name=G,right}]\\
-  & F(A) \arrow[r,"F(\overline{f})"] & F(A^{\prime})
-\end{tikzcd}
-\end{center}
-
-In fact, since we can reverse the arrows once more to end up where we started, $\overline{\alpha}_A$ in $\mathcal{B}$ is a natural transformation if and only if $\alpha_A$ in $\mathcal{B}^{op}$ is a natural transformation, and the definition of the functor $\eta$ is complete.
+Because every step acts as a cleanly reversible involution (applying the $(\cdot)^\text{op}$ transformation twice returns the original objects and mappings), $\Phi$ forms a strict \textbf{isomorphism of categories}. 
 
 \subsubsection*{1.3.29}
 
